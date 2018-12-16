@@ -13,3 +13,5 @@ Members
 4.B5914890 Mr.Natthapon Buakhiao
 
 5.B5901821 Mr.Somporn Passorn
+
+6.B5903320 Miss Pemika Injun
