@@ -11,3 +11,5 @@ Members
 3.B5904105 Mr.Diki Kawasaki
 
 4.B5914890 Mr.Natthapon Buakhiao
+
+5.B5901821 Mr.Somporn Passorn
