@@ -1,0 +1,31 @@
+<router-outlet>
+  <html>
+  <mat-card class = "basic-container" style="background-color:#0000CC">
+    <mat-toolbar-row>
+      <span class = "version-info" style="color:#FFFFFF;" >Photo Studio</span> &nbsp;
+      <span class = "version-info1" style="color:#FFFFFF;" >Team10</span>
+      <span class="example-fill-remaining-space"></span>
+      <a mat-raised-button="." style="color:#0000CC;">LOGIN</a>
+      <a mat-button routerLink="." style="color:#FFFFFF;">CREATE ACCOUNT</a>
+    </mat-toolbar-row>
+  </mat-card>
+
+  <mat-toolbar style="background-color:#FFFFFF">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="home">Home</button>
+      <button mat-menu-item routerLink="reservation-studio">Reservation Studio</button>
+    </mat-menu>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="color:#0000CC;">HELLO DIKI KAWASAKI AND</span>
+    <span class="example-fil"></span>
+    &nbsp;
+    <span style="color:#0000CC;">HAPPY NEW YEAR 2019</span>
+    <mat-divider>....</mat-divider>
+  </mat-toolbar>
+
+  </html>
+</router-outlet>
