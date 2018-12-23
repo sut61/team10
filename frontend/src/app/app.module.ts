@@ -16,13 +16,18 @@ import {ReservationStudioComponent} from './reservation-studio/reservation-studi
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CreateAccountComponent } from './create-account/create-account.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    ReservationStudioComponent
+    ReservationStudioComponent,
+    CreateAccountComponent
   ],
 
   imports: [
@@ -37,7 +42,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatTabsModule,
     MatDividerModule,
     MatMenuModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonToggleModule,
+    MatSelectModule,
+    MatInputModule
 
   ],
   providers: [],

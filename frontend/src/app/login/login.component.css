@@ -1,12 +1,42 @@
 .loginmember{
   left:45%;
 }
-
-
-
 .loginadmin{
 left:45.4%;
 }
 
+.basic-container {
+  width: 22.39%;
+  padding: 1px;
+  left: 38%;
+  right: 50%;
 
+}
+.example-card {
+      width: 20%;
+      height: 200px;
+      left: 38%;
+      right: 50%;
+      float: left;
+      max-width: 1000px;
+}
 
+.version-info {
+  float: center;
+  font-size: 40px;
+}
+.version-info1 {
+  font-size: 10px;
+}
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
