@@ -20,7 +20,11 @@
       float: left;
      max-width: 1000px;
 }
-
+.example-card2 {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .example-header-image {
   background-image: url('https://www.img.in.th/images/0e7ac20f2f7c60394643b754dd6430e1.th.jpg');
   background-size: cover;

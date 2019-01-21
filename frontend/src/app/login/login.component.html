@@ -1,15 +1,17 @@
 <html>
 <br><br><br><br><br><br><br><br>
-<mat-card class = "basic-container" style="background-color:#003333">
-  <mat-toolbar-row>
-    <span class = "version-info" style="color:#FFFF99;" >Photo</span> &nbsp;
-    <span class = "version-info" style="color:#99FF00;" >Studio</span> &nbsp;
-    <span class = "version-info1" style="color:#CCFF66;" >Team10</span>
-    <span class="example-fill-remaining-space"></span>
-    </mat-toolbar-row>
-</mat-card>
 
-    <mat-card class = "example-card" style="background-color:#FFFFFF">
+
+    <mat-card class = "example-card2" style="background-color:#FFFFFF">
+      <mat-card class = "example-card2" style="background-color:#003333">
+        <mat-toolbar-row>
+          <span class = "version-info" style="color:#FFFF99;" >Photo</span> &nbsp;
+          <span class = "version-info" style="color:#99FF00;" >Studio</span> &nbsp;
+          <span class = "version-info1" style="color:#CCFF66;" >Team10</span>
+          <span class="example-fill-remaining-space"></span>
+        </mat-toolbar-row>
+      </mat-card>
+      <br>
       <form class="example-form">
 
         <mat-form-field class="example-full-width">
@@ -19,15 +21,17 @@
           <input matInput placeholder="Password" value="">
         </mat-form-field>
         <br>
-        <div class="example-button-row">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button mat-raised-button>Summit</button>&nbsp;&nbsp;
-          <button mat-raised-button>Cancel</button>
-        </div>
+
+          <div class="example-full-width">
+            <button mat-raised-button color="primary">Login</button>
+            <button mat-raised-button color="warn" >Reset</button>
+            <br>
+            <a mat-button routerLink="." style="color:#33CC33;" routerLink="/register">CREATE ACCOUNT</a>
+          </div>
+
+
       </form>
     </mat-card>
-
-
 
 
 

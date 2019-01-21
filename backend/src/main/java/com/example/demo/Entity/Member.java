@@ -7,12 +7,18 @@ import java.util.Date;
 public class Member {
 
     @Id
-    @SequenceGenerator(name="address_seq",sequenceName="address_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="address_seq")
+    @SequenceGenerator(name="member_seq",sequenceName="member_seq")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="member_seq")
     private  Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Address address ;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Gender gender ;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Title title ;
 
     @Temporal(TemporalType.DATE)
     private @io.micrometer.core.lang.NonNull
@@ -22,7 +28,7 @@ public class Member {
     private String password ;
     private String email ;
     private String tel ;
-    private String username ;
+    private String name ;
     private String lastname ;
 
     public Member(){}
@@ -35,9 +41,9 @@ public class Member {
 
     public void setAddress(Address address) { this.address = address; }
 
-    public String getUsername() { return username; }
+    public String getName() { return name; }
 
-    public void setUsername(String username) { this.username = username; }
+    public void setName(String username) { this.name = username; }
 
     public String getLastname() { return lastname; }
 
@@ -62,6 +68,15 @@ public class Member {
     public String getTel() { return tel; }
 
     public void setTel(String tel) { this.tel = tel; }
+
+
+    public Gender getGender() { return gender; }
+
+    public void setGender(Gender gender) { this.gender = gender; }
+
+    public Title getTitle() { return title; }
+
+    public void setTitle(Title title) { this.title = title; }
 
 
 }

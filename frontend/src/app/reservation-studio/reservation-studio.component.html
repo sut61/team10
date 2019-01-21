@@ -6,9 +6,7 @@
     <span class = "version-info" style="color:#99FF00;" >Studio</span> &nbsp;
     <span class = "version-info1" style="color:#CCFF66;" >Team10</span>
     <span class="example-fill-remaining-space"></span>
-    <a mat-button routerLink="." style="color:#FFFFFF;" routerLink="">LOGIN</a>
     <a mat-button routerLink="." style="color:#FFFFFF;" routerLink="">LOGOUT</a>
-    <a mat-button routerLink="." style="color:#33CC33;" routerLink="/create-account">CREATE ACCOUNT</a>
   </mat-toolbar-row>
 </mat-card>
 
@@ -37,17 +35,44 @@
   <mat-divider></mat-divider>
 </mat-toolbar>
 
-<body class = "databox">
-<br/>
+<body class = "dataBox">
+<br>
 <mat-card class="example-card">
-  <mat-card-header>
-   <h3>Reservation your studio</h3>
-
-
-
-
-
-  </mat-card-header>
+   <h2 class="topic" style="color:#000000;">Reservation your studio</h2>
+  <div class="example-full-width">
+    <mat-form-field>
+      <mat-select  placeholder="เลือกสตูดิโอ" [(ngModel)]="roomStudioSelect">
+        <mat-option *ngFor="let room of roomStudios" [value]="room.id">
+          {{room.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-select  placeholder="เลือกโปรโมชั่น" [(ngModel)]="promotionStudioSelect">
+        <mat-option *ngFor="let promotion of promotionStudios" [value]="promotion.id">
+          {{promotion.promotionName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-select  placeholder="ช่วงเวลา" [(ngModel)]="timeStudioSelect">
+        <mat-option *ngFor="let time of timeStudios" [value]="time.id">
+          {{time.time_name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input matInput [matDatepicker]="picker" placeholder="วันที่จอง" style="color:black;" [(ngModel)]="reservationDates">
+      <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="warn" (click)="insert()">SAVE</button>
+    <button mat-raised-button color="primary" (click)="reset()">RESET</button>
+  </div>
 
 </mat-card>
 
