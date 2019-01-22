@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{Controller}from'../controller/controller';
 import { HttpClient} from '@angular/common/http';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,11 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+ public API = '//localhost:8080';
+
   titles : Array<any>;
+  members : Array<any>;
   titleSelect='';
   genders : Array<any>;
   genderSelect='';
@@ -31,7 +36,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private controller:Controller,
               private httpClient: HttpClient,
-              public dialog: MatDialog
+              public dialog: MatDialog,
+               private router: Router
               ) { }
 
   ngOnInit() {
@@ -45,69 +51,84 @@ export class RegisterComponent implements OnInit {
                               this.genders = data;
                               console.log(this.genders);
                             });
+      this.controller.getMember().subscribe(data => {
+                                    this.members = data;
+                                    console.log(this.members);
+                                  });
   }
 
   cancel(){
-                                this.titleSelect=null;
-                                this.name=null;
-                                this.lastname=null;
-                                this.address=null;
-                                this.tambon=null;
-                                this.amphoe=null;
-                                this.province=null;
-                                this.postcode=null;
-                                this.tel=null;
-                                this.email=null;
-                                this.userid=null;
-                                this.password1=null;
-                                this.password2=null;
-                                this.genderSelect=null;
-                                this.birthday=null;
+                             this.router.navigate(['']);
   }
 
   enter(){
-
 
 
     if(this.titleSelect != '' && this.name != null && this.lastname != null && this.address != null
     && this.tambon != null && this.amphoe != null && this.province != null && this.postcode != null
     && this.tel != null && this.email != null && this.userid != null && this.password1 != null
     && this.password2 != null && this.genderSelect != null && this.birthday != null){
-          if(this.password1 == this.password2){
-      this.httpClient.post('http://localhost:8080/member/' + this.address + '/' + this.tambon + '/' + this.amphoe + '/'+
-      this.province + '/' + this.postcode +'/' + this.name +'/' + this.lastname + '/' + this.genderSelect + '/'
-       + this.tel + '/' + this.birthday + '/' + this.email +'/' + this.userid +'/' + this.password1 +'/' + this.titleSelect,{}).subscribe(datap=>{
-            console.log("POST SUCCESS ",datap)
 
-             const dialogRef = this.dialog.open(SuccessDialog, {
-                              width: '500px'
-                            });
+          if(this.password1 == this.password2){
+
+
+   this.controller.findUserid(this.userid).subscribe(data=>{
+        console.log(data)
+            if(data!=null){
+                  const dialogRef = this.dialog.open(UseralreadyDialog, {
+                                                    width: '500px'
+                                                  });
+
+                                                  dialogRef.afterClosed().subscribe(result => {
+                                                    console.log('The dialog was closed');
+
+                                                  });
+                  localStorage.setItem('user',JSON.stringify(data))
+                  this.userid=null ;
+            }else{
+
+
+              this.httpClient.post('http://localhost:8080/member/' + this.address + '/' + this.tambon + '/' + this.amphoe + '/'+
+              this.province + '/' + this.postcode +'/' + this.name +'/' + this.lastname + '/' + this.genderSelect + '/'
+               + this.tel + '/' + this.birthday + '/' + this.email +'/' + this.userid +'/' + this.password1 +'/' + this.titleSelect,{}).subscribe(datap=>{
+                            console.log("POST SUCCESS ",datap)
+
+                                              const dialogRef = this.dialog.open(SuccessDialog, {
+                                                              width: '500px'
+                                               });
 
                             dialogRef.afterClosed().subscribe(result => {
-                              console.log('The dialog was closed');
+                            console.log('The dialog was closed');
 
-                            });
+                                                                               });
 
-                            this.titleSelect=null;
-                            this.name=null;
-                            this.lastname=null;
-                            this.address=null;
-                            this.tambon=null;
-                            this.amphoe=null;
-                            this.province=null;
-                            this.postcode=null;
-                            this.tel=null;
-                            this.email=null;
-                            this.userid=null;
-                            this.password1=null;
-                            this.password2=null;
-                            this.genderSelect=null;
-                            this.birthday=null;
+                                                                               this.titleSelect=null;
+                                                                               this.name=null;
+                                                                               this.lastname=null;
+                                                                               this.address=null;
+                                                                               this.tambon=null;
+                                                                               this.amphoe=null;
+                                                                               this.province=null;
+                                                                               this.postcode=null;
+                                                                               this.tel=null;
+                                                                               this.email=null;
+                                                                               this.userid=null;
+                                                                               this.password1=null;
+                                                                               this.password2=null;
+                                                                               this.genderSelect=null;
+                                                                               this.birthday=null;
 
-        },error =>{
-            console.log("Error " , error)
-        })
+                                                           },error =>{
+                                                               console.log("Error " , error)
+                                                           })
+                  localStorage.setItem('user',JSON.stringify(data))
+                  this.router.navigate(['']);
+            }
+
+     })
+
     }
+
     else {
         const dialogRef = this.dialog.open(PasswordnotcorrectDialog, {
                   width: '500px'
@@ -119,8 +140,11 @@ export class RegisterComponent implements OnInit {
                 });
                 this.password1=null;
                 this.password2=null;
-    }}
+    }
+
+    }
     else{
+
       const dialogRef = this.dialog.open(DataemptyDialog, {
             width: '500px'
           });
@@ -130,6 +154,7 @@ export class RegisterComponent implements OnInit {
 
           });
     }
+
 
   }
 
@@ -145,6 +170,22 @@ export class DataemptyDialog {
 
   constructor(
     public dialogRef: MatDialogRef<DataemptyDialog>
+    ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+@Component({
+  selector: 'useralready',
+  templateUrl: 'useralready.html',
+})
+export class UseralreadyDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<UseralreadyDialog>
     ) {}
 
   onNoClick(): void {

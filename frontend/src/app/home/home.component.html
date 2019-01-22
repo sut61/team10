@@ -14,22 +14,22 @@
   <span style="color:#FFFFFF;">WELCOME TO PHOTO STUDIO</span>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;" routerLink="/home">Home</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;" (click)="home()">Home</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;" routerLink="/reservation-studio">Reservation Studio</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;" (click)="studio()">Reservation Studio</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;">Oder</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;"  (click)="equipment()">Reservation Equipment</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;">Item1</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;" (click)="photo()">Reservation Photographer</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;">Item2</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;" (click)="collect()">Reservatoion Photo Collection</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;">Item13</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;" (click)="model()">Reservation model</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-divider></mat-divider>
 </mat-toolbar>

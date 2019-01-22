@@ -1,7 +1,21 @@
-<h1 class="topic" style="color:#000000;">สมัครสมาชิก</h1>
-<br>
-<body>
+<mat-card class = "basic-container" style="background-color:#003333">
+  <mat-toolbar-row>
+    <span class = "version-info" style="color:#FFFF99;" >Photo</span> &nbsp;
+    <span class = "version-info" style="color:#99FF00;" >Studio</span> &nbsp;
+    <span class = "version-info1" style="color:#CCFF66;" >Team10</span>
+    <span class="example-fill-remaining-space"></span>
 
+  </mat-toolbar-row>
+</mat-card>
+
+<mat-toolbar style="background-color:#003330" class="example-full-width">
+  <span style="color:#FFFFFF;">REGISTER</span>
+</mat-toolbar>
+
+
+<body class="dataBox" >
+<br><br><br>
+<mat-card class="example-card">
 <mat-form-field class="boxx" >
   <mat-select placeholder="คำนำหน้า" [(ngModel)]="titleSelect">
     <mat-option *ngFor="let title of titles" [value]="title.id">
@@ -70,8 +84,8 @@
 <br>
 
 <mat-form-field class="example-full-width">
-  <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปี เกิด" style="color:white;" [(ngModel)]="birthday">
-  <mat-datepicker-toggle matSuffix [for]="picker"style="color:white;"></mat-datepicker-toggle>
+  <input matInput [matDatepicker]="picker" placeholder="วัน/เดือน/ปี เกิด"style="color:black;" [(ngModel)]="birthday">
+  <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
   <mat-datepicker #picker ></mat-datepicker>
 </mat-form-field>
 
@@ -103,5 +117,6 @@
 <br>
 <button mat-fab color="primary" class="enter" (click)="enter()">Enter</button> &nbsp;&nbsp;&nbsp;
 <button mat-fab color="primary" class="enter" (click)="cancel()">cancel</button>
+</mat-card>
 </body>
 

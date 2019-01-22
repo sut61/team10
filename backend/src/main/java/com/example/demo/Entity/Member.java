@@ -11,13 +11,13 @@ public class Member {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="member_seq")
     private  Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Address address ;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Gender gender ;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Title title ;
 
     @Temporal(TemporalType.DATE)

@@ -14,4 +14,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 public interface MemberRepository extends JpaRepository<Member, Long> {
     Member findByUserid(String userid);
+    Member findByUseridAndPassword(String userid , String password);
+    Member findByName(String name);
 }

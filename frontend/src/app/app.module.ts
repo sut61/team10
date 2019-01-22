@@ -5,8 +5,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HomeComponent } from './home/home.component';
 import { RoutingMainModule } from "./routing-main/routing-main.module";
 import {MatButtonModule} from '@angular/material/button';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent , DataemptyDialog , PasswordnotcorrectDialog, SuccessDialog } from './register/register.component';
+import { LoginComponent , LoginfailDialog } from './login/login.component';
+import { RegisterComponent , DataemptyDialog , PasswordnotcorrectDialog, SuccessDialog , UseralreadyDialog} from './register/register.component';
 import { MatListModule} from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -15,6 +15,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {ReservationStudioComponent} from './reservation-studio/reservation-studio.component';
+import {ReservationEquipmentComponent} from './reservation-equipment/reservation-equipment.component';
+
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -28,9 +30,11 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatNativeDateModule} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
-
+import {ReservationPhotographerComponent} from "./reservation-photographer/reservation-photographer.component";
+import {PhotocollectionComponent} from "./photocollection/photocollection.component";
+import { ReservationModelComponent } from './reservation-model/reservation-model.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +42,16 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     ReservationStudioComponent,
+    ReservationEquipmentComponent,
     RegisterComponent,
     DataemptyDialog,
     SuccessDialog,
-    PasswordnotcorrectDialog
+    PasswordnotcorrectDialog,
+    UseralreadyDialog,
+    LoginfailDialog,
+    ReservationPhotographerComponent,
+    PhotocollectionComponent,
+    ReservationModelComponent
   ],
 
   imports: [
@@ -67,11 +77,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatDatepickerModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule
 
   ],
   providers: [Controller],
-  entryComponents: [RegisterComponent, DataemptyDialog, PasswordnotcorrectDialog , SuccessDialog],
+  entryComponents: [RegisterComponent, DataemptyDialog, PasswordnotcorrectDialog , SuccessDialog , UseralreadyDialog , LoginfailDialog , LoginComponent],
   bootstrap: [AppComponent]
 })
 

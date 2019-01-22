@@ -14,6 +14,16 @@ public class ReservationStudio {
     private @io.micrometer.core.lang.NonNull
     Date reservationDate;
 
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Member member ;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private PromotionStudio promotionStudio ;

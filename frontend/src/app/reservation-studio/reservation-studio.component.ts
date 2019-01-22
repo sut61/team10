@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import{Controller}from'../controller/controller';
 import { HttpClient} from '@angular/common/http';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-
+import {ActivatedRoute} from "@angular/router";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-reservation-studio',
   templateUrl: './reservation-studio.component.html',
@@ -11,7 +12,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class ReservationStudioComponent implements OnInit {
   roomStudios : Array<any>;
   roomStudioSelect='';
-
+data:any={}
   promotionStudios : Array<any>;
   promotionStudioSelect='';
 
@@ -21,7 +22,8 @@ export class ReservationStudioComponent implements OnInit {
   reservationDates = null ;
 
 
-   constructor(private controller:Controller,private httpClient: HttpClient,public dialog: MatDialog) { }
+   constructor(private controller:Controller,private httpClient: HttpClient,public dialog: MatDialog,
+    private route:ActivatedRoute,private router:Router,) { }
   ngOnInit() {
       this.controller.getRoomStudio().subscribe(data => {
                     this.roomStudios = data;
@@ -35,6 +37,10 @@ export class ReservationStudioComponent implements OnInit {
                      this.timeStudios = data;
                      console.log(this.timeStudios);
                  });
+       this.route.params.subscribe(prams=>{
+                    this.data = prams
+                    console.log(prams)
+                  })
   }
    reset(){
           this.roomStudioSelect=null;
@@ -58,7 +64,7 @@ export class ReservationStudioComponent implements OnInit {
            }
            else{
                 this.httpClient.post('http://localhost:8080/reservationStudio/' + this.roomStudioSelect + '/' + this.promotionStudioSelect + '/'
-                  + this.timeStudioSelect + '/' + this.reservationDates,{})
+                  + this.timeStudioSelect + '/' + this.reservationDates+'/'+this.data.first,{})
                   .subscribe(
                     data => {
                         console.log('PUT Request is successful', data);
@@ -73,4 +79,29 @@ export class ReservationStudioComponent implements OnInit {
            }
         }
 
+        home(){
+             this.router.navigate(['home',{first:this.data.first}]);
+             console.log(this.data);
+          }
+          studio(){
+               this.router.navigate(['reservation-studio',{first:this.data.first}]);
+               console.log(this.data);
+            }
+
+          equipment(){
+                 this.router.navigate(['reservation-equipment',{first:this.data.first}]);
+                 console.log(this.data);
+              }
+            photo(){
+                                         this.router.navigate(['reservation-photographer',{first:this.data.first}]);
+                                         console.log(this.data);
+                                      }
+          collect(){
+                          this.router.navigate(['photocollection',{first:this.data.first}]);
+                          console.log(this.data);
+                       }
+                        model(){
+                                         this.router.navigate(['reservation-model',{first:this.data.first}]);
+                                                             console.log(this.data);
+                            }
 }
