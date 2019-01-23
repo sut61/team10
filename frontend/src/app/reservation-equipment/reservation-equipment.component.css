@@ -1,0 +1,57 @@
+.databox{
+  position: absolute;
+  width: 100%;
+  height: 850px;
+  float: left;
+  background-image: url('https://img.live/images/2018/12/23/p.jpg');
+  opacity: .8;
+  color: #FF3399;
+}
+
+.example-card {
+  width: 50%;
+  height: 700px;
+  left: 23%;
+  right: 50%;
+  float: left;
+  max-width: 1000px;
+}
+.example-card2 {
+  width: 50%;
+  height: 700px;
+  left: 23%;
+  right: 50%;
+  float: left;
+  max-width: 1000px;
+}
+.example-header-image {
+  background-image: url('https://www.img.in.th/images/0e7ac20f2f7c60394643b754dd6430e1.th.jpg');
+  background-size: cover;
+}
+
+.basic-container {
+  padding: 1px;
+}
+.version-info {
+  float: center;
+  font-size: 40px;
+}
+.version-info1 {
+  font-size: 10px;
+}
+.example-fill-remaining-space {
+  flex: 1 1 auto;
+}
+.example-fill{
+  float: center;
+}
+.a{
+  color: deeppink;
+  text-align: center ;
+
+}
+
+.cen{
+
+  text-align: center;
+}
