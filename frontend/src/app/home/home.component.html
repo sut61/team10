@@ -1,0 +1,69 @@
+<html>
+
+<mat-card class = "basic-container" style="background-color:#003333">
+  <mat-toolbar-row>
+    <span class = "version-info" style="color:#FFFF99;" >Photo</span> &nbsp;
+    <span class = "version-info" style="color:#99FF00;" >Studio</span> &nbsp;
+    <span class = "version-info1" style="color:#CCFF66;" >Team10</span>
+    <span class="example-fill-remaining-space"></span>
+    <a mat-button routerLink="." style="color:#FFFFFF;" routerLink="">LOGOUT</a>
+  </mat-toolbar-row>
+</mat-card>
+
+<mat-toolbar style="background-color:#003330">
+  <span style="color:#FFFFFF;">WELCOME TO PHOTO STUDIO</span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="home()">Home</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="studio()">Reservation Studio</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;"  (click)="equipment()">Reservation Equipment</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="photo()">Reservation Photographer</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="collect()">Reservatoion Photo Collection</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="model()">Reservation model</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-divider></mat-divider>
+</mat-toolbar>
+
+<body class = "databox">
+
+<br/>
+<mat-card class="example-card">
+  <U class="header">
+    <mat-card-title (click)="studio()" style="cursor:pointer">STUDIO</mat-card-title>
+  </U>
+  <img class="studio" mat-card-image src="https://sv1.picz.in.th/images/2019/01/23/T0JUc8.jpg" alt="Photo of a studio">
+  <img class="model" mat-card-image src="https://sv1.picz.in.th/images/2019/01/23/T0JvSW.jpg" alt="Photo of a Model">
+  <br><br><br><br><br><br><br>
+  <U class="header_model" >
+    <mat-card-title (click)="model()"  style="cursor:pointer">MODEL</mat-card-title>
+  </U>
+  <br><br><br><br><br><br>
+  <img class="Photo" mat-card-image src="https://sv1.picz.in.th/images/2019/01/23/T0LW5f.jpg" alt="Photo of a photographer">
+  <U (click)="photo()" class="header_photo">
+    <br><br>
+    <mat-card-title  style="cursor:pointer">PHO</mat-card-title><br>
+    <mat-card-title style="cursor:pointer">TO</mat-card-title><br>
+    <mat-card-title style="cursor:pointer">GHAP</mat-card-title><br>
+    <mat-card-title style="cursor:pointer">HER</mat-card-title>
+  </U>
+  <br><br>
+  <U class="header">
+    <mat-card-title (click)="collect()" style="cursor:pointer">CLOTHES</mat-card-title>
+  </U>
+  <img class="cloth" mat-card-image src="https://sv1.picz.in.th/images/2019/01/23/T0LdHa.jpg" alt="T0JUc8.jpg" alt="Photo of a clother">
+
+</mat-card>
+
+</body>
+</html>
+
