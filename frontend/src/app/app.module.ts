@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { RoutingMainModule } from "./routing-main/routing-main.module";
 import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
-//import { RegisterComponent , DataemptyDialog , PasswordnotcorrectDialog, SuccessDialog , UseralreadyDialog} from './register/register.component';
+import { RegisterComponent , DataemptyDialog , PasswordnotcorrectDialog, SuccessDialog , UseralreadyDialog} from './register/register.component';
 import { MatListModule} from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -14,8 +14,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTabsModule} from '@angular/material/tabs';
-//import {ReservationStudioComponent} from './reservation-studio/reservation-studio.component';
-//import {ReservationEquipmentComponent} from './reservation-equipment/reservation-equipment.component';
+import {ReservationStudioComponent} from './reservation-studio/reservation-studio.component';
+import {ReservationEquipmentComponent} from './reservation-equipment/reservation-equipment.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -29,7 +29,6 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatNativeDateModule} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
-
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -38,13 +37,13 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HomeComponent,
     LoginComponent,
-    //ReservationStudioComponent,
-    //ReservationEquipmentComponent,
-   // RegisterComponent,
-    //DataemptyDialog,
-    //SuccessDialog,
-   // PasswordnotcorrectDialog,
-   // UseralreadyDialog
+    ReservationStudioComponent,
+    ReservationEquipmentComponent,
+    RegisterComponent,
+    DataemptyDialog,
+    SuccessDialog,
+    PasswordnotcorrectDialog,
+    UseralreadyDialog
   ],
 
   imports: [
@@ -74,7 +73,7 @@ import { HttpClientModule } from '@angular/common/http';
 
   ],
   providers: [Controller],
- // entryComponents: [RegisterComponent, DataemptyDialog, PasswordnotcorrectDialog , SuccessDialog , UseralreadyDialog],
+  entryComponents: [RegisterComponent, DataemptyDialog, PasswordnotcorrectDialog , SuccessDialog , UseralreadyDialog],
   bootstrap: [AppComponent]
 })
 
