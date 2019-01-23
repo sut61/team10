@@ -1,4 +1,4 @@
-/*package com.example.demo;
+package com.example.demo;
 
 import com.example.demo.Entity.*;
 import com.example.demo.Repository.*;
@@ -375,4 +375,3 @@ public class DemoApplication {
         };
     }
 }
-*/

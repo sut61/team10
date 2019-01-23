@@ -1,4 +1,4 @@
-/* package com.example.demo.Controller;
+package com.example.demo.Controller;
 
 
 import com.example.demo.Entity.*;
@@ -318,4 +318,4 @@ public Collection<Reservationequipment> reservationrepository() {
 
 
 }
-*/
+
