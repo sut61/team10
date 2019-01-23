@@ -13,3 +13,4 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 public interface ReservationStudioRepository extends JpaRepository<ReservationStudio, Long> {
 }
+// push
