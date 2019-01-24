@@ -5,8 +5,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HomeComponent } from './home/home.component';
 import { RoutingMainModule } from "./routing-main/routing-main.module";
 import {MatButtonModule} from '@angular/material/button';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent , DataemptyDialog , PasswordnotcorrectDialog, SuccessDialog , UseralreadyDialog} from './register/register.component';
+import { LoginComponent , LoginfailDialog } from './login/login.component';
+import { RegisterComponent , DataemptyDialog , PasswordnotcorrectDialog, SuccessDialog , UseralreadyDialog } from './register/register.component';
 import { MatListModule} from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatStepperModule} from '@angular/material/stepper';
@@ -30,8 +30,9 @@ import {MatNativeDateModule} from '@angular/material';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import {ReservationPhotographerComponent} from './reservation-photographer/reservation-photographer.component';
+import {PhotocollectionComponent} from './photocollection/photocollection.component';
+import {ReservationModelComponent} from './reservation-model/reservation-model.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,11 @@ import { HttpClientModule } from '@angular/common/http';
     DataemptyDialog,
     SuccessDialog,
     PasswordnotcorrectDialog,
-    UseralreadyDialog
+    UseralreadyDialog,
+    ReservationPhotographerComponent,
+    PhotocollectionComponent,
+    ReservationModelComponent,
+    LoginfailDialog
   ],
 
   imports: [
@@ -73,7 +78,7 @@ import { HttpClientModule } from '@angular/common/http';
 
   ],
   providers: [Controller],
-  entryComponents: [RegisterComponent, DataemptyDialog, PasswordnotcorrectDialog , SuccessDialog , UseralreadyDialog],
+  entryComponents: [RegisterComponent, DataemptyDialog, PasswordnotcorrectDialog , SuccessDialog , UseralreadyDialog, LoginfailDialog, LoginComponent],
   bootstrap: [AppComponent]
 })
 
