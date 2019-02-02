@@ -14,11 +14,23 @@ public class Address {
     private String address ;
     private String tambon ;
     private String amphoe ;
-    private String province ;
+
     private String postcode ;
+
+
 
     public Address(){}
 
+    public com.example.demo.Entity.Province getProvince() {
+        return Province;
+    }
+
+    public void setProvince(com.example.demo.Entity.Province province) {
+        Province = province;
+    }
+
+    @ManyToOne
+    private Province Province ;
 
     public Long getId() { return id; }
 
@@ -36,9 +48,7 @@ public class Address {
 
     public void setAmphoe(String amphoe) { this.amphoe = amphoe; }
 
-    public String getProvince() { return province; }
 
-    public void setProvince(String province) { this.province = province; }
 
     public String getPostcode() { return postcode; }
 

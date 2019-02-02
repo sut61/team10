@@ -12,20 +12,20 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
  public API = '//localhost:8080';
-
+provinceSelect='';
   titles : Array<any>;
   members : Array<any>;
   titleSelect='';
   genders : Array<any>;
   genderSelect='';
   birthday = null ;
-
+ provinces : Array<any>;
   name : string ;
   lastname : string ;
   address : string ;
   tambon : string ;
   amphoe : string ;
-  province : string ;
+
   postcode : string ;
   tel : string ;
   email : string ;
@@ -42,6 +42,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
+       this.controller.getProvince().subscribe(data => {
+                              this.provinces = data;
+                              console.log(this.provinces);
+                            });
       this.controller.getTitle().subscribe(data => {
                         this.titles = data;
                         console.log(this.titles);
@@ -65,7 +69,7 @@ export class RegisterComponent implements OnInit {
 
 
     if(this.titleSelect != '' && this.name != null && this.lastname != null && this.address != null
-    && this.tambon != null && this.amphoe != null && this.province != null && this.postcode != null
+    && this.tambon != null && this.amphoe != null && this.provinceSelect != null && this.postcode != null
     && this.tel != null && this.email != null && this.userid != null && this.password1 != null
     && this.password2 != null && this.genderSelect != null && this.birthday != null){
 
@@ -89,7 +93,7 @@ export class RegisterComponent implements OnInit {
 
 
               this.httpClient.post('http://localhost:8080/member/' + this.address + '/' + this.tambon + '/' + this.amphoe + '/'+
-              this.province + '/' + this.postcode +'/' + this.name +'/' + this.lastname + '/' + this.genderSelect + '/'
+              this.provinceSelect + '/' + this.postcode +'/' + this.name +'/' + this.lastname + '/' + this.genderSelect + '/'
                + this.tel + '/' + this.birthday + '/' + this.email +'/' + this.userid +'/' + this.password1 +'/' + this.titleSelect,{}).subscribe(datap=>{
                             console.log("POST SUCCESS ",datap)
 
@@ -108,7 +112,7 @@ export class RegisterComponent implements OnInit {
                                                                                this.address=null;
                                                                                this.tambon=null;
                                                                                this.amphoe=null;
-                                                                               this.province=null;
+                                                                               this.provinceSelect=null;
                                                                                this.postcode=null;
                                                                                this.tel=null;
                                                                                this.email=null;

@@ -39,7 +39,7 @@ public class Controller {
     @Autowired  ReservationModelRepository reservationModelRepository;
     @Autowired  ModelRepository modelRepository;
     @Autowired  PromotionModelRepository promotionModelRepository;
-
+    @Autowired  ProvinceRepository provinceRepository;
     @GetMapping(path = "/address", produces = MediaType.APPLICATION_JSON_VALUE)
     
 public Collection<Address> address() {
@@ -65,6 +65,10 @@ public Collection<Address> address() {
     @GetMapping(path = "/reservationStudio", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<ReservationStudio> reservationStudio() {
         return reservationStudioRepository.findAll().stream().collect(Collectors.toList());
+    }
+    @GetMapping(path = "/province", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Collection<Province> provinces() {
+        return provinceRepository.findAll().stream().collect(Collectors.toList());
     }
     @GetMapping(path = "/roomStudio", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<RoomStudio> roomStudio() {
@@ -189,16 +193,18 @@ public Collection<Reservationequipment> reservationrepository() {
 
     @PostMapping(path = "/member/{address}/{tambon}/{amphoe}/{province}/{postcode}/{name}/{lastname}/{gender}/{tel}/{birthday}/{email}/{userid}/{password}/{title}")
     public Member member(@PathVariable String address , @PathVariable String tambon , @PathVariable String amphoe ,
-                          @PathVariable String province , @PathVariable String postcode , @PathVariable String name ,
+                          @PathVariable Long province , @PathVariable String postcode , @PathVariable String name ,
                          @PathVariable String lastname , @PathVariable Long gender , @PathVariable String tel , @PathVariable Date birthday,
                          @PathVariable String email , @PathVariable String userid , @PathVariable String password , @PathVariable Long title){
             Address address1 = new Address();
+        Province province1 = provinceRepository.findById(province).get();
             address1.setAddress(address);
             address1.setAmphoe(amphoe);
             address1.setPostcode(postcode);
-            address1.setProvince(province);
             address1.setTambon(tambon);
+            address1.setProvince(province1);
             addressRepository.save(address1);
+
 
             Gender gender1 = genderReposiory.findById(gender).get();
             Title title1 = titleRepository.findById(title).get();

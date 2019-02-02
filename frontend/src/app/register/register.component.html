@@ -55,9 +55,12 @@
 
 &nbsp;&nbsp;
 
-<mat-form-field class="example-full-width">
-  <input matInput placeholder="จังหวัด" [(ngModel)]="province">
-</mat-form-field>
+  <mat-form-field class="boxx" >
+    <mat-select placeholder="จังหวัด" [(ngModel)]="provinceSelect">
+      <mat-option *ngFor="let province of provinces" [value]="province.id">
+        {{province.provincename}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
 <br>
 

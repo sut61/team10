@@ -83,5 +83,8 @@ export class Controller {
                public getPromotionModel(): Observable<any> {
                  return this.httpClient.get(this.API + '/PromotionModel');
                }
+                public getProvince(): Observable<any> {
+                                return this.httpClient.get(this.API + '/province');
+                              }
 
 }

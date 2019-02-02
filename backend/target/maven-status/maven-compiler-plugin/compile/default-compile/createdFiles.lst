@@ -1,3 +1,4 @@
+com\example\demo\Repository\ProvinceRepository.class
 com\example\demo\Repository\FinalTimeRepository.class
 com\example\demo\Repository\Photocollectionrepository.class
 com\example\demo\Repository\TitleRepository.class
@@ -29,6 +30,7 @@ com\example\demo\Entity\ReservationModel.class
 com\example\demo\Repository\ReservationModelRepository.class
 com\example\demo\Entity\Address.class
 com\example\demo\Repository\RoomStudioRepository.class
+com\example\demo\Entity\Province.class
 com\example\demo\Repository\Equipmentrepository.class
 com\example\demo\Repository\PromotionModelRepository.class
 com\example\demo\Entity\StartTime.class
