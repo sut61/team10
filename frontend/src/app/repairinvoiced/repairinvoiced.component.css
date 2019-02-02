@@ -12,6 +12,14 @@
 
 }
 
+.recomment{
+  float: left;
+  left: 25%;
+  height: 577px;
+  width:680px;
+  overflow:auto;
+}
+
 body{
 text-align: center;
   color:white;

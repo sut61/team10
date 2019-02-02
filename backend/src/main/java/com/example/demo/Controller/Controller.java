@@ -149,6 +149,11 @@ public Collection<Reservationequipment> reservationrepository() {
         return finalTimeRepository.findAll().stream().collect(Collectors.toList());
     }
 
+    @GetMapping("/repairinvoiced")
+    public Collection<RepairInvoiced> repairInvoiceds() {
+        return repairInvoicedRepository.findAll().stream().collect(Collectors.toList());
+    }
+
     @PostMapping(path = "/reservationPhotographer/{name}/{photographer}/{typePhoto}/{promotionPhotographer}/{startTime}/{finalTime}/{timeSelect}/{comment}")
     public ReservationPhotographer reservationPhotographer(@PathVariable String name , @PathVariable Long photographer ,
                                                            @PathVariable Long typePhoto, @PathVariable Long promotionPhotographer,

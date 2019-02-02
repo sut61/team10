@@ -8,7 +8,7 @@ import{Controller}from'../controller/controller';
   styleUrls: ['./repairinvoiced.component.css']
 })
 export class RepairinvoicedComponent implements OnInit {
-
+  repairinvoiceds : Array<any>;
   equipments : Array<any>;
   equipmentSelect=null;
   commentt : String ;
@@ -20,13 +20,17 @@ export class RepairinvoicedComponent implements OnInit {
   ngOnInit() {
 
   this.controller.getEquipment().subscribe(data => {
-                                this.equipments = data;
-                                console.log(this.equipments);
-                              });
+                                 this.equipments = data;
+                                 console.log(this.equipments);
+                               });
+   this.controller.getRepairInvoiced().subscribe(data => {
+                                  this.repairinvoiceds = data;
+                                  console.log(this.repairinvoiceds);
+                                });
   }
 
-   adminhome(){
-         this.router.navigate(['adminhome']);
+   table(){
+         this.router.navigate(['tablerepair']);
 
       }
 
@@ -46,6 +50,7 @@ export class RepairinvoicedComponent implements OnInit {
                this.equipmentSelect = null ;
                      this.datein = null;
                      this.commentt = null ;
+                     window.location.reload()
 
          }
          else{

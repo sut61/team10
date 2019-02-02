@@ -13,9 +13,7 @@
 <mat-toolbar style="background-color:#003330">
   <span style="color:#FFFFFF;">WELCOME TO PHOTO STUDIO</span>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;" (click)="adminhome()">home</mat-button-toggle>
-  </mat-button-toggle-group>&nbsp;
+
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
     <mat-button-toggle value="left" style="color:#000000;" >แจ้งซ่อมอุปกรณ์</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
@@ -60,7 +58,16 @@
 
   <br>
   <br>
+
+
   <button mat-fab color="primary" class="enter" (click)="insert()">Enter</button> &nbsp;&nbsp;&nbsp;
-  <button mat-fab color="primary" class="enter" (click)="cancel()">cancel</button>
+  <button mat-fab color="primary" class="enter" (click)="cancel()">cancel</button>&nbsp;&nbsp;&nbsp;
+  <button mat-fab color="primary" class="enter" (click)="table()">เช็คข้อมูล</button>
+
 </mat-card>
 </body>
+
+
+
+
+

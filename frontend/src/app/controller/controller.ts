@@ -24,7 +24,9 @@ export class Controller {
          getTimeStudio(): Observable<any> {
              return this.httpClient.get(this.API + '/timeStudio');
          }
-
+         getRepairInvoiced(): Observable<any> {
+                      return this.httpClient.get(this.API + '/repairinvoiced');
+                  }
            getMember(): Observable<any> {
                        return this.httpClient.get(this.API + '/member');
                    }
