@@ -1,7 +1,9 @@
 package com.example.demo;
 
+import com.example.demo.Entity.RegisterPhotographys.*;
 import com.example.demo.Entity.*;
 import com.example.demo.Repository.*;
+import com.example.demo.Repository.RegisterPhotographysRepository.*;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,13 +20,15 @@ public class DemoApplication {
     }
 
     @Bean
-    ApplicationRunner init(MemberRepository memberRepository , GenderReposiory genderReposiory , TitleRepository titleRepository , PromotionStudioRepository promotionStudioRepository , RoomStudioRepository roomStudioRepository , TimeStudioRepository timeStudioRepository,
-                           Reservationequipmentrepository reservationequipmentrepository, Equipmentrepository equipmentrepository,
-                           Timereceiverepository timereceiverepository,PhotographerRepository photographerRepository, PromotionPhotographerRepository promotionPhotographerRepository, TypePhotoRepository typePhotoRepository,
-                           StartTimeRepository startTimeRepository,FinalTimeRepository finalTimeRepository , Photocollectionrepository photocollectionrepository,
-                           Photoseriesrepository photoseriesrepository, Promotionphotocollectionrepository promotionphotocollectionrepository,
-                           Shootingstylerepository shootingstylerepository, ModelRepository modelRepository, PromotionModelRepository promotionModelRepository , ProvinceRepository provinceRepository,
-                           AdminRepository adminRepository){
+    ApplicationRunner init(MemberRepository memberRepository , GenderReposiory genderReposiory , TitleRepository titleRepository , PromotionStudioRepository promotionStudioRepository ,
+                           RoomStudioRepository roomStudioRepository , TimeStudioRepository timeStudioRepository, Reservationequipmentrepository reservationequipmentrepository,
+                           Equipmentrepository equipmentrepository, Timereceiverepository timereceiverepository, PhotographerRepository photographerRepository,
+                           PromotionPhotographerRepository promotionPhotographerRepository, TypePhotoRepository typePhotoRepository, StartTimeRepository startTimeRepository,
+                           FinalTimeRepository finalTimeRepository , Photocollectionrepository photocollectionrepository, Photoseriesrepository photoseriesrepository,
+                           Promotionphotocollectionrepository promotionphotocollectionrepository, Shootingstylerepository shootingstylerepository, ModelRepository modelRepository,
+                           PromotionModelRepository promotionModelRepository , ProvinceRepository provinceRepository, AdminRepository adminRepository, CamaraRepository camaraRepository,
+                           InstructorRepository instructorRepository, PhotographyTypeRepository photographyTypeRepository, RegisterPhotographyRepository registerPhotographyRepository,
+                           SkillLevelRepository skillLevelRepository, StudyTimeRepository studyTimeRepository){
         return args -> {
             Admin admin = new Admin();
             admin.setPassword("admin");
@@ -394,6 +398,74 @@ public class DemoApplication {
             promotionModelRepository.save(p2);
             promotionModelRepository.save(p3);
 
+            Camara c1 = new Camara();
+            Camara c2 = new Camara();
+            Camara c3 = new Camara();
+            Camara c4 = new Camara();
+            Camara c5 = new Camara();
+            c1.setCamaraName("Canon 5D");
+            c1.setCamaraType("DSLR");
+            c2.setCamaraName("Nikon D750");
+            c2.setCamaraType("DSLR");
+            c3.setCamaraName("Canon M5 EFM1");
+            c3.setCamaraType("Mirrorless");
+            c2.setCamaraName("Nikon D750");
+            c2.setCamaraType("DSLR");
+            c4.setCamaraName("Fujifilm X-E3");
+            c4.setCamaraType("Mirrorless");
+            c5.setCamaraName("Sony a6500");
+            c5.setCamaraType("Mirrorless");
+            camaraRepository.save(c1);
+            camaraRepository.save(c2);
+            camaraRepository.save(c3);
+            camaraRepository.save(c4);
+            camaraRepository.save(c5);
+
+            Instructor i1 = new Instructor();
+            Instructor i2 = new Instructor();
+            Instructor i3 = new Instructor();
+            i1.setInstructorName("Mr.Diki kawasaki");
+            i2.setInstructorName("Mr.Itsarapong rattanasak");
+            i3.setInstructorName("Mr.Sonporn passorn");
+            instructorRepository.save(i1);
+            instructorRepository.save(i2);
+            instructorRepository.save(i3);
+
+            PhotographyType photographyType1 = new PhotographyType();
+            PhotographyType photographyType2 = new PhotographyType();
+            PhotographyType photographyType3 = new PhotographyType();
+            PhotographyType photographyType4 = new PhotographyType();
+            PhotographyType photographyType5 = new PhotographyType();
+            photographyType1.setPhotographyType("Portrait Photography");
+            photographyType2.setPhotographyType("Wedding Photography");
+            photographyType3.setPhotographyType("Macro Photography");
+            photographyType4.setPhotographyType("Bird Photography");
+            photographyType5.setPhotographyType("Street Photography");
+            photographyTypeRepository.save(photographyType1);
+            photographyTypeRepository.save(photographyType2);
+            photographyTypeRepository.save(photographyType3);
+            photographyTypeRepository.save(photographyType4);
+            photographyTypeRepository.save(photographyType5);
+
+            SkillLevel skillLevel1 = new SkillLevel();
+            SkillLevel skillLevel2 = new SkillLevel();
+            SkillLevel skillLevel3 = new SkillLevel();
+            skillLevel1.setSkill("มีความรู้ในเรื่องการถ่ายภาพน้อย");
+            skillLevel2.setSkill("มีความรู้ในเรื่องการถ่ายภาพปานกลาง");
+            skillLevel3.setSkill("มีความรู้ในเรื่องการถ่ายภาพมาก");
+            skillLevelRepository.save(skillLevel1);
+            skillLevelRepository.save(skillLevel2);
+            skillLevelRepository.save(skillLevel3);
+
+            StudyTime studyTime1 = new StudyTime();
+            StudyTime studyTime2 = new StudyTime();
+            StudyTime studyTime3 = new StudyTime();
+            studyTime1.setStudyTime("ทุกๆวันเสาร์-อาทิตย์ : 9.00-12.00am.");
+            studyTime2.setStudyTime("ทุกๆวันเสาร์-อาทิตย์ : 13.00-16.00pm.");
+            studyTime3.setStudyTime("ทุกๆวันเสาร์-อาทิตย์ : 17.00-20.00pm.");
+            studyTimeRepository.save(studyTime1);
+            studyTimeRepository.save(studyTime2);
+            studyTimeRepository.save(studyTime3);
 
         };
     }
