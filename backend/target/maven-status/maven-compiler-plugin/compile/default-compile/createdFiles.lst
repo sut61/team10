@@ -9,6 +9,7 @@ com\example\demo\Repository\PromotionPhotographerRepository.class
 com\example\demo\Entity\Equipment.class
 com\example\demo\Entity\PromotionModel.class
 com\example\demo\Entity\Shootingstyle.class
+com\example\demo\Repository\CommentRepository.class
 com\example\demo\Repository\MemberRepository.class
 com\example\demo\Repository\Reservationequipmentrepository.class
 com\example\demo\Controller\Controller.class
@@ -18,6 +19,9 @@ com\example\demo\Repository\Timereceiverepository.class
 com\example\demo\Entity\TypePhoto.class
 com\example\demo\Entity\Model.class
 com\example\demo\Repository\TimeStudioRepository.class
+com\example\demo\Entity\Admin.class
+com\example\demo\Entity\Comment.class
+com\example\demo\Repository\RepairInvoicedRepository.class
 com\example\demo\Entity\FinalTime.class
 com\example\demo\Repository\StartTimeRepository.class
 com\example\demo\Entity\PromotionPhotographer.class
@@ -33,6 +37,7 @@ com\example\demo\Repository\RoomStudioRepository.class
 com\example\demo\Entity\Province.class
 com\example\demo\Repository\Equipmentrepository.class
 com\example\demo\Repository\PromotionModelRepository.class
+com\example\demo\Repository\AdminRepository.class
 com\example\demo\Entity\StartTime.class
 com\example\demo\Repository\ReservationStudioRepository.class
 com\example\demo\Entity\Photocollection.class
@@ -46,6 +51,7 @@ com\example\demo\Repository\PhotographerRepository.class
 com\example\demo\Repository\ReservationPhotographerRepository.class
 com\example\demo\Repository\Photoseriesrepository.class
 com\example\demo\Entity\RoomStudio.class
+com\example\demo\Entity\RepairInvoiced.class
 com\example\demo\Entity\PromotionStudio.class
 com\example\demo\Entity\Member.class
 com\example\demo\Repository\ModelRepository.class

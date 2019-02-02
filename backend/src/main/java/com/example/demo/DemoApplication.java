@@ -23,8 +23,14 @@ public class DemoApplication {
                            Timereceiverepository timereceiverepository,PhotographerRepository photographerRepository, PromotionPhotographerRepository promotionPhotographerRepository, TypePhotoRepository typePhotoRepository,
                            StartTimeRepository startTimeRepository,FinalTimeRepository finalTimeRepository , Photocollectionrepository photocollectionrepository,
                            Photoseriesrepository photoseriesrepository, Promotionphotocollectionrepository promotionphotocollectionrepository,
-                           Shootingstylerepository shootingstylerepository, ModelRepository modelRepository, PromotionModelRepository promotionModelRepository , ProvinceRepository provinceRepository){
+                           Shootingstylerepository shootingstylerepository, ModelRepository modelRepository, PromotionModelRepository promotionModelRepository , ProvinceRepository provinceRepository,
+                           AdminRepository adminRepository){
         return args -> {
+            Admin admin = new Admin();
+            admin.setPassword("admin");
+            admin.setUserid("admin");
+            adminRepository.save(admin);
+
 
             Stream.of("กรุงเทพมหานคร", "กระบี่", "กาญจนบุรี", "กาฬสินธุ์", "กำแพงเพชร", "ขอนแก่น", "จันทบุรี",
                     "ฉะเชิงเทรา", "ชลบุรี", "ชัยนาท", "ชัยภูมิ", "ชุมพร", "เชียงราย", "เชียงใหม่", "ตรัง", "ตราด",

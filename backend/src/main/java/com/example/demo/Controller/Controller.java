@@ -40,6 +40,9 @@ public class Controller {
     @Autowired  ModelRepository modelRepository;
     @Autowired  PromotionModelRepository promotionModelRepository;
     @Autowired  ProvinceRepository provinceRepository;
+    @Autowired  AdminRepository adminRepository;
+    @Autowired  CommentRepository commentRepository;
+    @Autowired  RepairInvoicedRepository repairInvoicedRepository;
     @GetMapping(path = "/address", produces = MediaType.APPLICATION_JSON_VALUE)
     
 public Collection<Address> address() {
@@ -193,36 +196,57 @@ public Collection<Reservationequipment> reservationrepository() {
 
     @PostMapping(path = "/member/{address}/{tambon}/{amphoe}/{province}/{postcode}/{name}/{lastname}/{gender}/{tel}/{birthday}/{email}/{userid}/{password}/{title}")
     public Member member(@PathVariable String address , @PathVariable String tambon , @PathVariable String amphoe ,
-                          @PathVariable Long province , @PathVariable String postcode , @PathVariable String name ,
+                         @PathVariable Long province , @PathVariable String postcode , @PathVariable String name ,
                          @PathVariable String lastname , @PathVariable Long gender , @PathVariable String tel , @PathVariable Date birthday,
                          @PathVariable String email , @PathVariable String userid , @PathVariable String password , @PathVariable Long title){
-            Address address1 = new Address();
+        Address address1 = new Address();
         Province province1 = provinceRepository.findById(province).get();
-            address1.setAddress(address);
-            address1.setAmphoe(amphoe);
-            address1.setPostcode(postcode);
-            address1.setTambon(tambon);
-            address1.setProvince(province1);
-            addressRepository.save(address1);
+        address1.setAddress(address);
+        address1.setAmphoe(amphoe);
+        address1.setPostcode(postcode);
+        address1.setTambon(tambon);
+        address1.setProvince(province1);
+        addressRepository.save(address1);
 
 
-            Gender gender1 = genderReposiory.findById(gender).get();
-            Title title1 = titleRepository.findById(title).get();
+        Gender gender1 = genderReposiory.findById(gender).get();
+        Title title1 = titleRepository.findById(title).get();
 
-            Member member = new Member();
-            member.setAddress(address1);
-            member.setBirthdate(birthday);
-            member.setEmail(email);
-            member.setGender(gender1);
-            member.setLastname(lastname);
-            member.setName(name);
-            member.setPassword(password);
-            member.setUserid(userid);
-            member.setTitle(title1);
-            member.setTel(tel);
+        Member member = new Member();
+        member.setAddress(address1);
+        member.setBirthdate(birthday);
+        member.setEmail(email);
+        member.setGender(gender1);
+        member.setLastname(lastname);
+        member.setName(name);
+        member.setPassword(password);
+        member.setUserid(userid);
+        member.setTitle(title1);
+        member.setTel(tel);
 
-            memberRepository.save(member);
-            return member;
+        memberRepository.save(member);
+        return member;
+    }
+
+    @PostMapping(path = "/repairinvoiced/{equipment_id}/{commentt}/{datein}/{admin}")
+    public RepairInvoiced repairInvoiced(@PathVariable Long equipment_id , @PathVariable String commentt ,
+                                         @PathVariable Date datein , @PathVariable String admin ){
+        Comment comment = new Comment();
+        comment.setComments(commentt);
+        commentRepository.save(comment);
+
+        Equipment equipment = equipmentrepository.findById(equipment_id).get();
+        Admin admin1 = adminRepository.findByUserid(admin);
+
+        RepairInvoiced repairInvoiced = new RepairInvoiced();
+        repairInvoiced.setAdmin(admin1);
+        repairInvoiced.setComment(comment);
+        repairInvoiced.setDatein(datein);
+        repairInvoiced.setEquipment(equipment);
+        repairInvoicedRepository.save(repairInvoiced);
+
+        return repairInvoiced;
+
     }
 
     @PostMapping("/member/{userid}")
