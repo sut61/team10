@@ -33,6 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {ReservationPhotographerComponent} from './reservation-photographer/reservation-photographer.component';
 import {PhotocollectionComponent} from './photocollection/photocollection.component';
 import {ReservationModelComponent} from './reservation-model/reservation-model.component';
+import { RepairinvoicedComponent } from './repairinvoiced/repairinvoiced.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,8 @@ import {ReservationModelComponent} from './reservation-model/reservation-model.c
     ReservationPhotographerComponent,
     PhotocollectionComponent,
     ReservationModelComponent,
-    LoginfailDialog
+    LoginfailDialog,
+    RepairinvoicedComponent
   ],
 
   imports: [

@@ -1,0 +1,66 @@
+<html>
+
+<mat-card class = "basic-container" style="background-color:#003333">
+  <mat-toolbar-row>
+    <span class = "version-info" style="color:#FFFF99;" >Photo</span> &nbsp;
+    <span class = "version-info" style="color:#99FF00;" >Studio</span> &nbsp;
+    <span class = "version-info1" style="color:#CCFF66;" >Team10</span>
+    <span class="example-fill-remaining-space"></span>
+    <a mat-button routerLink="." style="color:#FFFFFF;" routerLink="">LOGOUT</a>
+  </mat-toolbar-row>
+</mat-card>
+
+<mat-toolbar style="background-color:#003330">
+  <span style="color:#FFFFFF;">WELCOME TO PHOTO STUDIO</span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="adminhome()">home</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" >แจ้งซ่อมอุปกรณ์</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;"  >บันทึกการส่งรูป</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" >จัดตารางงานช่างภาพ</mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-divider></mat-divider>
+</mat-toolbar>
+
+
+
+
+<body class="dataBox" >
+<br><br><br>
+<mat-card class="example-card">
+
+  <mat-form-field class="boxx" >
+    <mat-select placeholder="อุปกรณ์" [(ngModel)]="equipmentSelect">
+      <mat-option *ngFor="let equipment of equipments" [value]="equipment.id">
+        {{equipment.equipment_name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="อธิบาย" [(ngModel)]="commentt">
+  </mat-form-field>
+
+  <br>
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <input matInput [matDatepicker]="picker" placeholder="วันที่แจ้งซ่อม"style="color:black;" [(ngModel)]="datein">
+    <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
+    <mat-datepicker #picker ></mat-datepicker>
+  </mat-form-field>
+
+  <br>
+  <br>
+  <button mat-fab color="primary" class="enter" (click)="insert()">Enter</button> &nbsp;&nbsp;&nbsp;
+  <button mat-fab color="primary" class="enter" (click)="cancel()">cancel</button>
+</mat-card>
+</body>
