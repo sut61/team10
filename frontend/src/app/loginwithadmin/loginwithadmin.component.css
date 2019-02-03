@@ -1,0 +1,36 @@
+
+
+
+.example-card {
+      width: 20%;
+      height: 200px;
+      left: 38%;
+      right: 50%;
+      float: left;
+      max-width: 1000px;
+}
+.example-card2 {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+button{
+    margin: 20px;
+     margin-left: 50px;
+     margin-right: 30px;
+}
+
+.example-full-width {
+    text-align: center;
+}
