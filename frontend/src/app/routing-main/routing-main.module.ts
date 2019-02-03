@@ -8,10 +8,15 @@ import {ReservationEquipmentComponent} from '../reservation-equipment/reservatio
 import {ReservationPhotographerComponent} from "../reservation-photographer/reservation-photographer.component";
 import {PhotocollectionComponent} from "../photocollection/photocollection.component";
 import {ReservationModelComponent} from '../reservation-model/reservation-model.component';
-
+import {LoginwithadminComponent} from '../loginwithadmin/loginwithadmin.component'
 import {RepairinvoicedComponent} from "../repairinvoiced/repairinvoiced.component";
+import {LoginhomeComponent} from '../loginhome/loginhome.component'
+
+
 const routes: Routes = [
-   {path:'',component:LoginComponent},
+{path:'',component:LoginhomeComponent},
+    {path:'loginwithadmin',component:LoginwithadminComponent},
+   {path:'loginwithuser',component:LoginComponent},
    {path:'home',component:HomeComponent},
    {path:'reservation-studio',component:ReservationStudioComponent},
    {path:'reservation-equipment',component:ReservationEquipmentComponent},

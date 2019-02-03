@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
           console.log(data)
               if(data!=null){
                localStorage.setItem('user',JSON.stringify(data))
-                   this.router.navigate(['home',{first:data.name}]);
+                   this.router.navigate(['home',{first:data.userid}]);
               }else{
 
                  const dialogRef = this.dialog.open(LoginfailDialog, {

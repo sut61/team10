@@ -34,6 +34,9 @@ import {ReservationPhotographerComponent} from './reservation-photographer/reser
 import {PhotocollectionComponent} from './photocollection/photocollection.component';
 import {ReservationModelComponent} from './reservation-model/reservation-model.component';
 import { RepairinvoicedComponent } from './repairinvoiced/repairinvoiced.component';
+import { LoginwithadminComponent , Loginfail2Dialog} from './loginwithadmin/loginwithadmin.component';
+import { LoginhomeComponent } from './loginhome/loginhome.component';
+
 
 
 @NgModule({
@@ -52,7 +55,11 @@ import { RepairinvoicedComponent } from './repairinvoiced/repairinvoiced.compone
     PhotocollectionComponent,
     ReservationModelComponent,
     LoginfailDialog,
-    RepairinvoicedComponent
+    RepairinvoicedComponent,
+    LoginwithadminComponent,
+    LoginhomeComponent,
+    Loginfail2Dialog
+
   ],
 
   imports: [
@@ -82,7 +89,7 @@ import { RepairinvoicedComponent } from './repairinvoiced/repairinvoiced.compone
 
   ],
   providers: [Controller],
-  entryComponents: [RegisterComponent, DataemptyDialog, PasswordnotcorrectDialog , SuccessDialog , UseralreadyDialog, LoginfailDialog, LoginComponent],
+  entryComponents: [RegisterComponent, DataemptyDialog, PasswordnotcorrectDialog , SuccessDialog , UseralreadyDialog, LoginfailDialog, LoginComponent, LoginwithadminComponent , Loginfail2Dialog],
   bootstrap: [AppComponent]
 })
 

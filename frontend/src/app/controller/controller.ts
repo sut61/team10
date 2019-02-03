@@ -43,6 +43,9 @@ export class Controller {
                       findMember(user:String , pass:String): Observable<any>{
                                                               return this.httpClient.post(this.API+'/member/'+user+'/password/'+pass,{})
                                                           }
+                      findAdmin(user:String , pass:String): Observable<any>{
+                                                                                    return this.httpClient.post(this.API+'/admin/'+user+'/password/'+pass,{})
+                                                                                }
            getPhotographer(): Observable<any> {
                return this.httpClient.get(this.API + '/Photographer');
              }

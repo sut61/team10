@@ -43,6 +43,7 @@ public class Controller {
     @Autowired  AdminRepository adminRepository;
     @Autowired  CommentRepository commentRepository;
     @Autowired  RepairInvoicedRepository repairInvoicedRepository;
+
     @GetMapping(path = "/address", produces = MediaType.APPLICATION_JSON_VALUE)
     
 public Collection<Address> address() {
@@ -263,6 +264,12 @@ public Collection<Reservationequipment> reservationrepository() {
     public  Member member1(@PathVariable String userid , @PathVariable String password){
         return this.memberRepository.findByUseridAndPassword(userid,password);
     }
+
+    @PostMapping("/admin/{userid}/password/{password}")
+    public  Admin admin(@PathVariable String userid , @PathVariable String password){
+        return this.adminRepository.findByUseridAndPassword(userid,password);
+    }
+
 
 @PostMapping(path = "/reservationequipment/{daterent}/{timereceive}/{equipment}/{name}")
     public Reservationequipment reservationequipment(

@@ -126,7 +126,7 @@ provinceSelect='';
                                                                console.log("Error " , error)
                                                            })
                   localStorage.setItem('user',JSON.stringify(data))
-                  this.router.navigate(['']);
+                  this.router.navigate(['loginwithuser']);
             }
 
      })
