@@ -29,44 +29,68 @@
 
 
 
-<body class="dataBox" >
-<br><br><br>
-<mat-card class="example-card">
+<body class = "box">
 
-  <mat-form-field class="boxx" >
-    <mat-select placeholder="อุปกรณ์" [(ngModel)]="equipmentSelect">
-      <mat-option *ngFor="let equipment of equipments" [value]="equipment.id">
-        {{equipment.equipment_name}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+<br/>
+<div >
 
-  <br>
-  <br>
+  <br><br><br>
+  <mat-card class="card">
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="อธิบาย" [(ngModel)]="commentt">
-  </mat-form-field>
+    <mat-form-field >
+      <mat-select placeholder="อุปกรณ์" [(ngModel)]="equipmentSelect">
+        <mat-option *ngFor="let equipment of equipments" [value]="equipment.id">
+          {{equipment.equipment_name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <br>
-  <br>
+    <br>
+    <br>
 
-  <mat-form-field class="example-full-width">
-    <input matInput [matDatepicker]="picker" placeholder="วันที่แจ้งซ่อม"style="color:black;" [(ngModel)]="datein">
-    <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
-    <mat-datepicker #picker ></mat-datepicker>
-  </mat-form-field>
+    <mat-form-field >
+      <input matInput placeholder="อธิบาย" [(ngModel)]="commentt">
+    </mat-form-field>
 
-  <br>
-  <br>
+    <br>
+    <br>
+
+    <mat-form-field >
+      <input matInput [matDatepicker]="picker" placeholder="วันที่แจ้งซ่อม"style="color:black;" [(ngModel)]="datein">
+      <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>
+    </mat-form-field>
+
+    <br>
+    <br>
 
 
-  <button mat-fab color="primary" class="enter" (click)="insert()">Enter</button> &nbsp;&nbsp;&nbsp;
-  <button mat-fab color="primary" class="enter" (click)="cancel()">cancel</button>&nbsp;&nbsp;&nbsp;
-  <button mat-fab color="primary" class="enter" (click)="table()">เช็คข้อมูล</button>
+    <button mat-fab color="primary" class="botton-enter" (click)="insert()">Enter</button> &nbsp;&nbsp;&nbsp;
+    <button mat-fab color="primary" class="botton-enter" (click)="cancel()">cancel</button>&nbsp;&nbsp;&nbsp;
 
-</mat-card>
+
+  </mat-card>
+  <mat-card class="recomment" >
+    <p class="handdetel">รายละเอียดแจ้งซ่อมอุปกรณ์</p>
+    <table class="detail">
+      <th>No.</th>
+      <th>Equipment</th>
+      <th>etc.</th>
+      <th>Time</th>
+      <ng-container *ngFor="let repairinvoiced of repairinvoiceds">
+        <tr>
+          <td>{{repairinvoiced.id}}</td>
+          <td>{{repairinvoiced.equipment.equipment_name}}</td>
+          <td>{{repairinvoiced.comment.comments}}</td>
+          <td>{{repairinvoiced.datein}}</td>
+        </tr>
+      </ng-container>
+    </table>
+
+  </mat-card>
+</div>
+
 </body>
-
+</html>
 
 
 
