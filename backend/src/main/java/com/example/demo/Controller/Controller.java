@@ -90,29 +90,17 @@ public Collection<Reservationequipment> reservationrepository() {
     public Collection<ReservationModel> reservation() {
         return reservationModelRepository.findAll().stream().collect(Collectors.toList());
     }
-    @GetMapping("/ReservationModel/{id}")
-    public Optional<ReservationModel> reservation(@PathVariable Long id) {
-        Optional<ReservationModel> r = reservationModelRepository.findById(id);
-        return r;
-    }
+
     @GetMapping(path = "Model", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Model> model() {
         return modelRepository.findAll().stream().collect(Collectors.toList());
     }
-    @GetMapping("/Model/{id}")
-    public Optional<Model> model(@PathVariable Long id) {
-        Optional<Model> md = modelRepository.findById(id);
-        return md;
-    }
+
     @GetMapping(path = "PromotionModel", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<PromotionModel> promotionModel() {
         return promotionModelRepository.findAll().stream().collect(Collectors.toList());
     }
-    @GetMapping("/PromotionModel/{id}")
-    public Optional<PromotionModel> promotionModel(@PathVariable Long id) {
-        Optional<PromotionModel> p = promotionModelRepository.findById(id);
-        return p;
-    }
+
     @GetMapping(path = "/Equipment")
     public Collection<Equipment> equipmentrepository() {
         return equipmentrepository.findAll().stream().collect(Collectors.toList());
