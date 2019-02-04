@@ -4,27 +4,29 @@ import javax.persistence.*;
 import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+import lombok.*;
 
 @Entity
+@Data
+@Getter @Setter
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 public class ReservationStudio {
     @Id
     @SequenceGenerator(name="reservationStudio_seq",sequenceName="reservationStudio_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="reservationStudio_seq")
-    private Long id;
+    @NotNull private Long id;
 
-    private @NotNull int price;
+    @NotNull
+    @Positive
+    private int price;
 
-    @Temporal(TemporalType.DATE)
-    private @io.micrometer.core.lang.NonNull
-    Date reservationDate;
 
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
-    }
+    private Date reservationDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private  Member member ;
@@ -75,5 +77,11 @@ public class ReservationStudio {
     public void setReservationDate(Date reservationDate) {
         this.reservationDate = reservationDate;
     }
+    public Member getMember() {
+        return member;
+    }
 
+    public void setMember(Member member) {
+        this.member = member;
+    }
 }

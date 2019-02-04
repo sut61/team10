@@ -66,7 +66,10 @@ export class ReservationStudioComponent implements OnInit {
                 alert('กรุณาเลือกวันที่จอง');
            }
            else if(this.priceNew == null) {
-                           alert('กรุณากรอกราคา');
+                 alert('กรุณากรอกราคา');
+           }
+           else if(this.priceNew < 1) {
+                 alert('กรุณากรอกราคาให้ถูกต้อง');
            }
            else{
                 this.httpClient.post('http://localhost:8080/reservationStudio/' + this.roomStudioSelect + '/' + this.promotionStudioSelect + '/'

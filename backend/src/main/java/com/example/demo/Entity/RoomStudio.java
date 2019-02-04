@@ -1,6 +1,8 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 public class RoomStudio {
@@ -9,8 +11,8 @@ public class RoomStudio {
     @SequenceGenerator(name="studio_seq",sequenceName="studio_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="studio_seq")
     private Long id;
-    private String name;
-    private String studio_status;
+    private @NotNull String name;
+    private @NotNull String studio_status;
 
     public Long getId() {
         return id;
