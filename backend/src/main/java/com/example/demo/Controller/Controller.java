@@ -2,7 +2,9 @@ package com.example.demo.Controller;
 
 
 import com.example.demo.Entity.*;
+import com.example.demo.Entity.RegisterPhotographys.*;
 import com.example.demo.Repository.*;
+import com.example.demo.Repository.RegisterPhotographysRepository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -43,6 +45,14 @@ public class Controller {
     @Autowired  AdminRepository adminRepository;
     @Autowired  CommentRepository commentRepository;
     @Autowired  RepairInvoicedRepository repairInvoicedRepository;
+    //Diki kawasaki Sprint#2 {
+        @Autowired CamaraRepository camaraRepository;
+        @Autowired InstructorRepository instructorRepository;
+        @Autowired PhotographyTypeRepository photographyTypeRepository;
+        @Autowired RegisterPhotographyRepository registerPhotographyRepository;
+        @Autowired SkillLevelRepository skillLevelRepository;
+        @Autowired StudyTimeRepository studyTimeRepository;
+    //}
 
     @GetMapping(path = "/address", produces = MediaType.APPLICATION_JSON_VALUE)
     
@@ -349,6 +359,29 @@ public Collection<Reservationequipment> reservationrepository() {
         return reservationModel;
     }
 
+
+    //Diki kawasaki Sprint#2 {
+        @GetMapping(path = "/Camara", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Collection<Camara> camara() {
+            return camaraRepository.findAll().stream().collect(Collectors.toList());
+        }
+        @GetMapping(path = "/Instructor", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Collection<Instructor> instructor() {
+            return instructorRepository.findAll().stream().collect(Collectors.toList());
+        }
+        @GetMapping(path = "/PhotographyTyp", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Collection<PhotographyType> photographyType() {
+            return photographyTypeRepository.findAll().stream().collect(Collectors.toList());
+        }
+        @GetMapping(path = "/SkillLevel", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Collection<SkillLevel> skillLevel() {
+            return skillLevelRepository.findAll().stream().collect(Collectors.toList());
+        }
+        @GetMapping(path = "/StudyTime", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Collection<StudyTime> studyTime() {
+            return studyTimeRepository.findAll().stream().collect(Collectors.toList());
+        }
+    //}
 
 }
 

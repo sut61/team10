@@ -38,14 +38,14 @@ export class Controller {
                        return this.httpClient.get(this.API + '/Equipment');
                      }
                      findUserid(user:String): Observable<any>{
-                                        return this.httpClient.post(this.API+'/member/'+user,{})
-                                    }
+                             return this.httpClient.post(this.API+'/member/'+user,{})
+                          }
                       findMember(user:String , pass:String): Observable<any>{
-                                                              return this.httpClient.post(this.API+'/member/'+user+'/password/'+pass,{})
-                                                          }
+                            return this.httpClient.post(this.API+'/member/'+user+'/password/'+pass,{})
+                              }
                       findAdmin(user:String , pass:String): Observable<any>{
-                                                                                    return this.httpClient.post(this.API+'/admin/'+user+'/password/'+pass,{})
-                                                                                }
+                             return this.httpClient.post(this.API+'/admin/'+user+'/password/'+pass,{})
+                          }
            getPhotographer(): Observable<any> {
                return this.httpClient.get(this.API + '/Photographer');
              }
@@ -89,7 +89,25 @@ export class Controller {
                  return this.httpClient.get(this.API + '/PromotionModel');
                }
                 public getProvince(): Observable<any> {
-                                return this.httpClient.get(this.API + '/province');
-                              }
+                  return this.httpClient.get(this.API + '/province');
+                }
+
+
+         //diki kawasaki sprint-2
+         public getCamara(): Observable<any> {
+              return this.httpClient.get(this.API + '/Camara');
+         }
+         public getInstructor(): Observable<any> {
+              return this.httpClient.get(this.API + '/Instructor');
+         }
+         public getPhotographyType(): Observable<any> {
+              return this.httpClient.get(this.API + '/PhotographyTyp');
+         }
+         public getSkillLevel(): Observable<any> {
+              return this.httpClient.get(this.API + '/SkillLevel');
+         }
+         public getStudyTime(): Observable<any> {
+              return this.httpClient.get(this.API + '/StudyTime');
+         }
 
 }
