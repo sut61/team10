@@ -1,3 +1,7 @@
+.basic-container {
+  padding: 1px;
+}
+
 .box{
   position: absolute;
   width: 100%;

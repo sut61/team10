@@ -36,6 +36,7 @@ import {ReservationModelComponent} from './reservation-model/reservation-model.c
 import { RepairinvoicedComponent } from './repairinvoiced/repairinvoiced.component';
 import { LoginwithadminComponent , Loginfail2Dialog} from './loginwithadmin/loginwithadmin.component';
 import { LoginhomeComponent } from './loginhome/loginhome.component';
+import { RegisterPhotographyComponent } from './register-photography/register-photography.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { LoginhomeComponent } from './loginhome/loginhome.component';
     RepairinvoicedComponent,
     LoginwithadminComponent,
     LoginhomeComponent,
-    Loginfail2Dialog
+    Loginfail2Dialog,
+    RegisterPhotographyComponent
 
   ],
 
