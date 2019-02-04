@@ -1,18 +1,17 @@
-  import { Component, OnInit } from '@angular/core';
-  import {Router} from "@angular/router";
-  import {ActivatedRoute} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
+
+@Component({
+  selector: 'app-register-photography',
+  templateUrl: './register-photography.component.html',
+  styleUrls: ['./register-photography.component.css']
+})
+
+export class RegisterPhotographyComponent implements OnInit {
 
 
-  @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
-  })
-  export class HomeComponent implements OnInit {
-
-   data:any={}
-
-
+    data:any={}
     constructor(private router:Router,
     private route:ActivatedRoute) { }
 
@@ -53,4 +52,6 @@
         this.router.navigate(['register-photography',{first:this.data.first}]);
         console.log(this.data);
     }
-  }
+
+
+}

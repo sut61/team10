@@ -96,30 +96,36 @@ export class ReservationPhotographerComponent implements OnInit {
       window.location.reload()
     }
   }
-       home(){
-               this.router.navigate(['home',{first:this.data.first}]);
-               console.log(this.data);
-            }
-            studio(){
-                 this.router.navigate(['reservation-studio',{first:this.data.first}]);
-                 console.log(this.data);
-              }
+    home(){
+       this.router.navigate(['home',{first:this.data.first}]);
+       console.log(this.data);
+    }
+    studio(){
+         this.router.navigate(['reservation-studio',{first:this.data.first}]);
+         console.log(this.data);
+    }
 
-            equipment(){
-                   this.router.navigate(['reservation-equipment',{first:this.data.first}]);
-                   console.log(this.data);
-                }
-             photo(){
-                               this.router.navigate(['reservation-photographer',{first:this.data.first}]);
-                               console.log(this.data);
-                            }
-          collect(){
-                          this.router.navigate(['photocollection',{first:this.data.first}]);
-                          console.log(this.data);
-                       }
-                        model(){
-                                         this.router.navigate(['reservation-model',{first:this.data.first}]);
-                                                             console.log(this.data);
-                            }
+    equipment(){
+         this.router.navigate(['reservation-equipment',{first:this.data.first}]);
+         console.log(this.data);
+    }
+    photo(){
+         this.router.navigate(['reservation-photographer',{first:this.data.first}]);
+         console.log(this.data);
+    }
+    collect(){
+         this.router.navigate(['photocollection',{first:this.data.first}]);
+         console.log(this.data);
+    }
+    model(){
+         this.router.navigate(['reservation-model',{first:this.data.first}]);
+         console.log(this.data);
+    }
+    registerPhotography(){
+        this.router.navigate(['register-photography',{first:this.data.first}]);
+        console.log(this.data);
+    }
+
+
 }
 

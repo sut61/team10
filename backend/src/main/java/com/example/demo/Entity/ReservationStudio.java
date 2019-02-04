@@ -10,11 +10,6 @@ import javax.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
-@Data
-@Getter @Setter
-@NoArgsConstructor
-@ToString
-@EqualsAndHashCode
 public class ReservationStudio {
     @Id
     @SequenceGenerator(name="reservationStudio_seq",sequenceName="reservationStudio_seq")

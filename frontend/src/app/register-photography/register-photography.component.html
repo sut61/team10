@@ -6,9 +6,7 @@
     <span class = "version-info" style="color:#99FF00;" >Studio</span> &nbsp;
     <span class = "version-info1" style="color:#CCFF66;" >Team10</span>
     <span class="example-fill-remaining-space"></span>
-
     <a mat-button routerLink="." style="color:#FFFFFF;" routerLink="">LOGOUT</a>
-
   </mat-toolbar-row>
 </mat-card>
 
@@ -22,7 +20,7 @@
     <mat-button-toggle value="left" style="color:#000000;" (click)="studio()">Reservation Studio</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;" (click)="equipment()">Reservation Equipment</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;"  (click)="equipment()">Reservation Equipment</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
     <mat-button-toggle value="left" style="color:#000000;" (click)="photo()">Reservation Photographer</mat-button-toggle>
@@ -44,61 +42,86 @@
   </mat-button-toggle-group>&nbsp;
   <mat-divider></mat-divider>
 </mat-toolbar>
-<body class = "databox" >
+
+<body class = "databox">
 <br>
 <mat-card class="example-card">
-<body class="cen">
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <font>อุปกรณ์ถ่ายภาพ</font>
-    <mat-form-field  style="width: 40%;">
-      <mat-select placeholder="equipment" [(ngModel)]="equiSelect" name="equipment_ID">
-        <mat-option>None</mat-option>
-        <mat-option *ngFor="let equi of equis" [value]="equi.equipment_id" >
-          {{equi.equipment_name}}
+  <h2 class="topic" style="color:#000000;">สมัครเรียนถ่ายรูป</h2>
+  <div class="topic">
+    <mat-form-field class="label">
+      <mat-select  placeholder="เลือกผู้สอน" [(ngModel)]="roomStudioSelect">
+        <mat-option *ngFor="let room of roomStudios" [value]="room.id">
+          {{room.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <br>
-    <br>
-    <br>
-    <font>วันรับของ</font>
-    <mat-form-field   style="width: 40%;">
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date" (focus) ="picker.open()" [(ngModel)] ="daterent" required name="date" #date>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <br>
-    <br>
-    <br>
-    <font >เวลารับของ</font>
-    <mat-form-field  style="width: 40%;" >
-      <mat-select placeholder="timereceive" [(ngModel)]="timeSelect" name="timereceive_id">
-        <mat-option>None</mat-option>
-        <mat-option *ngFor="let time of times" [value]="time.timereceive_id" >
-          {{time.timereceive_name}}
+    <mat-form-field class="label">
+      <mat-select  placeholder="เลือกกล้องถ่ายรูป" [(ngModel)]="roomStudioSelect">
+        <mat-option *ngFor="let room of roomStudios" [value]="room.id">
+          {{room.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <br>
+    <mat-form-field class="label">
+      <mat-select  placeholder="เลือกประเภทการถ่ายรูป" [(ngModel)]="roomStudioSelect">
+        <mat-option *ngFor="let room of roomStudios" [value]="room.id">
+          {{room.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <br>
+    <mat-form-field class="label">
+      <mat-select  placeholder="เลือกระดับความสามารถของคุณ" [(ngModel)]="roomStudioSelect">
+        <mat-option *ngFor="let room of roomStudios" [value]="room.id">
+          {{room.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <br>
-    <button mat-fab color="primary"  class="enter" (click)= "insert()">Enter</button>
-
-
-</body>
+    <mat-form-field class="label">
+      <mat-select  placeholder="เลือกช่วงเวลาในการเรียน" [(ngModel)]="roomStudioSelect">
+        <mat-option *ngFor="let room of roomStudios" [value]="room.id">
+          {{room.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="label">
+      <input matInput placeholder="ข้อความถึงทีมงาน" value="" [(ngModel)]="priceNew">
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="warn" (click)="insert()">SAVE</button>
+    <button mat-raised-button color="primary" (click)="reset()">RESET</button>
+  </div>
 </mat-card>
-<br>
 
+<mat-card class="recomment" >
+  <table class="detail">
+    <th>ลำดับที่</th>
+    <th>ชื่อผู้ใช้</th>
+    <th>ชื่อผู้สอน</th>
+    <th>กล้องถ่ายรูปที่ใช้</th>
+    <th>ประเภทการถ่ายรูป</th>
+    <th>ระดับความสามารถของคุณ</th>
+    <th>ช่วงเวลาในการเรียน</th>
+    <th>ข้อความถึงทีมงาน</th>
+    <ng-container *ngFor="let comment of comments">
+      <tr>
+        <td>{{comment.reservationphotographer_id}}</td>
+        <td>{{comment.member.name}}</td>
+        <td>{{comment.photographer.photographer_name}}</td>
+        <td>{{comment.typePhoto.typephoto_name}}</td>
+        <td>{{comment.startTime.stratTime}}</td>
+        <td>{{comment.finalTime.finalTime}}</td>
+        <td class="cut">{{comment.reservation_date}}</td>
+        <td>{{comment.promotionPhotographer.promotion_price}}</td>
+        <td>{{comment.comment_photo}}</td>
+      </tr>
+    </ng-container>
+  </table>
 
+</mat-card>
 </body>
-
 </html>
-
-
-
