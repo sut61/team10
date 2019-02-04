@@ -9,7 +9,6 @@ public class ReservationPhotographer {
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="reservationphotographer_seq")
     private Long reservationphotographer_id;
     private String comment_photo;
-
     public Date getReservation_date() { return reservation_date; }
     public void setReservation_date(Date reservation_date) { this.reservation_date = reservation_date; }
 

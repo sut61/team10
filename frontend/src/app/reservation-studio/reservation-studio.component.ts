@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class ReservationStudioComponent implements OnInit {
   roomStudios : Array<any>;
   roomStudioSelect='';
-data:any={}
+  data:any={}
   promotionStudios : Array<any>;
   promotionStudioSelect='';
 
@@ -20,6 +20,8 @@ data:any={}
   timeStudioSelect='';
 
   reservationDates = null ;
+
+  priceNew = null;
 
 
    constructor(private controller:Controller,private httpClient: HttpClient,public dialog: MatDialog,
@@ -47,6 +49,7 @@ data:any={}
           this.promotionStudioSelect=null;
           this.timeStudioSelect=null;
           this.reservationDates=null;
+          this.priceNew = null;
     }
 
    insert() {
@@ -62,9 +65,12 @@ data:any={}
            else if(this.reservationDates == null) {
                 alert('กรุณาเลือกวันที่จอง');
            }
+           else if(this.priceNew == null) {
+                           alert('กรุณากรอกราคา');
+           }
            else{
                 this.httpClient.post('http://localhost:8080/reservationStudio/' + this.roomStudioSelect + '/' + this.promotionStudioSelect + '/'
-                  + this.timeStudioSelect + '/' + this.reservationDates+'/'+this.data.first,{})
+                  + this.timeStudioSelect + '/' + this.reservationDates + '/' + this.data.first + '/' + this.priceNew,{})
                   .subscribe(
                     data => {
                         console.log('PUT Request is successful', data);

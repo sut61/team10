@@ -3,6 +3,7 @@ package com.example.demo.Entity.RegisterPhotographys;
 import com.example.demo.Entity.Member;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class RegisterPhotography {
@@ -11,6 +12,10 @@ public class RegisterPhotography {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="registerPhotography_seq")
     private Long id;
     private String message;
+
+    @Temporal(TemporalType.DATE)
+    private @io.micrometer.core.lang.NonNull
+    Date registerDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Member member ;
@@ -89,6 +94,13 @@ public class RegisterPhotography {
         this.studyTime = studyTime;
     }
 
+    public Date getRegisterDate() {
+        return registerDate;
+    }
+
+    public void setRegisterDate(Date registerDate) {
+        this.registerDate = registerDate;
+    }
 
 
 }

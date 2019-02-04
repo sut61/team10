@@ -183,11 +183,13 @@ public Collection<Reservationequipment> reservationrepository() {
         return reservationPhotographer1;
     }
 
-    @PostMapping(path = "/reservationStudio/{promotionStudio}/{roomStudio}/{timeStudio}/{reservationDate}/{name}")
-    public ReservationStudio reservationStudio(@PathVariable String name ,@PathVariable Long roomStudio , @PathVariable Long promotionStudio , @PathVariable Long timeStudio,@PathVariable Date reservationDate){
+    @PostMapping(path = "/reservationStudio/{promotionStudio}/{roomStudio}/{timeStudio}/{reservationDate}/{name}/{price}")
+    public ReservationStudio reservationStudio(@PathVariable String name ,@PathVariable Long roomStudio , @PathVariable Long promotionStudio ,
+                                               @PathVariable Long timeStudio,@PathVariable Date reservationDate,@PathVariable int price){
         RoomStudio roomStudio1 = roomStudioRepository.findById(roomStudio).get();
         PromotionStudio promotionStudio1 = promotionStudioRepository.findById(promotionStudio).get();
         TimeStudio timeStudio1 = timeStudioRepository.findById(timeStudio).get();
+
         ReservationStudio reservationStudio = new ReservationStudio();
         Member member = memberRepository.findByName(name);
         reservationStudio.setMember(member);
@@ -195,6 +197,7 @@ public Collection<Reservationequipment> reservationrepository() {
         reservationStudio.setPromotionStudio(promotionStudio1);
         reservationStudio.setTimeStudio(timeStudio1);
         reservationStudio.setReservationDate(reservationDate);
+        reservationStudio.setPrice(price);
         return reservationStudioRepository.save(reservationStudio);
     }
 

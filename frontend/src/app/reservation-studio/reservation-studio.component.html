@@ -69,6 +69,11 @@
       <mat-datepicker #picker ></mat-datepicker>
     </mat-form-field>
     <br>
+
+      <mat-form-field>
+        <input matInput placeholder="กรอกราคา" value="" [(ngModel)]="priceNew">
+      </mat-form-field>
+    <br>
     <button mat-raised-button color="warn" (click)="insert()">SAVE</button>
     <button mat-raised-button color="primary" (click)="reset()">RESET</button>
   </div>

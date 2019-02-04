@@ -38,7 +38,6 @@ import { LoginwithadminComponent , Loginfail2Dialog} from './loginwithadmin/logi
 import { LoginhomeComponent } from './loginhome/loginhome.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
