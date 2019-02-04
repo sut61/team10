@@ -3,6 +3,10 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 import lombok.*;
 import java.util.Date;
 
@@ -21,6 +25,19 @@ public class Reservationequipment {
     @Id private @NonNull Long Reservationequipment_id;
 
     private Date Daterent;
+    @NotNull
+    @Pattern(regexp = "[0-9]{13}")
+   // @Size(min=13,max=13)
+    private String Cardid;
+
+    public String getCardid() {
+        return Cardid;
+    }
+
+    public void setCardid(String cardid) {
+        Cardid = cardid;
+    }
+
 
 
      public Long Reservationequipment_id() {

@@ -45,6 +45,33 @@ public class TestMember {
     }
 
 
+    @Test
+    public void testNameNull() {
+        Member member = new Member();
+        member.setTitle(title);
+        member.setUserid("savett808");
+        member.setTel("0972120091");
+        member.setPassword("zz0896075364");
+        member.setLastname("eiei");
+        member.setGender(gender);
+        member.setEmail("savezts2@gmail.com");
+        member.setAddress(address);
+        member.setName(null);
+
+        try {
+            member.setBirthdate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(member);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
