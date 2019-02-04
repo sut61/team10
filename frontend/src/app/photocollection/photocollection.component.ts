@@ -13,7 +13,8 @@ export class PhotocollectionComponent implements OnInit {
 startdateIDSelect = null;
 data:any={}
 lastdateIDSelect = null;
-constructor(private photocollection: Controller,private httpClient: HttpClient,
+constructor(private photocollection: Controller,
+private httpClient: HttpClient,
      private router:Router,
      private route:ActivatedRoute) { }
 

@@ -18,7 +18,7 @@
       left: 12%;
       right: 17%;
       float: left;
-      background-color: rgba(255, 255, 255);
+      background-color: rgba(255, 255, 255, 0.9);
 }
 
 .header{
@@ -38,7 +38,7 @@
     width: 100%;
 }
 .detail{
-  width:950px;
+  width:1200px;
 }
 .handdetel {
   color: #333333	;
@@ -50,4 +50,5 @@
   height: 500px;
   width:950px;
   overflow:auto;
+  background-color: rgba(255, 255, 255, 0.9);
 }
