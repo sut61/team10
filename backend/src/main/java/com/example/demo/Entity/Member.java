@@ -1,6 +1,9 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -24,11 +27,30 @@ public class Member {
     private @io.micrometer.core.lang.NonNull
     Date birthdate;
 
+    @NotNull
     private String userid ;
+
+    @NotNull
     private String password ;
+
+    @NotNull
+    @Pattern(regexp = "^[_A-Za-z0-9]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
     private String email ;
+
+
+
+    @NotNull
+    @Pattern(regexp = "[0-9]{10}")
     private String tel ;
+
+    @NotNull(message="name must not be null to be valid")
+    @Pattern(regexp = "[a-zA-Z]+")
+    @Size(min = 1 ,max = 20)
     private String name ;
+
+    @NotNull(message="lastname must not be null to be valid")
+    @Pattern(regexp = "[a-zA-Z]+")
+    @Size(min = 1 ,max = 20)
     private String lastname ;
 
     public Member(){}
