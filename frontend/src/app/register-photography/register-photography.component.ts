@@ -24,8 +24,6 @@ export class RegisterPhotographyComponent implements OnInit {
   photographyTypes : Array<any>
   photographyTypeSelect='';
 
-  registerPhotographys : Array<any>
-  registerPhotographySelect='';
 
   skillLevels : Array<any>
   skillLevelSelect='';
@@ -33,7 +31,8 @@ export class RegisterPhotographyComponent implements OnInit {
   studyTimes : Array<any>
   studyTimeSelect='';
 
-  registerDate = null ;
+  RegisterPhotographys : Array<any>;
+
   message = null;
 
 
@@ -50,11 +49,36 @@ export class RegisterPhotographyComponent implements OnInit {
         this.studyTimeSelect=null;
         this.message = null;
      }
+    insert() {
+       if(this.camaraSelect != null &&
+       this.instructorSelect != null &&
+       this.photographyTypeSelect != null &&
+       this.skillLevelSelect != null &&
+       this.studyTimeSelect != null){
+                     this.httpClient.post('http://localhost:8080/registerPhotography/' + this.camaraSelect + '/' + this.instructorSelect + '/' +
+                                        this.photographyTypeSelect + '/' + this.skillLevelSelect + '/' + this.studyTimeSelect + '/' + this.data.first + '/' +
+                                        this.message,{})
+                                          .subscribe(
+                                            data => {
+                                                console.log('PUT Request is successful', data);
+                                            },
+                                            error => {
+                                                console.log('Error', error);
+                                            }
+                                          );
+                     alert("ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ");
+                           this.camaraSelect = null;
+                           this.instructorSelect = null ;
+                           this.photographyTypeSelect = null ;
+                           this.skillLevelSelect = null ;
+                           this.studyTimeSelect = null ;
+                           window.location.reload()
+               }
+               else{
+                  alert("กรุณาใส่ข้อมูลให้ครบค่ะ");
+               }
 
-
-
-
-
+    }
 
 
     ngOnInit() {
@@ -78,12 +102,15 @@ export class RegisterPhotographyComponent implements OnInit {
               this.studyTimes = data;
               console.log(this.studyTimes);
          });
+         this.controller.getRegisterPhotography().subscribe(data => {
+               this.RegisterPhotographys = data;
+               console.log(this.RegisterPhotographys);
+         });
+         this.route.params.subscribe(prams=>{
+               this.data = prams
+               console.log(prams)
+         })
     }
-
-
-
-
-
 
 
 
@@ -104,6 +131,10 @@ export class RegisterPhotographyComponent implements OnInit {
     photo(){
          this.router.navigate(['reservation-photographer',{first:this.data.first}]);
          console.log(this.data);
+    }
+    payment(){
+             this.router.navigate(['payonline',{first:this.data.first}]);
+             console.log(this.data);
     }
     collect(){
          this.router.navigate(['photocollection',{first:this.data.first}]);

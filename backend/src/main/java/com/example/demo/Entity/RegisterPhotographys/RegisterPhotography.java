@@ -17,17 +17,17 @@ public class RegisterPhotography {
     private @io.micrometer.core.lang.NonNull
     Date registerDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Member member ;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Camara camara ;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private PhotographyType photographyType ;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Instructor instructor ;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private SkillLevel skillLevel ;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private StudyTime studyTime ;
 
     public Long getId() {

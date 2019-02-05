@@ -437,6 +437,34 @@ public class Controller {
         public Collection<StudyTime> studyTime() {
             return studyTimeRepository.findAll().stream().collect(Collectors.toList());
         }
+        @GetMapping(path = "/registerPhotography", produces = MediaType.APPLICATION_JSON_VALUE)
+        public Collection<RegisterPhotography> registerPhotography() {
+            return registerPhotographyRepository.findAll().stream().collect(Collectors.toList());
+        }
+
+        @PostMapping(path = "/registerPhotography/{camara}/{instructor}/{photographyType}/{skillLevel}/{studyTime}/{name}/{message}")
+        public RegisterPhotography registerPhotography(@PathVariable String name ,@PathVariable Long camara , @PathVariable Long instructor ,
+                                                       @PathVariable Long photographyType,@PathVariable Long skillLevel,
+                                                       @PathVariable String message,@PathVariable Long studyTime){
+        Camara camara1 = camaraRepository.findById(camara).get();
+        Instructor instructor1 = instructorRepository.findById(instructor).get();
+        PhotographyType photographyType1 = photographyTypeRepository.findById(photographyType).get();
+        SkillLevel skillLevel1 = skillLevelRepository.findById(skillLevel).get();
+        StudyTime studyTime1 = studyTimeRepository.findById(studyTime).get();
+
+        RegisterPhotography registerPhotography = new RegisterPhotography();
+        Member member = memberRepository.findByUserid(name);
+        Date registerDate = new Date();
+        registerPhotography.setCamara(camara1);
+        registerPhotography.setInstructor(instructor1);
+        registerPhotography.setPhotographyType(photographyType1);
+        registerPhotography.setSkillLevel(skillLevel1);
+        registerPhotography.setStudyTime(studyTime1);
+        registerPhotography.setRegisterDate(registerDate);
+        registerPhotography.setMember(member);
+        registerPhotography.setMessage(message);
+        return registerPhotographyRepository.save(registerPhotography);
+    }
     //}
 
 }

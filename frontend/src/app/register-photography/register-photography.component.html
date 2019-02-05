@@ -41,6 +41,10 @@
     <mat-button-toggle value="left" style="color:#000000;" (click)="registerPhotography()">สมัครเรียนถ่ายรูป</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-divider></mat-divider>
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="payment()">Payment</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-divider></mat-divider>
 </mat-toolbar>
 
 <body class = "databox">
@@ -89,7 +93,7 @@
     </mat-form-field>
     <br>
     <mat-form-field class="label">
-      <input matInput placeholder="ข้อความถึงทีมงาน" value="" [(ngModel)]="message">
+      <input matInput placeholder="ข้อความถึงทีมงาน (ถ้ามี)" value="" [(ngModel)]="message">
     </mat-form-field>
     <br>
     <button mat-raised-button color="warn" (click)="insert()">SAVE</button>
@@ -108,17 +112,17 @@
     <th>ระดับความสามารถของคุณ</th>
     <th>ตารางเรียน</th>
     <th>ข้อความถึงทีมงาน</th>
-    <ng-container *ngFor="let comment of comments">
+    <ng-container *ngFor="let re of RegisterPhotographys">
       <tr>
-        <td>{{comment.reservationphotographer_id}}</td>
-        <td>{{comment.member.name}}</td>
-        <td>{{comment.photographer.photographer_name}}</td>
-        <td>{{comment.typePhoto.typephoto_name}}</td>
-        <td>{{comment.startTime.stratTime}}</td>
-        <td>{{comment.finalTime.finalTime}}</td>
-        <td class="cut">{{comment.reservation_date}}</td>
-        <td>{{comment.promotionPhotographer.promotion_price}}</td>
-        <td>{{comment.comment_photo}}</td>
+        <td>{{re.id}}</td>
+        <td>{{re.member.name}}</td>
+        <td>{{re.instructor.instructorName}}</td>
+        <td>{{re.camara.camaraName}}</td>
+        <td>{{re.camara.camaraType}}</td>
+        <td>{{re.photographyType.photographyType}}</td>
+        <td>{{re.skillLevel.skill}}</td>
+        <td>{{re.studyTime.studyTime}}</td>
+        <td>{{re.message}}</td>
       </tr>
     </ng-container>
   </table>

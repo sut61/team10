@@ -68,7 +68,10 @@ export class ReservationStudioComponent implements OnInit {
            else if(this.priceNew == null) {
                  alert('กรุณากรอกราคา');
            }
-           else if(this.priceNew < 1) {
+           else if(this.priceNew < 1000) {
+                 alert('กรุณากรอกราคาให้ถูกต้อง');
+           }
+           else if(this.priceNew > 2000) {
                  alert('กรุณากรอกราคาให้ถูกต้อง');
            }
            else{
