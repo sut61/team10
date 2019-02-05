@@ -77,6 +77,9 @@ export class Controller {
                       public getShootingstyleID(): Observable<any> {
                          return this.httpClient.get(this.API + '/Shootingstyle');
                       }
+                      public getPhotocollection(): Observable<any> {
+                         return this.httpClient.get(this.API + '/Photocollection');
+                      }
                public getReservation(): Observable<any> {
                  return this.httpClient.get(this.API + '/ReservationModels');
                }
