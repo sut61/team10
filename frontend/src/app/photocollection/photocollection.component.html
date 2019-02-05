@@ -35,15 +35,7 @@
   </mat-button-toggle-group>&nbsp;
   <mat-divider></mat-divider>
 </mat-toolbar>
-<mat-toolbar style="background-color:#003330">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;" (click)="registerPhotography()">สมัครเรียนถ่ายรูป</mat-button-toggle>
-  </mat-button-toggle-group>&nbsp;
-  <mat-divider></mat-divider>
-</mat-toolbar>
+
 <body class = "databox">
 <br/>
 <mat-card class="example-card">
@@ -66,6 +58,11 @@
       </mat-option>
     </mat-select>
   </mat-form-field><br>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="shootingstylenamewriteSelect" placeholder="ลักษณะชุดถ่ายภาพเพิ่มเติม">
+  </mat-form-field>
+   <br><br>
 
   <mat-form-field>
     <mat-select placeholder="โปรโมชั่น" [(ngModel)]="promotionphotocollectionIDSelect" name="id">

@@ -13,8 +13,7 @@ export class PhotocollectionComponent implements OnInit {
 startdateIDSelect = null;
 data:any={}
 lastdateIDSelect = null;
-constructor(private photocollection: Controller,
-private httpClient: HttpClient,
+constructor(private photocollection: Controller,private httpClient: HttpClient,
      private router:Router,
      private route:ActivatedRoute) { }
 
@@ -30,6 +29,8 @@ private httpClient: HttpClient,
   shootingstyleID: Array<any>;
   shootingstyleIDSelect = null;
 
+  shootingstylenamewriteString: Array<any>;
+  shootingstylenamewriteSelect = null;
 
 
   ngOnInit() {
@@ -47,6 +48,11 @@ private httpClient: HttpClient,
               console.log(this.shootingstyleID);
       });
 
+      this.photocollection.getPhotocollection().subscribe(data => {
+              this.shootingstylenamewriteString = data;
+              console.log(this.shootingstylenamewriteString);
+      });
+
        this.route.params.subscribe(prams=>{
                         this.data = prams
                         console.log(prams)
@@ -60,6 +66,9 @@ insert(){
       else if(this.shootingstyleIDSelect == null){
                   alert('กรุณาเลือกลักษณะชุดถ่ายภาพ');
       }
+      else if(this.shootingstylenamewriteSelect == null){
+                  alert('กรุณาเลือกลักษณะชุดถ่ายภาพเพิ่มเติม');
+      }
       else if(this.promotionphotocollectionIDSelect == null){
                         alert('กรุณาเลือกโปรโมชั่น');
       }
@@ -72,7 +81,7 @@ insert(){
       else{
        this.httpClient.post('http://localhost:8080/photocollection/' + this.data.first + '/' + this.photoseriesIDSelect + '/'
                      + this.promotionphotocollectionIDSelect + '/' + this.shootingstyleIDSelect + '/' + this.startdateIDSelect + '/' +
-                     this.lastdateIDSelect ,{})
+                     this.lastdateIDSelect + '/' + this.shootingstylenamewriteSelect ,{})
                      .subscribe(
                        data => {
                            console.log('PUT Request is successful', data);
@@ -86,35 +95,30 @@ insert(){
                       }
   }
 
-    home(){
+  home(){
        this.router.navigate(['home',{first:this.data.first}]);
        console.log(this.data);
     }
     studio(){
          this.router.navigate(['reservation-studio',{first:this.data.first}]);
          console.log(this.data);
-    }
+      }
 
     equipment(){
-         this.router.navigate(['reservation-equipment',{first:this.data.first}]);
-         console.log(this.data);
-    }
-    photo(){
-         this.router.navigate(['reservation-photographer',{first:this.data.first}]);
-         console.log(this.data);
-    }
-    collect(){
-         this.router.navigate(['photocollection',{first:this.data.first}]);
-         console.log(this.data);
-    }
-    model(){
-         this.router.navigate(['reservation-model',{first:this.data.first}]);
-         console.log(this.data);
-    }
-    registerPhotography(){
-        this.router.navigate(['register-photography',{first:this.data.first}]);
-        console.log(this.data);
-    }
-
+           this.router.navigate(['reservation-equipment',{first:this.data.first}]);
+           console.log(this.data);
+        }
+         photo(){
+                                       this.router.navigate(['reservation-photographer',{first:this.data.first}]);
+                                       console.log(this.data);
+                                    }
+     collect(){
+                this.router.navigate(['photocollection',{first:this.data.first}]);
+                console.log(this.data);
+             }
+              model(){
+                               this.router.navigate(['reservation-model',{first:this.data.first}]);
+                                                   console.log(this.data);
+                  }
 
 }
