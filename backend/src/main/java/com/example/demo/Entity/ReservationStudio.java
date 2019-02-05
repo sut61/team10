@@ -22,7 +22,11 @@ public class ReservationStudio {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="reservationStudio_seq")
     private Long reservationStudio_id;
 
-    private @NotNull int price;
+    @NotNull
+    @Min(value = 1000)
+    @Max(value = 2000)
+    @Positive
+    private int price;
 
     @Temporal(TemporalType.DATE)
     private @io.micrometer.core.lang.NonNull

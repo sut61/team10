@@ -26,6 +26,7 @@ public class Reservationequipment {
 
     private Date Daterent;
     @NotNull
+    @Column(unique = true)
     @Pattern(regexp = "[0-9]{13}")
 
     private String cardid;

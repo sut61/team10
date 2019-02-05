@@ -44,7 +44,7 @@ public class TestReservationequipment {
         validator = factory.getValidator();
     }
     @Test
-    public void testReservationequipment() {
+    public void testReservationequipmentNoInt() {
         Reservationequipment reser = new Reservationequipment();
         reser.setCardid("kihi1531311");
         reser.setMember(member);
@@ -65,7 +65,7 @@ public class TestReservationequipment {
         }
     }
     @Test
-    public void testReservationequipment1() {
+    public void testReservationequipmentMin() {
         Reservationequipment reser = new Reservationequipment();
         reser.setCardid("123456");
         reser.setMember(member);
@@ -86,7 +86,7 @@ public class TestReservationequipment {
         }
     }
     @Test
-    public void testReservationequipment2() {
+    public void testReservationequipmentOver() {
         Reservationequipment reser = new Reservationequipment();
         reser.setCardid("123456789123456");
         reser.setMember(member);
@@ -105,6 +105,47 @@ public class TestReservationequipment {
         }catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+    @Test
+    public void testReservationequipmentNull() {
+        Reservationequipment reser = new Reservationequipment();
+        reser.setCardid(null);
+        reser.setMember(member);
+        reser.setEquipment(equipment);
+        reser.setTimereceive(timereceive);
+        try {
+            reser.setDaterent(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(reser);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test(expected=javax.persistence.PersistenceException.class)
+    public void testUniqueRentwquipment() {
+        Reservationequipment reser = new Reservationequipment();
+        reser.setCardid("1234567891234");
+        reser.setMember(member);
+        reser.setEquipment(equipment);
+        reser.setTimereceive(timereceive);
+        entityManager.persist(reser);
+        entityManager.flush();
+
+        Reservationequipment reser1 = new Reservationequipment();
+        reser1.setCardid("1234567891234");
+        reser1.setMember(member);
+        reser1.setEquipment(equipment);
+        reser1.setTimereceive(timereceive);
+        entityManager.persist(reser1);
+        entityManager.flush();
+
+        fail("Should not pass to this line");
     }
 
 }

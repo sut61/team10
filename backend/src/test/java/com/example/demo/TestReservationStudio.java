@@ -60,16 +60,15 @@ public class TestReservationStudio {
             entityManager.persist(reser);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+            //fail("Should not pass to this line");
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 2);
         }catch (ParseException e) {
             e.printStackTrace();
         }
     }
-
 
     @Test
     public void testReservationStudio1() {
@@ -85,7 +84,31 @@ public class TestReservationStudio {
             entityManager.persist(reser);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+          //  fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
+        }catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testReservationStudio2() {
+        ReservationStudio reser = new ReservationStudio();
+        reser.setPrice(2001);
+        reser.setMember(member);
+        reser.setPromotionStudio(promotionStudio);
+        reser.setRoomStudio(roomStudio);
+        reser.setTimeStudio(timeStudio);
+
+        try {
+            reser.setReservationDate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(reser);
+            entityManager.flush();
+
+            //  fail("Should not pass to this line");
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
@@ -95,6 +118,29 @@ public class TestReservationStudio {
         }
     }
 
+    @Test
+    public void testReservationStudio3() {
+        ReservationStudio reser = new ReservationStudio();
+        reser.setPrice(999);
+        reser.setMember(member);
+        reser.setPromotionStudio(promotionStudio);
+        reser.setRoomStudio(roomStudio);
+        reser.setTimeStudio(timeStudio);
+
+        try {
+            reser.setReservationDate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(reser);
+            entityManager.flush();
+
+            //  fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
