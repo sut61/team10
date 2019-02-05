@@ -1,4 +1,4 @@
-package com.example.demo;
+﻿package com.example.demo;
 
 import com.example.demo.Entity.RegisterPhotographys.*;
 import com.example.demo.Entity.*;
@@ -350,7 +350,7 @@ public class DemoApplication {
             Promotionphotocollection promotionphotocollection1 = new Promotionphotocollection("1วัน 300บาท");
             Promotionphotocollection promotionphotocollection2 = new Promotionphotocollection("2วัน 400บาท");
             Promotionphotocollection promotionphotocollection3 = new Promotionphotocollection("3วัน 500บาท");
-            Promotionphotocollection promotionphotocollection4 = new Promotionphotocollection("44ัน 600บาท");
+            Promotionphotocollection promotionphotocollection4 = new Promotionphotocollection("4วัน 600บาท");
             Promotionphotocollection promotionphotocollection5 = new Promotionphotocollection("5วัน 700บาท");
             Promotionphotocollection promotionphotocollection6 = new Promotionphotocollection("6วัน 800บาท");
             Promotionphotocollection promotionphotocollection7 = new Promotionphotocollection("7วัน 900บาท");
