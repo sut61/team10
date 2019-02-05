@@ -94,6 +94,26 @@ export class Controller {
                 public getProvince(): Observable<any> {
                   return this.httpClient.get(this.API + '/province');
                 }
+getReservationequipment_id(): Observable<any> {
+      return this.httpClient.get(this.API + '/Reservationequipment');
+    }
+
+getReservationStudio_id(): Observable<any> {
+      return this.httpClient.get(this.API + '/reservationStudio');
+    }
+getReservationphotographer_id(): Observable<any> {
+      return this.httpClient.get(this.API + '/ReservationPhotographer');
+    }
+getPhotocollection_id(): Observable<any> {
+      return this.httpClient.get(this.API + '/Photocollection');
+    }
+getCardtype(): Observable<any> {
+      return this.httpClient.get(this.API + '/Cardtype');
+    }
+
+getCardbank(): Observable<any> {
+      return this.httpClient.get(this.API + '/Cardbank');
+    }
 
 
          //diki kawasaki sprint-2

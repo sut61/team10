@@ -37,6 +37,7 @@ import { RepairinvoicedComponent } from './repairinvoiced/repairinvoiced.compone
 import { LoginwithadminComponent , Loginfail2Dialog} from './loginwithadmin/loginwithadmin.component';
 import { LoginhomeComponent } from './loginhome/loginhome.component';
 import { RegisterPhotographyComponent } from './register-photography/register-photography.component';
+import { PayonlineComponent } from './payonline/payonline.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { RegisterPhotographyComponent } from './register-photography/register-ph
     LoginwithadminComponent,
     LoginhomeComponent,
     Loginfail2Dialog,
-    RegisterPhotographyComponent
+    RegisterPhotographyComponent,
+    PayonlineComponent
 
   ],
 
