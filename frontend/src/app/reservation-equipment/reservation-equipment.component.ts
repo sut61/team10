@@ -12,18 +12,17 @@ import {Router} from "@angular/router";
   styleUrls: ['./reservation-equipment.component.css']
 })
 export class ReservationEquipmentComponent implements OnInit {
-  private daterent:Date;
+ private daterent:Date
 
 data:any={}
   equis: Array<any>;
   times: Array<any>;
   mems: Array<any>;
-
-
   equiSelect ='';
   timeSelect = '';
   memSelect = '';
 
+   cardid1 = null;
   constructor(private controller: Controller,
               private httpClient: HttpClient,
               private router:Router,
@@ -48,12 +47,12 @@ data:any={}
 
   }
   insert() {
-         if (this.daterent == null || this.timeSelect == null|| this.equiSelect == null) {
+         if (this.daterent == null || this.timeSelect == null|| this.equiSelect == null || this.cardid1 == null) {
                 alert('กรุณากรอกข้อมูลให้ครบ');
 
           }
           else{
-    this.httpClient.post('http://localhost:8080/reservationequipment/ ' + this.daterent + '/' + this.timeSelect + '/' + this.equiSelect + '/' + this.data.first , {})
+    this.httpClient.post('http://localhost:8080/reservationequipment/ ' + this.daterent + '/'+ this.cardid1 + '/' + this.timeSelect + '/' + this.equiSelect + '/' + this.data.first ,{})
       .subscribe(
         data => {
           console.log('PUT Request is successful', data);

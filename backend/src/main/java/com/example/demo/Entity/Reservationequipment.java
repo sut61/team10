@@ -27,16 +27,20 @@ public class Reservationequipment {
     private Date Daterent;
     @NotNull
     @Pattern(regexp = "[0-9]{13}")
-   // @Size(min=13,max=13)
-    private String Cardid;
 
+    private String cardid;
     public String getCardid() {
-        return Cardid;
+        return cardid;
     }
 
     public void setCardid(String cardid) {
-        Cardid = cardid;
+        this.cardid = cardid;
     }
+
+
+
+
+
 
 
 
@@ -94,8 +98,8 @@ public void setMember(Member member){
 
 
     public Reservationequipment(){}
-    public Reservationequipment(Date Daterent, Member member, Equipment equipment, Timereceive timereceive){
-
+    public Reservationequipment(Date Daterent ,String cardid, Member member, Equipment equipment, Timereceive timereceive){
+    this.cardid = cardid;
     this.Daterent = Daterent;
     this.member =member;
     this.timereceive = timereceive;
