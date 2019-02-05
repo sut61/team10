@@ -28,9 +28,12 @@ public class Member {
     Date birthdate;
 
     @NotNull
+    @Pattern(regexp = "[a-zA-Z0-9]+")
+    @Column(unique = true)
     private String userid ;
 
     @NotNull
+    @Pattern(regexp = "[a-zA-Z0-9]+")
     private String password ;
 
     @NotNull
@@ -45,12 +48,12 @@ public class Member {
 
     @NotNull(message="name must not be null to be valid")
     @Pattern(regexp = "[a-zA-Z]+")
-    @Size(min = 1 ,max = 20)
+    @Size(min = 2 ,max = 20)
     private String name ;
 
     @NotNull(message="lastname must not be null to be valid")
     @Pattern(regexp = "[a-zA-Z]+")
-    @Size(min = 1 ,max = 20)
+    @Size(min = 2 ,max = 20)
     private String lastname ;
 
     public Member(){}
