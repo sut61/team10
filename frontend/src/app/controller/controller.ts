@@ -132,5 +132,8 @@ getCardbank(): Observable<any> {
          public getStudyTime(): Observable<any> {
               return this.httpClient.get(this.API + '/StudyTime');
          }
+         public getRegisterPhotography(): Observable<any> {
+              return this.httpClient.get(this.API + '/registerPhotography');
+         }
 
 }

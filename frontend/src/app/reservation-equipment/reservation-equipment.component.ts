@@ -51,6 +51,9 @@ data:any={}
                 alert('กรุณากรอกข้อมูลให้ครบ');
 
           }
+          else if((this.cardid1 as string).length != 13){
+                alert("กรุณาใส่เลขบัตรประชาชนให้ครบ");
+          }
           else{
     this.httpClient.post('http://localhost:8080/reservationequipment/ ' + this.daterent + '/'+ this.cardid1 + '/' + this.timeSelect + '/' + this.equiSelect + '/' + this.data.first ,{})
       .subscribe(

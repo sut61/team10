@@ -1,4 +1,4 @@
-﻿package com.example.demo;
+package com.example.demo;
 
 import com.example.demo.Entity.RegisterPhotographys.*;
 import com.example.demo.Entity.*;

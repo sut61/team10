@@ -5,8 +5,8 @@ import javax.persistence.*;
 @Entity
 public class Camara {
     @Id
-    @SequenceGenerator(name="camary_seq",sequenceName="camary_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="camary_seq")
+    @SequenceGenerator(name="camara_seq",sequenceName="camara_seq")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="camara_seq")
     private Long id;
     private String camaraName;
     private String camaraType;
