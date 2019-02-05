@@ -18,11 +18,13 @@ public class Photocollection {
     private @NonNull Long id;
     private @NonNull Date startdate;
     private @NonNull Date lastdate;
-
+    private @NonNull String shootingstylenamewrite;
     private @NonNull String photoseriesname;
     private @NonNull String promotionphotocollectionname;
     private @NonNull String shootingstylename;
 
+    public String getShootingstylenamewrite() { return shootingstylenamewrite; }
+    public void setShootingstylenamewrite(String shootingstylenamewrite) { this.shootingstylenamewrite = shootingstylenamewrite; }
     public void setPhotoseriesname(String photoseriesname) { this.photoseriesname = photoseriesname;  }
     public String getPhotoseriesname() { return photoseriesname;  }
     public void setPromotionphotocollectionname(String promotionphotocollectionname) { this.promotionphotocollectionname = promotionphotocollectionname; }
@@ -67,13 +69,14 @@ public class Photocollection {
 
     public Photocollection(){}
     public Photocollection(Date startdate,Date lastdate,Member member,Photoseries photoseries
-            ,Promotionphotocollection promotionphotocollection,Shootingstyle shootingstyle){
+            ,Promotionphotocollection promotionphotocollection,Shootingstyle shootingstyle,String shootingstylenamewrite){
         this.startdate=startdate;
         this.lastdate=lastdate;
         this.member=member;
         this.photoseries=photoseries;
         this.promotionphotocollection=promotionphotocollection;
         this.shootingstyle=shootingstyle;
+        this.shootingstylenamewrite=shootingstylenamewrite;
     }
 
 
