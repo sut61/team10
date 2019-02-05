@@ -12,7 +12,7 @@ import {LoginwithadminComponent} from '../loginwithadmin/loginwithadmin.componen
 import {RepairinvoicedComponent} from "../repairinvoiced/repairinvoiced.component";
 import {LoginhomeComponent} from '../loginhome/loginhome.component'
 import {RegisterPhotographyComponent} from '../register-photography/register-photography.component'
-
+import {PayonlineComponent} from '../payonline/payonline.component';
 const routes: Routes = [
 {path:'',component:LoginhomeComponent},
     {path:'loginwithadmin',component:LoginwithadminComponent},
@@ -25,7 +25,8 @@ const routes: Routes = [
     {path:'photocollection',component:PhotocollectionComponent},
     {path: 'reservation-model',component:ReservationModelComponent},
     {path: 'repairinvoiced',component:RepairinvoicedComponent},
-    {path: 'register-photography',component:RegisterPhotographyComponent}
+    {path: 'register-photography',component:RegisterPhotographyComponent},
+    {path: 'payonline',component:PayonlineComponent}
 ];
 
 @NgModule({
