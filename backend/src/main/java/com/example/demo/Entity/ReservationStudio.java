@@ -1,38 +1,51 @@
 package com.example.demo.Entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-import lombok.*;
-
+@Data
 @Entity
 public class ReservationStudio {
+    public Long getReservationStudio_id() {
+        return reservationStudio_id;
+    }
+
+    public void setReservationStudio_id(Long reservationStudio_id) {
+        this.reservationStudio_id = reservationStudio_id;
+    }
+
     @Id
     @SequenceGenerator(name="reservationStudio_seq",sequenceName="reservationStudio_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="reservationStudio_seq")
-    @NotNull private Long id;
+    private Long reservationStudio_id;
 
-    @NotNull
-    @Positive
-    private int price;
+    private @NotNull int price;
 
+    @Temporal(TemporalType.DATE)
+    private @io.micrometer.core.lang.NonNull
+    Date reservationDate;
 
-    private Date reservationDate;
+    public Member getMember() {
+        return member;
+    }
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    @ManyToOne
     private  Member member ;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private  PromotionStudio promotionStudio ;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private  RoomStudio roomStudio;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private  TimeStudio timeStudio;
 
 
@@ -60,23 +73,11 @@ public class ReservationStudio {
     public void setTimeStudio(TimeStudio timeStudio) {
         this.timeStudio = timeStudio;
     }
-    public Long getId() {
-        return id;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
     public Date getReservationDate() {
         return reservationDate;
     }
     public void setReservationDate(Date reservationDate) {
         this.reservationDate = reservationDate;
     }
-    public Member getMember() {
-        return member;
-    }
 
-    public void setMember(Member member) {
-        this.member = member;
-    }
 }
