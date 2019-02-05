@@ -276,17 +276,18 @@ public class Controller {
     }
 
 
-    @PostMapping(path = "/reservationequipment/{daterent}/{timereceive}/{equipment}/{name}")
+    @PostMapping(path = "/reservationequipment/{daterent}/{cardid}/{timereceive}/{equipment}/{name}")
     public Reservationequipment reservationequipment(
             @PathVariable Date daterent ,
             @PathVariable Long timereceive,@PathVariable Long equipment
-            ,@PathVariable String  name){
+            ,@PathVariable String  name,@PathVariable String cardid){
 
         Member member1 = memberRepository.findByName(name);
         Timereceive timereceive1 = timereceiverepository.findById(timereceive).get();
         Equipment equipment1 = equipmentrepository.findById(equipment).get();
 
         Reservationequipment reservationequipment = new Reservationequipment();
+        reservationequipment.setCardid(cardid);
         reservationequipment.setDaterent(daterent);
         reservationequipment.setMember(member1);
         reservationequipment.setTimereceive(timereceive1);

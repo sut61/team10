@@ -91,6 +91,10 @@
     </mat-form-field>
     <br>
     <br>
+    <font >กรอกรหัสประชาชน</font>
+    <mat-form-field>
+      <input matInput #input maxlength="13"  value="" [(ngModel)]="cardid1">
+    </mat-form-field>
     <br>
     <button mat-fab color="primary"  class="enter" (click)= "insert()">Enter</button>
 
