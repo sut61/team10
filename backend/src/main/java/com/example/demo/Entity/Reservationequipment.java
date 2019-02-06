@@ -28,7 +28,7 @@ public class Reservationequipment {
     @NotNull
     @Column(unique = true)
     @Pattern(regexp = "[0-9]{13}")
-
+    @Size(min = 13,max=13)
     private String cardid;
     public String getCardid() {
         return cardid;
