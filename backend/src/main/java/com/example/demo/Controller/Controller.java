@@ -56,7 +56,11 @@ public class Controller {
         @Autowired SkillLevelRepository skillLevelRepository;
         @Autowired StudyTimeRepository studyTimeRepository;
     //}
-
+    //Natthapon sprint 2{
+    @Autowired TablePhotographerRepository tablePhotographerRepository; //Ice
+    @Autowired TimesPhotogarpherRepository timesPhotogarpherRepository; //ICe
+    @Autowired PromotionTableRepository promotionTableRepository; //Ice
+//}
     @GetMapping(path = "/address", produces = MediaType.APPLICATION_JSON_VALUE)
 
     public Collection<Address> address() {
@@ -156,6 +160,20 @@ public class Controller {
     public Collection<RepairInvoiced> repairInvoiceds() {
         return repairInvoicedRepository.findAll().stream().collect(Collectors.toList());
     }
+    //Natthapon sprint 2{
+    @GetMapping("/tablephotographer")
+    public Collection<TablePhotographer> tablePhotographers() {
+        return tablePhotographerRepository.findAll().stream().collect(Collectors.toList());
+    }
+    @GetMapping("/timesphotogarpher")
+    public Collection<TimesPhotogarpher> timesPhotogarphers() {
+        return timesPhotogarpherRepository.findAll().stream().collect(Collectors.toList());
+    }
+    @GetMapping("/promotiontable")
+    public Collection<PromotionTable> promotionTables() {
+        return promotionTableRepository.findAll().stream().collect(Collectors.toList());
+    }
+    //}
 
     @PostMapping(path = "/reservationPhotographer/{name}/{photographer}/{typePhoto}/{promotionPhotographer}/{startTime}/{finalTime}/{timeSelect}/{comment}")
     public ReservationPhotographer reservationPhotographer(@PathVariable String name , @PathVariable Long photographer ,
@@ -466,6 +484,29 @@ public class Controller {
         return registerPhotographyRepository.save(registerPhotography);
     }
     //}
+//Natthapon sprint 2{
+    @PostMapping(path ="/tablephotographer/{photoSelect}/{telSelect}/{typephotoSelect}/{timetableSelect}/{promotiontableSelect}/{locationSelect}/{date}/{admin}")
+    public TablePhotographer tablePhotographer(@PathVariable Long photoSelect,@PathVariable String telSelect,@PathVariable Long typephotoSelect
+            ,@PathVariable Long timetableSelect,@PathVariable Long promotiontableSelect,@PathVariable String locationSelect , @PathVariable Date date, @PathVariable String admin){
 
+        Admin admin1 = adminRepository.findByUserid(admin);
+        Photographer photographer1 = photographerRepository.findById(photoSelect).get();
+        TypePhoto typePhoto1 = typePhotoRepository.findById(typephotoSelect).get();
+        TimesPhotogarpher timesPhotogarpher = timesPhotogarpherRepository.findById(timetableSelect).get();
+        PromotionTable promotionTable = promotionTableRepository.findById(promotiontableSelect).get();
+        TablePhotographer tablePhotographer = new TablePhotographer();
+        tablePhotographer.setAdmin(admin1);
+        tablePhotographer.setPhotographer(photographer1);
+        tablePhotographer.setTel(telSelect);
+        tablePhotographer.setTypePhoto(typePhoto1);
+        tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
+        tablePhotographer.setPromotionTable(promotionTable);
+        tablePhotographer.setLocation(locationSelect);
+        tablePhotographer.setDate(date);
+        tablePhotographerRepository.save(tablePhotographer);
+        return tablePhotographer;
+
+    }
+//}
 }
 
