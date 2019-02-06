@@ -28,7 +28,8 @@ public class DemoApplication {
                            Promotionphotocollectionrepository promotionphotocollectionrepository, Shootingstylerepository shootingstylerepository, ModelRepository modelRepository,
                            PromotionModelRepository promotionModelRepository , ProvinceRepository provinceRepository, AdminRepository adminRepository, CamaraRepository camaraRepository,
                            InstructorRepository instructorRepository, PhotographyTypeRepository photographyTypeRepository, RegisterPhotographyRepository registerPhotographyRepository,
-                           SkillLevelRepository skillLevelRepository, StudyTimeRepository studyTimeRepository,Cardbankrepository cardbankrepository,Cardtyperepository cardtyperepository){
+                           SkillLevelRepository skillLevelRepository, StudyTimeRepository studyTimeRepository,Cardbankrepository cardbankrepository,Cardtyperepository cardtyperepository,
+                           TimesPhotogarpherRepository timesPhotogarpherRepository,PromotionTableRepository promotionTableRepository){
         return args -> {
             Admin admin = new Admin();
             admin.setPassword("admin");
@@ -488,6 +489,27 @@ public class DemoApplication {
             cardbankrepository.save(cb4);
             cardbankrepository.save(cb5);
 
+            //Natthapon sprint 2{
+            TimesPhotogarpher timesPhotogarpher1 = new TimesPhotogarpher();
+            TimesPhotogarpher timesPhotogarpher2 = new TimesPhotogarpher();
+            TimesPhotogarpher timesPhotogarpher3 = new TimesPhotogarpher();
+            timesPhotogarpher1.setTimes("8.00-12.00 น.");
+            timesPhotogarpher2.setTimes("13.00-17.00 น.");
+            timesPhotogarpher3.setTimes("8.00-17.00 น.");
+            timesPhotogarpherRepository.save(timesPhotogarpher1);
+            timesPhotogarpherRepository.save(timesPhotogarpher2);
+            timesPhotogarpherRepository.save(timesPhotogarpher3);
+
+            PromotionTable promotionTable1 = new PromotionTable();
+            PromotionTable promotionTable2 = new PromotionTable();
+            PromotionTable promotionTable3 = new PromotionTable();
+            promotionTable1.setPromotionName("ครึ่งวันเช้า");promotionTable1.setPrice(2000);
+            promotionTable2.setPromotionName("ครึ่งวันบ่าย");promotionTable2.setPrice(2000);
+            promotionTable3.setPromotionName("เต็มวัน");promotionTable3.setPrice(4500);
+            promotionTableRepository.save(promotionTable1);
+            promotionTableRepository.save(promotionTable2);
+            promotionTableRepository.save(promotionTable3);
+        //}
         };
     }
 }
