@@ -3,8 +3,10 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.Null;
-
+import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import lombok.*;
 
 @Table(name ="Payment")
@@ -15,10 +17,19 @@ public class Payment {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Payment_seq")
     @Column(name="Payment_ID")
     @Id private @NonNull Long Payment_id;
-    private  int Payment_total;
-    private  String card_id;
-    private   int Card_cvv;
-    private   String Card_name;
+
+    @Positive
+    private @NonNull int Payment_total;
+    @Pattern(regexp = "[0-9]{16}")
+    @Size(min=16,max = 16)
+    @Column(unique = true)
+    private @NonNull String card_id;
+
+    @Max(value = 999)
+    @Positive
+    private @NonNull  int Card_cvv;
+    @Pattern(regexp = "[a-zA-Z]+")
+    private @NonNull  String Card_name;
 
 
 

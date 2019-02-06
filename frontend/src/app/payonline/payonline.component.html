@@ -108,7 +108,7 @@
 
   <font >ราคาที่ต้องการชำระ</font>
   <mat-form-field  style="width: 40;">
-    <input matInput #input maxlength="5" [(ngModel)]="payment_total" [ngModelOptions]="{standalone: true}" type="text">
+    <input matInput #input maxlength="4" [(ngModel)]="payment_total" [ngModelOptions]="{standalone: true}" type="text">
   </mat-form-field>
 
   <br>
@@ -129,9 +129,6 @@
   <mat-form-field style="width: 40%;">
     <input matInput #input maxlength="16" [(ngModel)]="card_id" [ngModelOptions]="{standalone: true}" type="text">
   </mat-form-field>
-
-
-
 
   <br>
   <font>ชื่อเจ้าของบัตร</font>

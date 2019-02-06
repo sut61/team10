@@ -82,8 +82,12 @@ this.route.params.subscribe(prams=>{
        if (this.card_cvv == null || this.card_name == null|| this.cardbankSelect == null ||
         this.cardSelect == null || this.card_id == null) {
               alert('กรุณากรอกข้อมูลให้ครบ');
+ }
+          else if((this.card_id as string).length != 16){
+                alert("กรุณาใส่เลขบัตรประชาชนให้ครบ");
+          }
 
-        }
+
         else{
            this.httpClient.post('http://localhost:8080/payment/ ' + this.card_cvv  + '/' + this.card_name + '/'  + this.payment_total + '/'  + this.card_id + '/' + this.cardbankSelect + '/' + this.cardSelect + '/'  + this.data.first + '/' + this.rent5Select + '/' + this.rent2Select + '/' + this.rent4Select + '/' + this.rent3Select + '/' + this.rent1Select ,{})
            .subscribe(
