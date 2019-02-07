@@ -61,6 +61,52 @@ public class Controller {
     @Autowired TimesPhotogarpherRepository timesPhotogarpherRepository; //ICe
     @Autowired PromotionTableRepository promotionTableRepository; //Ice
 //}
+
+    //M Sprint2{
+    @Autowired Photopicturerepository photopicturerepository;
+    @Autowired Photosizerepository photosizerepository;
+    @Autowired Phototyperepository phototyperepository;
+
+    @GetMapping(path = "/Photopicture")
+    public Collection<Photopicture> Photopicture() {
+        return photopicturerepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/Photosize")
+    public Collection<Photosize> Photosize() {
+        return photosizerepository.findAll().stream().collect(Collectors.toList());
+    }
+
+    @GetMapping(path = "/Phototype")
+    public Collection<Phototype> Phototype() {
+        return phototyperepository.findAll().stream().collect(Collectors.toList());
+    }
+    @PostMapping(path = "/photopicture/{member}/{dataname}/{phototypeIDSelect}/{photosizeIDSelect}/{datadateIDSelect}/{admin}")
+    public Photopicture photopicture(@PathVariable Long member, @PathVariable String dataname, @PathVariable Long phototypeIDSelect,
+                                     @PathVariable Long  photosizeIDSelect, @PathVariable Date datadateIDSelect
+            ,@PathVariable String admin) {
+
+        Member member1 = memberRepository.findById(member).get();
+        Photosize photosize = photosizerepository.findById(photosizeIDSelect).get();
+        Phototype phototype = phototyperepository.findById(phototypeIDSelect).get();
+        Admin admin1 = adminRepository.findByUserid(admin);
+
+
+        Photopicture photopicture = new Photopicture();
+        photopicture.setMember(member1);
+        photopicture.setDataname(dataname);
+        photopicture.setPhotosize(photosize);
+        photopicture.setPhototype(phototype);
+        photopicture.setDatedata(datadateIDSelect);
+        photopicture.setAdmin(admin1);
+
+
+        photopicturerepository.save(photopicture);
+
+        return photopicture;
+    }
+
+    //}
     @GetMapping(path = "/address", produces = MediaType.APPLICATION_JSON_VALUE)
 
     public Collection<Address> address() {
