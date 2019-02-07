@@ -18,10 +18,10 @@
     <mat-button-toggle value="left" style="color:#000000;" >แจ้งซ่อมอุปกรณ์</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;"  >บันทึกการส่งรูป</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;" (click)="repair()" >บันทึกการส่งรูป</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;" >จัดตารางงานช่างภาพ</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;" (click)="Phototable()" >จัดตารางงานช่างภาพ</mat-button-toggle>
   </mat-button-toggle-group>
   <mat-divider></mat-divider>
 </mat-toolbar>

@@ -13,6 +13,7 @@ import {RepairinvoicedComponent} from "../repairinvoiced/repairinvoiced.componen
 import {LoginhomeComponent} from '../loginhome/loginhome.component'
 import {RegisterPhotographyComponent} from '../register-photography/register-photography.component'
 import {PayonlineComponent} from '../payonline/payonline.component';
+import {TablePhotogarpherComponent} from '../table-photogarpher/table-photogarpher.component';
 const routes: Routes = [
 {path:'',component:LoginhomeComponent},
     {path:'loginwithadmin',component:LoginwithadminComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
     {path: 'reservation-model',component:ReservationModelComponent},
     {path: 'repairinvoiced',component:RepairinvoicedComponent},
     {path: 'register-photography',component:RegisterPhotographyComponent},
-    {path: 'payonline',component:PayonlineComponent}
+    {path: 'payonline',component:PayonlineComponent},
+  {path: 'table-photogarpher',component:TablePhotogarpherComponent}
 ];
 
 @NgModule({
