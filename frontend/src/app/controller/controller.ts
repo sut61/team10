@@ -139,4 +139,14 @@ getCardbank(): Observable<any> {
               return this.httpClient.get(this.API + '/reservationStudio');
          }
 
+            getTablePhotogarpher(): Observable<any> {
+            return this.httpClient.get(this.API + '/tablephotographer');
+            }
+            getTimeTable(): Observable<any> {
+            return this.httpClient.get(this.API + '/timesphotogarpher');
+            }
+            getPromotionTable(): Observable<any> {
+            return this.httpClient.get(this.API + '/promotiontable');
+            }
+
 }

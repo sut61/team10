@@ -1,0 +1,127 @@
+<html>
+
+<mat-card class = "basic-container" style="background-color:#003333">
+  <mat-toolbar-row>
+    <span class = "version-info" style="color:#FFFF99;" >Photo</span> &nbsp;
+    <span class = "version-info" style="color:#99FF00;" >Studio</span> &nbsp;
+    <span class = "version-info1" style="color:#CCFF66;" >Team10</span>
+    <span class="example-fill-remaining-space"></span>
+    <a mat-button routerLink="." style="color:#FFFFFF;" routerLink="">LOGOUT</a>
+  </mat-toolbar-row>
+</mat-card>
+
+<mat-toolbar style="background-color:#003330">
+  <span style="color:#FFFFFF;">WELCOME TO PHOTO STUDIO</span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="repair()">แจ้งซ่อมอุปกรณ์</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;"  >บันทึกการส่งรูป</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="Phototable()" >จัดตารางงานช่างภาพ</mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-divider></mat-divider>
+</mat-toolbar>
+
+
+
+
+<body class = "box">
+
+<br/>
+<div >
+
+  <br><br><br>
+
+  <mat-card class="card">
+
+    <mat-form-field>
+      <mat-select placeholder="เลือกช่างภาพ" [(ngModel)]="photoSelect" name="photographer_name"[ngModelOptions]="{standalone: true}">
+              <mat-option *ngFor="let photo of photos" [value]="photo.photographer_id">
+                {{photo.photographer_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+          <mat-form-field >
+            <input matInput [(ngModel)]="telSelect" placeholder="Tel" maxlength="10" value="" name="Tel">
+          </mat-form-field> <br>
+
+          <mat-form-field >
+            <mat-select placeholder="ประเภทงาน"[(ngModel)]="typephotoSelect" name="typephoto_name"[ngModelOptions]="{standalone: true}">
+              <mat-option *ngFor="let typephoto of typephotos" [value]="typephoto.typephoto_id">
+                {{typephoto.typephoto_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> <br>
+
+          <mat-form-field>
+            <mat-select [(ngModel)]="timetableSelect"  placeholder ="เวลาถ่ายงาน" name="timetable">
+              <mat-option *ngFor="let time of timetable" [value]="time.id">
+                {{time.times}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field> <br>
+
+          <mat-form-field >
+            <mat-select placeholder="Promotion" [(ngModel)]="promotiontableSelect" name="promotion"[ngModelOptions]="{standalone: true}">
+              <mat-option *ngFor="let pro of promotiontable" [value]="pro.id">
+                {{pro.promotionName}}  {{pro.price}} บาท
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+          <mat-form-field >
+            <input matInput [(ngModel)]="locationSelect" placeholder="สถานที่นัดหมาย" value=""  name="location">
+          </mat-form-field> <br>
+
+          <mat-form-field>
+            <input matInput [(ngModel)]="tabledate"[matDatepicker]="picker" placeholder="Choose a date"[ngModelOptions]="{standalone: true}">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field><br>
+          <button mat-fab color="primary" (click)= "insert()" >ยืนยัน</button><br>
+  </mat-card>
+
+          <mat-card class="recomment" >
+            <p class="handdetel" style="font-size: 30px">ตารางงานช่างภาพ</p>
+            <table class="detail">
+              <th>No.</th>
+              <th>Photographer</th>
+              <th>Tel</th>
+              <th>Type</th>
+              <th>Time</th>
+              <th>Promotion</th>
+              <th>Location</th>
+              <th>Date</th>
+              <ng-container *ngFor="let table of tablephotographer">
+                <tr>
+                  <td>{{table.id}}</td>
+                  <td>{{table.photographer.photographer_name}}</td>
+                  <td>{{table.tel}}</td>
+                  <td>{{table.typePhoto.typephoto_name}}</td>
+                  <td>{{table.timesPhotogarpher.times}}</td>
+                  <td>{{table.promotionTable.promotionName}}    {{table.promotionTable.price}} บาท</td>
+                  <td>{{table.location}}</td>
+                  <td>{{table.date}}</td>
+                </tr>
+              </ng-container>
+            </table>
+
+          </mat-card>
+
+
+
+
+        </div>
+
+
+</body>
+</html>
+
+
+
+

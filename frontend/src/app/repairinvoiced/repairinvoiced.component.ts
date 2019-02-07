@@ -70,6 +70,15 @@ export class RepairinvoicedComponent implements OnInit {
       console.log(this.data.first);
 
    }
+  Phototable(){
+
+    this.router.navigate(['table-photogarpher',{first:this.data.first}]);
+    console.log(this.data);
+  }
+  repair(){
+    this.router.navigate(['repairinvoiced',{first:this.data.first}]);
+    console.log(this.data);
+  }
 
 
 

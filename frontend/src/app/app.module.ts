@@ -38,6 +38,7 @@ import { LoginwithadminComponent , Loginfail2Dialog} from './loginwithadmin/logi
 import { LoginhomeComponent } from './loginhome/loginhome.component';
 import { RegisterPhotographyComponent } from './register-photography/register-photography.component';
 import { PayonlineComponent } from './payonline/payonline.component';
+import { TablePhotogarpherComponent } from './table-photogarpher/table-photogarpher.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { PayonlineComponent } from './payonline/payonline.component';
     LoginhomeComponent,
     Loginfail2Dialog,
     RegisterPhotographyComponent,
-    PayonlineComponent
+    PayonlineComponent,
+    TablePhotogarpherComponent
 
   ],
 
