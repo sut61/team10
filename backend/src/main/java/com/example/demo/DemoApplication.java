@@ -24,7 +24,7 @@ public class DemoApplication {
                            RoomStudioRepository roomStudioRepository , TimeStudioRepository timeStudioRepository, Reservationequipmentrepository reservationequipmentrepository,
                            Equipmentrepository equipmentrepository, Timereceiverepository timereceiverepository, PhotographerRepository photographerRepository,
                            PromotionPhotographerRepository promotionPhotographerRepository, TypePhotoRepository typePhotoRepository, StartTimeRepository startTimeRepository,
-                           FinalTimeRepository finalTimeRepository , Photocollectionrepository photocollectionrepository, Photoseriesrepository photoseriesrepository,
+                           Photocollectionrepository photocollectionrepository, Photoseriesrepository photoseriesrepository,
                            Promotionphotocollectionrepository promotionphotocollectionrepository, Shootingstylerepository shootingstylerepository, ModelRepository modelRepository,
                            PromotionModelRepository promotionModelRepository , ProvinceRepository provinceRepository, AdminRepository adminRepository, CamaraRepository camaraRepository,
                            InstructorRepository instructorRepository, PhotographyTypeRepository photographyTypeRepository, RegisterPhotographyRepository registerPhotographyRepository,
@@ -246,25 +246,13 @@ public class DemoApplication {
             photographerRepository.save(ph5);
 
             //สร้าง Promotion
-            PromotionPhotographer pg1 = new PromotionPhotographer("1ชม. 200บาท", 1, 200);
-            PromotionPhotographer pg2 = new PromotionPhotographer("2ชม. 400บาท", 2, 400);
-            PromotionPhotographer pg3 = new PromotionPhotographer("3ชม. 600บาท", 3, 600);
-            PromotionPhotographer pg4 = new PromotionPhotographer("4ชม. 800บาท", 4, 800);
-            PromotionPhotographer pg5 = new PromotionPhotographer("5ชม. 1000บาท", 5, 1000);
-            PromotionPhotographer pg6 = new PromotionPhotographer("6ชม. 1200บาท", 6, 1200);
-            PromotionPhotographer pg7 = new PromotionPhotographer("7ชม. 1400บาท", 7, 1400);
-            PromotionPhotographer pg8 = new PromotionPhotographer("8ชม. 1500บาท", 8, 1500);
-            PromotionPhotographer pg9 = new PromotionPhotographer("9ชม. 1800บาท", 9, 1800);
+            PromotionPhotographer pg1 = new PromotionPhotographer("ช่วงเช้า 1500 บาท", 1, 1500);
+            PromotionPhotographer pg2 = new PromotionPhotographer("ช่วงบ่าย 1600 บาท", 2, 1600);
+            PromotionPhotographer pg3 = new PromotionPhotographer("เต็มวัน 2100 บาท", 3, 2100);
             promotionPhotographerRepository.save(pg1);
             promotionPhotographerRepository.save(pg2);
             promotionPhotographerRepository.save(pg3);
-            promotionPhotographerRepository.save(pg4);
-            promotionPhotographerRepository.save(pg5);
-            promotionPhotographerRepository.save(pg6);
-            promotionPhotographerRepository.save(pg7);
-            promotionPhotographerRepository.save(pg8);
-            promotionPhotographerRepository.save(pg9);
-
+            
             //สร้าง Type Photo
             TypePhoto tp1 = new TypePhoto("Fashion Photography");
             TypePhoto tp2 = new TypePhoto("Wedding Photography");
@@ -276,77 +264,15 @@ public class DemoApplication {
             typePhotoRepository.save(tp4);
 
             //สร้าง startTime and finalTime
-            StartTime s1 = new StartTime("6:00");
-            StartTime s2 = new StartTime("7:00");
-            StartTime s3 = new StartTime("8:00");
-            StartTime s4 = new StartTime("9:00");
-            StartTime s5 = new StartTime("10:00");
-            StartTime s6 = new StartTime("11:00");
-            StartTime s7 = new StartTime("12:00");
-            StartTime s8 = new StartTime("13:00");
-            StartTime s9 = new StartTime("14:00");
-            StartTime s10 = new StartTime("15:00");
-            StartTime s11 = new StartTime("16:00");
-            StartTime s12 = new StartTime("17:00");
-            StartTime s13 = new StartTime("18:00");
-            StartTime s14 = new StartTime("19:00");
-            StartTime s15 = new StartTime("20:00");
-            StartTime s16 = new StartTime("21:00");
-            StartTime s17 = new StartTime("22:00");
+            StartTime s1 = new StartTime("6:00-12:00");
+            StartTime s2 = new StartTime("13:00-19:00");
+            StartTime s3 = new StartTime("8:00-19:00");
+
             startTimeRepository.save(s1);
             startTimeRepository.save(s2);
             startTimeRepository.save(s3);
-            startTimeRepository.save(s4);
-            startTimeRepository.save(s5);
-            startTimeRepository.save(s6);
-            startTimeRepository.save(s7);
-            startTimeRepository.save(s8);
-            startTimeRepository.save(s9);
-            startTimeRepository.save(s10);
-            startTimeRepository.save(s11);
-            startTimeRepository.save(s12);
-            startTimeRepository.save(s13);
-            startTimeRepository.save(s14);
-            startTimeRepository.save(s15);
-            startTimeRepository.save(s16);
-            startTimeRepository.save(s17);
 
 
-
-            FinalTime f1 = new FinalTime("6:00");
-            FinalTime f2 = new FinalTime("7:00");
-            FinalTime f3 = new FinalTime("8:00");
-            FinalTime f4 = new FinalTime("9:00");
-            FinalTime f5 = new FinalTime("10:00");
-            FinalTime f6 = new FinalTime("11:00");
-            FinalTime f7 = new FinalTime("12:00");
-            FinalTime f8 = new FinalTime("13:00");
-            FinalTime f9 = new FinalTime("14:00");
-            FinalTime f10 = new FinalTime("15:00");
-            FinalTime f11 = new FinalTime("16:00");
-            FinalTime f12 = new FinalTime("17:00");
-            FinalTime f13 = new FinalTime("18:00");
-            FinalTime f14 = new FinalTime("19:00");
-            FinalTime f15 = new FinalTime("20:00");
-            FinalTime f16 = new FinalTime("21:00");
-            FinalTime f17 = new FinalTime("22:00");
-            finalTimeRepository.save(f1);
-            finalTimeRepository.save(f2);
-            finalTimeRepository.save(f3);
-            finalTimeRepository.save(f4);
-            finalTimeRepository.save(f5);
-            finalTimeRepository.save(f6);
-            finalTimeRepository.save(f7);
-            finalTimeRepository.save(f8);
-            finalTimeRepository.save(f9);
-            finalTimeRepository.save(f10);
-            finalTimeRepository.save(f11);
-            finalTimeRepository.save(f12);
-            finalTimeRepository.save(f13);
-            finalTimeRepository.save(f14);
-            finalTimeRepository.save(f15);
-            finalTimeRepository.save(f16);
-            finalTimeRepository.save(f17);
 
             Photoseries photoseries1 = new Photoseries("ชุดว่ายน้ำ");
             Photoseries photoseries2 = new Photoseries("ชุดไทย");

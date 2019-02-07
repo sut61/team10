@@ -33,7 +33,6 @@ public class Controller {
     @Autowired private TypePhotoRepository typePhotoRepository;
     @Autowired private ReservationPhotographerRepository reservationPhotographerRepository;
     @Autowired private StartTimeRepository startTimeRepository;
-    @Autowired private FinalTimeRepository finalTimeRepository;
     @Autowired private Photocollectionrepository photocollectionrepository;
     @Autowired private Photoseriesrepository photoseriesrepository;
     @Autowired private Promotionphotocollectionrepository promotionphotocollectionrepository;
@@ -197,10 +196,6 @@ public class Controller {
     public Collection<StartTime> startTimes() {
         return startTimeRepository.findAll().stream().collect(Collectors.toList());
     }
-    @GetMapping("/FinalTime")
-    public Collection<FinalTime> finalTimes() {
-        return finalTimeRepository.findAll().stream().collect(Collectors.toList());
-    }
 
     @GetMapping("/repairinvoiced")
     public Collection<RepairInvoiced> repairInvoiceds() {
@@ -221,18 +216,17 @@ public class Controller {
     }
     //}
 
-    @PostMapping(path = "/reservationPhotographer/{name}/{photographer}/{typePhoto}/{promotionPhotographer}/{startTime}/{finalTime}/{timeSelect}/{comment}")
+    @PostMapping(path = "/reservationPhotographer/{name}/{photographer}/{typePhoto}/{promotionPhotographer}/{startTime}/{timeSelect}/{comment}")
     public ReservationPhotographer reservationPhotographer(@PathVariable String name , @PathVariable Long photographer ,
                                                            @PathVariable Long typePhoto, @PathVariable Long promotionPhotographer,
-                                                           @PathVariable Long startTime , @PathVariable Long finalTime,
-                                                           @PathVariable Date timeSelect, @PathVariable String comment){
+                                                           @PathVariable Long startTime, @PathVariable Date timeSelect, @PathVariable String comment){
 
         Member member1 = memberRepository.findByUserid(name);
         Photographer photographer1 = photographerRepository.findById(photographer).get();
         PromotionPhotographer promotionPhotographer1 = promotionPhotographerRepository.findById(promotionPhotographer).get();
         TypePhoto typePhoto1 = typePhotoRepository.findById(typePhoto).get();
         StartTime startTime1 = startTimeRepository.findById(startTime).get();
-        FinalTime finalTime1 = finalTimeRepository.findById(finalTime).get();
+
 
 
         ReservationPhotographer reservationPhotographer1 = new ReservationPhotographer();
@@ -241,7 +235,6 @@ public class Controller {
         reservationPhotographer1.setTypePhoto(typePhoto1);
         reservationPhotographer1.setPromotionPhotographer(promotionPhotographer1);
         reservationPhotographer1.setStartTime(startTime1);
-        reservationPhotographer1.setFinalTime(finalTime1);
         reservationPhotographer1.setReservation_date(timeSelect);
         reservationPhotographer1.setComment_photo(comment);
         reservationPhotographerRepository.save(reservationPhotographer1);
