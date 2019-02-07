@@ -20,8 +20,6 @@ export class ReservationPhotographerComponent implements OnInit {
   promotionphotoSelect=null;
   starttimes: Array<any>;
   starttimeSelect = null;
-  finaltimes : Array<any>;
-  finaltimeSelect = null;
   comment:String;
   comments : Array<any>;
   time = null;
@@ -59,10 +57,7 @@ export class ReservationPhotographerComponent implements OnInit {
       this.starttimes = data;
       console.log(this.starttimes);
     });
-    this.controller.getFinalTime().subscribe(data => {
-      this.finaltimes = data;
-      console.log(this.finaltimes);
-    });
+
     this.route.params.subscribe(prams=>{
                       this.data = prams
                       console.log(prams)
@@ -71,18 +66,17 @@ export class ReservationPhotographerComponent implements OnInit {
   }
   enter(){
     if(this.photoSelect == null || this.typephotoSelect == null || this.promotionphotoSelect == null
-    || this.starttimeSelect == null || this.finaltimeSelect == null || this.comment == null ) {
+    || this.starttimeSelect == null  || this.comment == null ) {
       alert('กรุณาใส่ข้อมูลให้ครบ');
-
-    }else if(this.promotionphotoSelect != (this.finaltimeSelect-this.starttimeSelect)){
-      alert('เลือกเวลาให้ถูกต้อง');
+    }else if(this.promotionphotoSelect != this.starttimeSelect){
+      alert('กรุณาเลือกโปรโมชั่นและเวลาให้ตรงกัน')
     }
     else if(this.time == null) {
       alert('กรุณาเลือกวันที่จอง');
     }
     else{
       this.httpClient.post('http://localhost:8080/reservationPhotographer/' +this.data.first+ '/' +this.photoSelect
-        + '/' +this.typephotoSelect+ '/' +this.promotionphotoSelect+'/'+this.starttimeSelect+'/'+this.finaltimeSelect+'/'+this.time
+        + '/' +this.typephotoSelect+ '/' +this.promotionphotoSelect+'/'+this.starttimeSelect+'/'+this.time
         +'/'+this.comment,{})
         .subscribe(
           data => {

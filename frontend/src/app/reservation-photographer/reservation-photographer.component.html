@@ -8,7 +8,6 @@
     <a mat-button routerLink="." style="color:#FFFFFF;" routerLink="">LOGOUT</a>
   </mat-toolbar-row>
 </mat-card>
-
 <mat-toolbar style="background-color:#003330">
   <span style="color:#FFFFFF;">WELCOME TO PHOTO STUDIO</span>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -84,32 +83,28 @@
   </mat-form-field>
 
 <br><br>
-  <mat-form-field class ="texttime">
-    <input matInput [matDatepicker]="picker" placeholder="วันที่จอง" style="color:black;" [(ngModel)]="time">
-    <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
-    <mat-datepicker #picker ></mat-datepicker>
-  </mat-form-field>
-  <br><br>
 
-  <mat-form-field class ="textsf">
-    <mat-select placeholder="Select start time" [(ngModel)]="starttimeSelect" name="stratTime"[ngModelOptions]="{standalone: true}">
+  <mat-form-field class ="text">
+    <mat-select placeholder="Select time" [(ngModel)]="starttimeSelect" name="stratTime"[ngModelOptions]="{standalone: true}">
       <mat-option *ngFor="let start of starttimes" [value]="start.id">
         {{start.stratTime}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-
-  <mat-form-field class ="textsf">
-    <mat-select placeholder="Select final time" [(ngModel)]="finaltimeSelect" name="finalTime"[ngModelOptions]="{standalone: true}">
-      <mat-option *ngFor="let final of finaltimes" [value]="final.id">
-        {{final.finalTime}}
-      </mat-option>
-    </mat-select>
+  <br><br>
+  <mat-form-field class ="texttime">
+    <input matInput [matDatepicker]="picker" placeholder="วันที่จอง" style="color:black;" [(ngModel)]="time">
+    <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
+    <mat-datepicker #picker ></mat-datepicker>
   </mat-form-field>
+
+
+
   <br>
 
   <mat-form-field class="boxcomment">
-    <textarea matInput [(ngModel)]="comment" [ngModelOptions]="{standalone: true}" type="text"  placeholder="รายละเอียดเพิ่มเติม เช่น สถานที่นัดพบ" ROWS="3" COLS="105"></textarea>
+    <textarea matInput [(ngModel)]="comment" [ngModelOptions]="{standalone: true}" type="text" #M  placeholder="รายละเอียดเพิ่มเติม เช่น สถานที่นัดพบ" ROWS="3" COLS="105"></textarea>
+    <mat-hint align="end">{{M.value.length}} / 250</mat-hint>
   </mat-form-field>
   <br><br>
 
@@ -124,8 +119,7 @@
     <th>Name</th>
     <th>Photographer</th>
     <th>Type</th>
-    <th>Start times</th>
-    <th>final times</th>
+    <th>times</th>
     <th>Date</th>
     <th>Price (THB)</th>
     <th>Detail</th>
@@ -135,8 +129,7 @@
         <td>{{comment.member.name}}</td>
         <td>{{comment.photographer.photographer_name}}</td>
         <td>{{comment.typePhoto.typephoto_name}}</td>
-        <td>{{comment.startTime.stratTime}}</td>
-        <td>{{comment.finalTime.finalTime}}</td>
+        <td class="cut">{{comment.startTime.stratTime}}</td>
         <td class="cut">{{comment.reservation_date}}</td>
         <td>{{comment.promotionPhotographer.promotion_price}}</td>
         <td>{{comment.comment_photo}}</td>
