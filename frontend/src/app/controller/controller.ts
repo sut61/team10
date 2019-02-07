@@ -61,9 +61,7 @@ export class Controller {
              getStartTime(): Observable<any> {
                return this.httpClient.get(this.API + '/StartTime');
              }
-             getFinalTime(): Observable<any> {
-               return this.httpClient.get(this.API + '/FinalTime');
-             }
+
              getComment(): Observable<any> {
                return this.httpClient.get(this.API + '/ReservationPhotographer');
              }
