@@ -15,10 +15,10 @@
 .example-card {
       width: 25%;
       height: 500px;;
-      left: 12%;
-      right: 17%;
+      left: 10%;
+      right: Auto;
       float: left;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255);
 }
 
 .header{
@@ -46,10 +46,24 @@
 }
 .recomment{
   float: left;
-  left: 14%;
+  left: 12%;
+  right: Auto;
   height: 500px;
   width:950px;
   overflow:auto;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255);
 }
 
+td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #FFFFFF;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}

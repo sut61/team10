@@ -11,18 +11,19 @@ import {Router} from "@angular/router";
 })
 export class ReservationStudioComponent implements OnInit {
   roomStudios : Array<any>;
-  roomStudioSelect='';
+  roomStudioSelect= null;
   data:any={}
   promotionStudios : Array<any>;
-  promotionStudioSelect='';
+  promotionStudioSelect= null;
 
   timeStudios : Array<any>
-  timeStudioSelect='';
+  timeStudioSelect= null;
 
   reservationDates = null ;
 
   priceNew = null;
 
+  reservationStudio : Array<any>;
 
    constructor(private controller:Controller,private httpClient: HttpClient,public dialog: MatDialog,
     private route:ActivatedRoute,private router:Router,) { }
@@ -39,10 +40,16 @@ export class ReservationStudioComponent implements OnInit {
                      this.timeStudios = data;
                      console.log(this.timeStudios);
                  });
+      this.controller.getReservationStudio().subscribe(data => {
+                     this.reservationStudio = data;
+                     console.log(this.reservationStudio);
+                 });
        this.route.params.subscribe(prams=>{
                     this.data = prams
                     console.log(prams)
                   })
+
+
   }
    reset(){
           this.roomStudioSelect=null;
@@ -85,12 +92,12 @@ export class ReservationStudioComponent implements OnInit {
                         console.log('Error', error);
                     }
                   );
-
                   alert("ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ");
-
+                  window.location.reload()
            }
-        }
-home(){
+   }
+
+  home(){
      this.router.navigate(['home',{first:this.data.first}]);
      console.log(this.data);
   }
@@ -98,28 +105,27 @@ home(){
        this.router.navigate(['reservation-studio',{first:this.data.first}]);
        console.log(this.data);
     }
-
   equipment(){
          this.router.navigate(['reservation-equipment',{first:this.data.first}]);
          console.log(this.data);
       }
-payment(){
+  payment(){
          this.router.navigate(['payonline',{first:this.data.first}]);
          console.log(this.data);
       }
-       photo(){
-                                     this.router.navigate(['reservation-photographer',{first:this.data.first}]);
-                                     console.log(this.data);
-                                  }
+   photo(){
+           this.router.navigate(['reservation-photographer',{first:this.data.first}]);
+           console.log(this.data);
+    }
     collect(){
-                    this.router.navigate(['photocollection',{first:this.data.first}]);
-                    console.log(this.data);
-                 }
-                  model(){
-                                   this.router.navigate(['reservation-model',{first:this.data.first}]);
-                                                       console.log(this.data);
-                      }
-registerPhotography(){
+            this.router.navigate(['photocollection',{first:this.data.first}]);
+            console.log(this.data);
+     }
+    model(){
+            this.router.navigate(['reservation-model',{first:this.data.first}]);
+             console.log(this.data);
+    }
+    registerPhotography(){
         this.router.navigate(['register-photography',{first:this.data.first}]);
         console.log(this.data);
     }

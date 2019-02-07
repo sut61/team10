@@ -46,12 +46,13 @@
   </mat-button-toggle-group>&nbsp;
   <mat-divider></mat-divider>
 </mat-toolbar>
+
 <body class = "dataBox">
 <br>
 <mat-card class="example-card">
    <h2 class="topic" style="color:#000000;">Reservation your studio</h2>
   <div class="example-full-width">
-    <mat-form-field>
+    <mat-form-field class="label">
       <mat-select  placeholder="เลือกสตูดิโอ" [(ngModel)]="roomStudioSelect">
         <mat-option *ngFor="let room of roomStudios" [value]="room.id">
           {{room.name}}
@@ -59,7 +60,7 @@
       </mat-select>
     </mat-form-field>
     <br>
-    <mat-form-field>
+    <mat-form-field class="label">
       <mat-select  placeholder="เลือกโปรโมชั่น" [(ngModel)]="promotionStudioSelect">
         <mat-option *ngFor="let promotion of promotionStudios" [value]="promotion.id">
           {{promotion.promotionName}}
@@ -67,7 +68,7 @@
       </mat-select>
     </mat-form-field>
     <br>
-    <mat-form-field>
+    <mat-form-field class="label">
       <mat-select  placeholder="ช่วงเวลา" [(ngModel)]="timeStudioSelect">
         <mat-option *ngFor="let time of timeStudios" [value]="time.id">
           {{time.time_name}}
@@ -75,23 +76,44 @@
       </mat-select>
     </mat-form-field>
     <br>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="label">
       <input matInput [matDatepicker]="picker" placeholder="วันที่จอง" style="color:black;" [(ngModel)]="reservationDates">
       <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
       <mat-datepicker #picker ></mat-datepicker>
     </mat-form-field>
     <br>
 
-      <mat-form-field>
+      <mat-form-field class="label">
         <input matInput placeholder="กรอกราคา" value="" [(ngModel)]="priceNew">
       </mat-form-field>
     <br>
     <button mat-raised-button color="warn" (click)="insert()">SAVE</button>
     <button mat-raised-button color="primary" (click)="reset()">RESET</button>
   </div>
+</mat-card>
+<br>
+<mat-card class="recomment">
+  <table class="table">
+    <th>ลำดับที่</th>
+    <th>ชื่อผู้ใช้</th>
+    <th>สตูดีโอ</th>
+    <th>โปรโมชั่น</th>
+    <th>ช่วงเวลา</th>
+    <th>วันที่จอง</th>
+    <th>ราคา</th>
+    <ng-container *ngFor="let re of reservationStudio">
+      <tr>
+        <td>{{re.reservationStudio_id}}</td>
+        <td>{{re.member.name}}</td>
+        <td>{{re.roomStudio.name}}</td>
+        <td>{{re.promotionStudio.promotionName}}</td>
+        <td>{{re.timeStudio.time_name}}</td>
+        <td>{{re.reservationDate}}</td>
+        <td>{{re.price}}</td>
+      </tr>
+    </ng-container>
+  </table>
 
 </mat-card>
-
-
 </body>
 </html>
