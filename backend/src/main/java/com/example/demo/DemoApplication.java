@@ -29,7 +29,8 @@ public class DemoApplication {
                            PromotionModelRepository promotionModelRepository , ProvinceRepository provinceRepository, AdminRepository adminRepository, CamaraRepository camaraRepository,
                            InstructorRepository instructorRepository, PhotographyTypeRepository photographyTypeRepository, RegisterPhotographyRepository registerPhotographyRepository,
                            SkillLevelRepository skillLevelRepository, StudyTimeRepository studyTimeRepository,Cardbankrepository cardbankrepository,Cardtyperepository cardtyperepository,
-                           TimesPhotogarpherRepository timesPhotogarpherRepository,PromotionTableRepository promotionTableRepository , CommentRepository commentRepository){
+                           TimesPhotogarpherRepository timesPhotogarpherRepository,PromotionTableRepository promotionTableRepository , CommentRepository commentRepository,Phototyperepository phototyperepository,
+                           Photosizerepository photosizerepository){
         return args -> {
             Admin admin = new Admin();
             admin.setPassword("admin");
@@ -529,6 +530,22 @@ public class DemoApplication {
             comment.setComments("ฟหกฟหกฟหกฟหก");
             commentRepository.save(comment);
         //}
+            //{sprint2 Somporn passorn
+            Photosize photosize1 = new Photosize("A4");
+            Photosize photosize2 = new Photosize("A3");
+            Photosize photosize3 = new Photosize("4*6 in");
+            Photosize photosize4 = new Photosize("FullSize");
+            photosizerepository.save(photosize1);
+            photosizerepository.save(photosize2);
+            photosizerepository.save(photosize3);
+            photosizerepository.save(photosize4);
+            Phototype phototype1 = new Phototype("Aulbum");
+            Phototype phototype2 = new Phototype("Single");
+            Phototype phototype3 = new Phototype("BigSize");
+            phototyperepository.save(phototype1);
+            phototyperepository.save(phototype2);
+            phototyperepository.save(phototype3);
+            //}
         };
     }
 }
