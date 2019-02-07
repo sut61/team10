@@ -181,7 +181,7 @@ public class Controller {
                                                            @PathVariable Long startTime , @PathVariable Long finalTime,
                                                            @PathVariable Date timeSelect, @PathVariable String comment){
 
-        Member member1 = memberRepository.findByName(name);
+        Member member1 = memberRepository.findByUserid(name);
         Photographer photographer1 = photographerRepository.findById(photographer).get();
         PromotionPhotographer promotionPhotographer1 = promotionPhotographerRepository.findById(promotionPhotographer).get();
         TypePhoto typePhoto1 = typePhotoRepository.findById(typePhoto).get();
@@ -211,7 +211,7 @@ public class Controller {
         TimeStudio timeStudio1 = timeStudioRepository.findById(timeStudio).get();
 
         ReservationStudio reservationStudio = new ReservationStudio();
-        Member member = memberRepository.findByName(name);
+        Member member = memberRepository.findByUserid(name);
         reservationStudio.setMember(member);
         reservationStudio.setRoomStudio(roomStudio1);
         reservationStudio.setPromotionStudio(promotionStudio1);
@@ -300,7 +300,7 @@ public class Controller {
             @PathVariable Long timereceive,@PathVariable Long equipment
             ,@PathVariable String  name,@PathVariable String cardid){
 
-        Member member1 = memberRepository.findByName(name);
+        Member member1 = memberRepository.findByUserid(name);
         Timereceive timereceive1 = timereceiverepository.findById(timereceive).get();
         Equipment equipment1 = equipmentrepository.findById(equipment).get();
 
@@ -348,7 +348,7 @@ public class Controller {
         Shootingstyle shootingstyle = shootingstylerepository.findByname(shootingstyleIDSelect);
 
         Photocollection photocollection = new Photocollection();
-        Member member = memberRepository.findByName(name);
+        Member member = memberRepository.findByUserid(name);
         photocollection.setMember(member);
         photocollection.setPhotoseries(photoseries);
         photocollection.setPromotionphotocollection(promotionphotocollection);
@@ -370,7 +370,7 @@ public class Controller {
 
         Model model = modelRepository.findById(modelnameSelect).get();
         PromotionModel promotionModel = promotionModelRepository.findById(promotionmodelSelect).get();
-        Member member = memberRepository.findByName(name);
+        Member member = memberRepository.findByUserid(name);
         ReservationModel reservationModel = new ReservationModel();
         reservationModel.setMember(member);
         reservationModel.setModel(model);
@@ -407,7 +407,7 @@ public class Controller {
 
         Cardtype cardtype = cardtyperepository.findById(card_type).get();
         Cardbank cardbank1 = cardbankrepository.findById(cardbank).get();
-        Member member = memberRepository.findByName(name);
+        Member member = memberRepository.findByUserid(name);
         Reservationequipment renteq = reservationequipmentrepository.findById(rent1).get();
         ReservationModel reservationModel1 = reservationModelRepository.findById(rent2).get();
         ReservationStudio reservationStudio1 = reservationStudioRepository.findById(rent3).get();
