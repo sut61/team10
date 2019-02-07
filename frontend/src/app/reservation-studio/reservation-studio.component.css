@@ -9,9 +9,10 @@
  }
 
 .example-card {
-       max-width: 600px;
-       margin-left: auto;
-       margin-right: auto;
+       max-width: 450px;
+       margin-left: Auto;
+       margin-right: Auto;
+
 
 }
 .example-header-image {
@@ -32,5 +33,28 @@ H2 { text-align: center }
 .example-full-width {
     text-align: center;
 }
+.label{
+    width: 100%;
+}
+.recomment{
+  margin-left: Auto;
+  margin-right: Auto;
+  height: 250px;
+  width:650px;
+  overflow:auto;
+  background-color: rgba(255, 255, 255, 0.9);
+}
 
-
+td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #FFFFFF;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}

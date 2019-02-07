@@ -54,7 +54,8 @@ export class RegisterPhotographyComponent implements OnInit {
        this.instructorSelect != null &&
        this.photographyTypeSelect != null &&
        this.skillLevelSelect != null &&
-       this.studyTimeSelect != null){
+       this.studyTimeSelect != null &&
+       this.message != null){
                      this.httpClient.post('http://localhost:8080/registerPhotography/' + this.camaraSelect + '/' + this.instructorSelect + '/' +
                                         this.photographyTypeSelect + '/' + this.skillLevelSelect + '/' + this.studyTimeSelect + '/' + this.data.first + '/' +
                                         this.message,{})
@@ -67,12 +68,7 @@ export class RegisterPhotographyComponent implements OnInit {
                                             }
                                           );
                      alert("ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ");
-                           this.camaraSelect = null;
-                           this.instructorSelect = null ;
-                           this.photographyTypeSelect = null ;
-                           this.skillLevelSelect = null ;
-                           this.studyTimeSelect = null ;
-                           window.location.reload()
+                     window.location.reload()
                }
                else{
                   alert("กรุณาใส่ข้อมูลให้ครบค่ะ");

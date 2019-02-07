@@ -3,6 +3,9 @@ package com.example.demo.Entity.RegisterPhotographys;
 import com.example.demo.Entity.Member;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -11,6 +14,11 @@ public class RegisterPhotography {
     @SequenceGenerator(name="registerPhotography_seq",sequenceName="registerPhotography_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="registerPhotography_seq")
     private Long id;
+
+    @NotNull
+    @Size(min = 2 ,max = 30)
+    @Pattern(regexp = "[a-zA-Z0-9ก-๙]+")
+    @Column(unique = true)
     private String message;
 
     @Temporal(TemporalType.DATE)
@@ -19,14 +27,19 @@ public class RegisterPhotography {
 
     @ManyToOne
     private Member member ;
+
     @ManyToOne
     private Camara camara ;
+
     @ManyToOne
     private PhotographyType photographyType ;
+
     @ManyToOne
     private Instructor instructor ;
+
     @ManyToOne
     private SkillLevel skillLevel ;
+
     @ManyToOne
     private StudyTime studyTime ;
 
