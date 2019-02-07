@@ -47,12 +47,12 @@ public class Member {
     private String tel ;
 
     @NotNull(message="name must not be null to be valid")
-    @Pattern(regexp = "[a-zA-Z]+")
+    @Pattern(regexp = "[a-zA-Z\\u0E00-\\u0E7F]+")
     @Size(min = 2 ,max = 20)
     private String name ;
 
     @NotNull(message="lastname must not be null to be valid")
-    @Pattern(regexp = "[a-zA-Z]+")
+    @Pattern(regexp = "[a-zA-Z\\u0E00-\\u0E7F]+")
     @Size(min = 2 ,max = 20)
     private String lastname ;
 
