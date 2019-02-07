@@ -29,7 +29,7 @@ public class DemoApplication {
                            PromotionModelRepository promotionModelRepository , ProvinceRepository provinceRepository, AdminRepository adminRepository, CamaraRepository camaraRepository,
                            InstructorRepository instructorRepository, PhotographyTypeRepository photographyTypeRepository, RegisterPhotographyRepository registerPhotographyRepository,
                            SkillLevelRepository skillLevelRepository, StudyTimeRepository studyTimeRepository,Cardbankrepository cardbankrepository,Cardtyperepository cardtyperepository,
-                           TimesPhotogarpherRepository timesPhotogarpherRepository,PromotionTableRepository promotionTableRepository){
+                           TimesPhotogarpherRepository timesPhotogarpherRepository,PromotionTableRepository promotionTableRepository , CommentRepository commentRepository){
         return args -> {
             Admin admin = new Admin();
             admin.setPassword("admin");
@@ -117,6 +117,7 @@ public class DemoApplication {
             equipment1.setEquipment_price(900);
             equipment1.setEquipment_type("camera");
             equipment1.setEquipment_brand("canon");
+            equipment1.setKey("1");
             equipmentrepository.save(equipment1);
 
             Equipment equipment2 = new Equipment();
@@ -124,6 +125,7 @@ public class DemoApplication {
             equipment2.setEquipment_price(1200);
             equipment2.setEquipment_type("camera");
             equipment2.setEquipment_brand("nikon");
+            equipment2.setKey("2");
             equipmentrepository.save(equipment2);
 
             Equipment equipment3 = new Equipment();
@@ -131,6 +133,7 @@ public class DemoApplication {
             equipment3.setEquipment_price(1000);
             equipment3.setEquipment_type("camera");
             equipment3.setEquipment_brand("sony");
+            equipment3.setKey("3");
             equipmentrepository.save(equipment3);
 
             Equipment equipment4 = new Equipment();
@@ -138,6 +141,7 @@ public class DemoApplication {
             equipment4.setEquipment_price(1500);
             equipment4.setEquipment_type("camera");
             equipment4.setEquipment_brand("canon");
+            equipment4.setKey("4");
             equipmentrepository.save(equipment4);
 
             Equipment equipment5 = new Equipment();
@@ -145,6 +149,7 @@ public class DemoApplication {
             equipment5.setEquipment_price(1500);
             equipment5.setEquipment_type("camera");
             equipment5.setEquipment_brand("nikon");
+            equipment5.setKey("5");
             equipmentrepository.save(equipment5);
 
             Equipment equipment6 = new Equipment();
@@ -152,6 +157,7 @@ public class DemoApplication {
             equipment6.setEquipment_price(1600);
             equipment6.setEquipment_type("camera");
             equipment6.setEquipment_brand("sony");
+            equipment6.setKey("6");
             equipmentrepository.save(equipment6);
 
             Equipment equipment7 = new Equipment();
@@ -159,6 +165,7 @@ public class DemoApplication {
             equipment7.setEquipment_price(500);
             equipment7.setEquipment_brand("canon");
             equipment7.setEquipment_type("lens");
+            equipment7.setKey("7");
             equipmentrepository.save(equipment7);
 
             Equipment equipment8 = new Equipment();
@@ -166,6 +173,7 @@ public class DemoApplication {
             equipment8.setEquipment_price(600);
             equipment8.setEquipment_brand("canon");
             equipment8.setEquipment_type("lens");
+            equipment8.setKey("8");
             equipmentrepository.save(equipment8);
 
             Equipment equipment9 = new Equipment();
@@ -173,6 +181,7 @@ public class DemoApplication {
             equipment9.setEquipment_price(600);
             equipment9.setEquipment_brand("nikon");
             equipment9.setEquipment_type("lens");
+            equipment9.setKey("9");
             equipmentrepository.save(equipment9);
 
             Equipment equipment10 = new Equipment();
@@ -180,6 +189,7 @@ public class DemoApplication {
             equipment10.setEquipment_price(500);
             equipment10.setEquipment_brand("nikon");
             equipment10.setEquipment_type("lens");
+            equipment10.setKey("10");
             equipmentrepository.save(equipment10);
 
             Equipment equipment11 = new Equipment();
@@ -187,6 +197,7 @@ public class DemoApplication {
             equipment11.setEquipment_price(500);
             equipment11.setEquipment_brand("sony");
             equipment11.setEquipment_type("lens");
+            equipment11.setKey("11");
             equipmentrepository.save(equipment11);
 
             Equipment equipment12 = new Equipment();
@@ -194,6 +205,7 @@ public class DemoApplication {
             equipment12.setEquipment_price(500);
             equipment12.setEquipment_brand("sony");
             equipment12.setEquipment_type("lens");
+            equipment12.setKey("12");
             equipmentrepository.save(equipment12);
 
             Equipment equipment13 = new Equipment();
@@ -201,6 +213,7 @@ public class DemoApplication {
             equipment13.setEquipment_price(300);
             equipment13.setEquipment_brand("canon");
             equipment13.setEquipment_type("flash");
+            equipment13.setKey("13");
             equipmentrepository.save(equipment13);
 
             Equipment equipment14 = new Equipment();
@@ -208,6 +221,7 @@ public class DemoApplication {
             equipment14.setEquipment_price(300);
             equipment14.setEquipment_brand("nikon");
             equipment14.setEquipment_type("flash");
+            equipment14.setKey("14");
             equipmentrepository.save(equipment14);
 
             Equipment equipment15 = new Equipment();
@@ -215,6 +229,7 @@ public class DemoApplication {
             equipment15.setEquipment_price(300);
             equipment15.setEquipment_brand("sony");
             equipment15.setEquipment_type("flash");
+            equipment15.setKey("15");
             equipmentrepository.save(equipment15);
 
             //สร้าง photographer
@@ -509,6 +524,10 @@ public class DemoApplication {
             promotionTableRepository.save(promotionTable1);
             promotionTableRepository.save(promotionTable2);
             promotionTableRepository.save(promotionTable3);
+
+            Comment comment = new Comment();
+            comment.setComments("ฟหกฟหกฟหกฟหก");
+            commentRepository.save(comment);
         //}
         };
     }

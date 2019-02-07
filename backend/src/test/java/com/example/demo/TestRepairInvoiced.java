@@ -27,9 +27,13 @@ import java.text.SimpleDateFormat;
 public class TestRepairInvoiced {
 
     @Autowired
+    private AdminRepository adminRepository;
+    @Autowired
     private CommentRepository commentRepository;
     @Autowired
     private TestEntityManager entityManager;
+    @Autowired
+    private Equipmentrepository equipmentrepository;
 
     private Validator validator;
     private SimpleDateFormat formatter5 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -37,12 +41,113 @@ public class TestRepairInvoiced {
     private Comment comment;
     private Equipment equipment;
     private Admin admin;
+    Date date = new Date();
+
 
     @Before
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
+        comment = commentRepository.findByComments("ฟหกฟหกฟหกฟหก");
+        admin = adminRepository.findByUserid("admin");
+        equipment = equipmentrepository.findByKey("1");
+
     }
+
+    @Test
+    public void testRepairInvoicedDateinNotNull() {
+        RepairInvoiced repairInvoiced = new RepairInvoiced();
+
+        repairInvoiced.setAdmin(admin);
+        repairInvoiced.setComment(comment);
+        repairInvoiced.setEquipment(equipment);
+
+        try {
+            repairInvoiced.setDatein(null);
+            entityManager.persist(repairInvoiced);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+"------------------>>>>7");
+            System.out.println();
+
+    }
+    }
+
+
+    @Test
+    public void testRepairInvoicedEquipmentNotNull() {
+        RepairInvoiced repairInvoiced = new RepairInvoiced();
+
+        repairInvoiced.setAdmin(null);
+        repairInvoiced.setComment(comment);
+        repairInvoiced.setEquipment(equipment);
+
+        try {
+            repairInvoiced.setDatein(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(repairInvoiced);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+"------------------>>>>7");
+            System.out.println();
+        }catch (ParseException e){
+            System.out.println(e);
+
+        }
+    }
+
+
+    @Test
+    public void testRepairInvoicedaAdminNotNull() {
+        RepairInvoiced repairInvoiced = new RepairInvoiced();
+
+        repairInvoiced.setAdmin(null);
+        repairInvoiced.setComment(null);
+        repairInvoiced.setEquipment(equipment);
+
+        try {
+            repairInvoiced.setDatein(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(repairInvoiced);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+"------------------>>>>6");
+            System.out.println();
+        }catch (ParseException e){
+            System.out.println(e);
+
+        }
+    }
+
+
+    @Test
+    public void testRepairInvoicedCommentNotNull() {
+        RepairInvoiced repairInvoiced = new RepairInvoiced();
+
+        repairInvoiced.setAdmin(admin);
+        repairInvoiced.setComment(null);
+        repairInvoiced.setEquipment(equipment);
+
+        try {
+            repairInvoiced.setDatein(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(repairInvoiced);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+"------------------>>>>1");
+            System.out.println();
+         }catch (ParseException e){
+            System.out.println(e);
+
+        }
+    }
+
+
 
     @Test
     public void testCommentNotnull() {
@@ -59,7 +164,9 @@ public class TestRepairInvoiced {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
-
+            System.out.println();
+            System.out.println(e+"------------------>>>>2");
+            System.out.println();
         }
     }
 
@@ -78,7 +185,9 @@ public class TestRepairInvoiced {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
-
+            System.out.println();
+            System.out.println(e+"------------------>>>>3");
+            System.out.println();
         }
     }
 
@@ -97,7 +206,9 @@ public class TestRepairInvoiced {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
-
+            System.out.println();
+            System.out.println(e+"------------------>>>>4");
+            System.out.println();
         }
     }
 
@@ -116,7 +227,9 @@ public class TestRepairInvoiced {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
-
+            System.out.println();
+            System.out.println(e+"------------------>>>>5");
+            System.out.println();
         }
     }
 
@@ -136,4 +249,6 @@ public class TestRepairInvoiced {
 
         fail("Should not pass to this line");
     }
+
+
 }

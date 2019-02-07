@@ -1,6 +1,8 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -10,9 +12,12 @@ public class RepairInvoiced {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="rep_seq")
     private  Long id;
 
+    @NotNull
     @ManyToOne
     private Comment comment ;
 
+
+    @NotNull
     @ManyToOne
     private Equipment equipment;
 
@@ -58,9 +63,11 @@ public class RepairInvoiced {
         this.datein = datein;
     }
 
+    @NotNull
     @ManyToOne
     private Admin admin ;
 
+    @NotNull
     @Temporal(TemporalType.DATE)
     private @io.micrometer.core.lang.NonNull
     Date datein ;

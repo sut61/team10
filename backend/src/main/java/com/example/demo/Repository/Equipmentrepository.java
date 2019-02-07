@@ -13,4 +13,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 @RepositoryRestResource
 public interface Equipmentrepository extends JpaRepository<Equipment, Long>{
+    Equipment findByKey(String key);
 }
