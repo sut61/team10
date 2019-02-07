@@ -1,6 +1,9 @@
 package com.example.demo.Entity;
 import lombok.*;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 @Entity
 public class ReservationPhotographer {
@@ -8,6 +11,9 @@ public class ReservationPhotographer {
     @SequenceGenerator(name="reservationphotographer_seq",sequenceName="reservationphotographer_seq")
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="reservationphotographer_seq")
     private Long reservationphotographer_id;
+    @NotNull
+    @Pattern(regexp = "^([\\u0E00-\\u0E7F0-9])+")
+    @Size(min = 5 ,max = 250)
     private String comment_photo;
     public Date getReservation_date() { return reservation_date; }
     public void setReservation_date(Date reservation_date) { this.reservation_date = reservation_date; }
@@ -31,18 +37,15 @@ public class ReservationPhotographer {
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = StartTime.class)
     @JoinColumn(name = "StartTime_ID", insertable = true)
     private StartTime startTime;
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = FinalTime.class)
-    @JoinColumn(name = "FinalTime_ID", insertable = true)
-    private FinalTime finalTime;
 
     public ReservationPhotographer(Member member, Photographer photographer, TypePhoto typePhoto, PromotionPhotographer promotionPhotographer,
-                                   StartTime startTime, FinalTime finalTime,Date date,String comment_photo){
+                                   StartTime startTime,Date date,String comment_photo){
         this.member = member;
         this.photographer = photographer;
         this.typePhoto = typePhoto;
         this.promotionPhotographer = promotionPhotographer;
         this.startTime = startTime;
-        this.finalTime = finalTime;
+
         this.reservation_date = date;
         this.comment_photo = comment_photo;
     }
@@ -58,8 +61,6 @@ public class ReservationPhotographer {
     public void setPromotionPhotographer(PromotionPhotographer promotionPhotographer) { this.promotionPhotographer = promotionPhotographer; }
     public StartTime getStartTime() { return startTime; }
     public void setStartTime(StartTime startTime) { this.startTime = startTime; }
-    public FinalTime getFinalTime() { return finalTime; }
-    public void setFinalTime(FinalTime finalTime) { this.finalTime = finalTime; }
     public String getComment_photo() { return comment_photo; }
     public void setComment_photo(String comment_photo) { this.comment_photo = comment_photo; }
 
