@@ -16,20 +16,24 @@ public class Payment {
     @SequenceGenerator(name="Payment_seq",sequenceName="Payment_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Payment_seq")
     @Column(name="Payment_ID")
-    @Id private @NonNull Long Payment_id;
+    @Id private @NotNull Long Payment_id;
 
     @Positive
-    private @NonNull int Payment_total;
+    @Min(value =1000)
+    @Max(value =3000)
+    private @NotNull int Payment_total;
+
     @Pattern(regexp = "[0-9]{16}")
     @Size(min=16,max = 16)
     @Column(unique = true)
-    private @NonNull String card_id;
+    private @NotNull String card_id;
 
-    @Max(value = 999)
     @Positive
-    private @NonNull  int Card_cvv;
+    @Max(value = 999)
+    private @NotNull  int Card_cvv;
+
     @Pattern(regexp = "[a-zA-Z]+")
-    private @NonNull  String Card_name;
+    private @NotNull  String Card_name;
 
 
 
@@ -81,13 +85,13 @@ public class Payment {
     @ManyToOne
 
     private  Reservationequipment reservationequipment;
-
+    @NotNull
     @ManyToOne
     private Member member;
-
+    @NotNull
     @ManyToOne
     private  Cardtype cardtype;
-
+    @NotNull
     @ManyToOne
     private  Cardbank cardbank;
 

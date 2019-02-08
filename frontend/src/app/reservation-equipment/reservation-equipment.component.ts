@@ -21,7 +21,7 @@ data:any={}
   equiSelect ='';
   timeSelect = '';
   memSelect = '';
-
+  detail1 = null;
    cardid1 = null;
   constructor(private controller: Controller,
               private httpClient: HttpClient,
@@ -55,7 +55,7 @@ data:any={}
                 alert("กรุณาใส่เลขบัตรประชาชนให้ครบ");
           }
           else{
-    this.httpClient.post('http://localhost:8080/reservationequipment/ ' + this.daterent + '/'+ this.cardid1 + '/' + this.timeSelect + '/' + this.equiSelect + '/' + this.data.first ,{})
+    this.httpClient.post('http://localhost:8080/reservationequipment/ ' + this.daterent + '/'+ this.detail1 + '/' + this.cardid1 + '/' + this.timeSelect + '/' + this.equiSelect + '/' + this.data.first ,{})
       .subscribe(
         data => {
           console.log('PUT Request is successful', data);
@@ -101,8 +101,4 @@ registerPhotography(){
         this.router.navigate(['register-photography',{first:this.data.first}]);
         console.log(this.data);
     }
-
-
 }
-
-

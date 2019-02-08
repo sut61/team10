@@ -19,7 +19,15 @@ public class Cardtype {
     Long Cardtype_id;
 
     private String Card_type;
+    public String getKey() {
+        return key;
+    }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    private String key ;
 
     public Long getId() {
         return Cardtype_id;

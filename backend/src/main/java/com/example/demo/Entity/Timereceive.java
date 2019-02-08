@@ -3,6 +3,7 @@ import lombok.Data;
 import lombok.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +17,16 @@ public class Timereceive {
     @Column(name = "Timereceive_id", unique = true, nullable = false)
     private @NonNull Long Timereceive_id;
 
-    private String Timereceive_name;
+    private   String Timereceive_name;
+    public String getKey() {
+        return key;
+    }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    private String key ;
 
     public Long getId() {
         return Timereceive_id;
@@ -36,8 +45,7 @@ public class Timereceive {
     }
 
 
-    // @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    // private List<Payment> payments = new ArrayList<>();
+
 
 
     public Timereceive() {
@@ -49,4 +57,3 @@ public class Timereceive {
 
     }
 }
-

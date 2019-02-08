@@ -13,4 +13,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 public interface Timereceiverepository extends JpaRepository<Timereceive, Long> {
 
+
+    Timereceive findByKey(String key);
 }

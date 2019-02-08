@@ -333,11 +333,11 @@ public class Controller {
     }
 
 
-    @PostMapping(path = "/reservationequipment/{daterent}/{cardid}/{timereceive}/{equipment}/{name}")
+    @PostMapping(path = "/reservationequipment/{daterent}/{detail_equipment}/{cardid}/{timereceive}/{equipment}/{name}")
     public Reservationequipment reservationequipment(
             @PathVariable Date daterent ,
             @PathVariable Long timereceive,@PathVariable Long equipment
-            ,@PathVariable String  name,@PathVariable String cardid){
+            ,@PathVariable String  name,@PathVariable String cardid,@PathVariable String detail_equipment){
 
         Member member1 = memberRepository.findByUserid(name);
         Timereceive timereceive1 = timereceiverepository.findById(timereceive).get();
@@ -345,6 +345,7 @@ public class Controller {
 
         Reservationequipment reservationequipment = new Reservationequipment();
         reservationequipment.setCardid(cardid);
+        reservationequipment.setDetail_equipment(detail_equipment);
         reservationequipment.setDaterent(daterent);
         reservationequipment.setMember(member1);
         reservationequipment.setTimereceive(timereceive1);

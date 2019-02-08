@@ -1,5 +1,6 @@
 package com.example.demo.Repository;
 
+import com.example.demo.Entity.Cardbank;
 import com.example.demo.Entity.Cardtype;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -12,4 +13,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 @RepositoryRestResource
 public interface Cardtyperepository extends JpaRepository<Cardtype, Long> {
+    Cardtype findByKey(String key);
 }
