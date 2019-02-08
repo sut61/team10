@@ -119,8 +119,8 @@ export class TablePhotogarpherComponent implements OnInit {
         );
       alert('ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ');
 
-     // window.location.reload()
-      //Ice
+       window.location.reload()
+
     }
   }
 
