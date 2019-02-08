@@ -39,7 +39,7 @@ import { LoginhomeComponent } from './loginhome/loginhome.component';
 import { RegisterPhotographyComponent } from './register-photography/register-photography.component';
 import { PayonlineComponent } from './payonline/payonline.component';
 import { TablePhotogarpherComponent } from './table-photogarpher/table-photogarpher.component';
-
+import { PhotopictureComponent } from './photopicture/photopicture.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +63,8 @@ import { TablePhotogarpherComponent } from './table-photogarpher/table-photogarp
     Loginfail2Dialog,
     RegisterPhotographyComponent,
     PayonlineComponent,
-    TablePhotogarpherComponent
+    TablePhotogarpherComponent,
+    PhotopictureComponent
 
   ],
 

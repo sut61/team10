@@ -18,7 +18,7 @@
     <mat-button-toggle value="left" style="color:#000000;" (click)="repair()">แจ้งซ่อมอุปกรณ์</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
-    <mat-button-toggle value="left" style="color:#000000;"  >บันทึกการส่งรูป</mat-button-toggle>
+    <mat-button-toggle value="left" style="color:#000000;"  (click)="Photocom()">บันทึกการส่งรูป</mat-button-toggle>
   </mat-button-toggle-group>&nbsp;
   <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
     <mat-button-toggle value="left" style="color:#000000;" (click)="Phototable()" >จัดตารางงานช่างภาพ</mat-button-toggle>
@@ -79,7 +79,7 @@
           </mat-form-field> <br>
 
           <mat-form-field>
-            <input matInput [(ngModel)]="tabledate"[matDatepicker]="picker" placeholder="เลือกเวลาถ่ายงาน"[ngModelOptions]="{standalone: true}">
+            <input matInput [(ngModel)]="tabledate"[matDatepicker]="picker" placeholder="Choose a date"[ngModelOptions]="{standalone: true}">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field><br>

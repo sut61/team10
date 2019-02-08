@@ -83,6 +83,10 @@ export class TablePhotogarpherComponent implements OnInit {
     this.router.navigate(['table-photogarpher',{first:this.data.first}]);
     console.log(this.data);
   }
+  Photocom(){
+       this.router.navigate(['photopicture',{first:this.data.first}]);
+       console.log(this.data);
+  }
 
   insert() {
     if (this.photoSelect == null) {
@@ -119,8 +123,8 @@ export class TablePhotogarpherComponent implements OnInit {
         );
       alert('ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ');
 
-       window.location.reload()
-
+     // window.location.reload()
+      //Ice
     }
   }
 
