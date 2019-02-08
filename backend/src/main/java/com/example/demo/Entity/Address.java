@@ -2,6 +2,7 @@ package com.example.demo.Entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -11,10 +12,13 @@ public class Address {
     @SequenceGenerator(name="address_seq",sequenceName="address_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="address_seq")
     private  Long id;
+    @NotNull
     private String address ;
+    @NotNull
     private String tambon ;
+    @NotNull
     private String amphoe ;
-
+    @NotNull
     private String postcode ;
 
 
