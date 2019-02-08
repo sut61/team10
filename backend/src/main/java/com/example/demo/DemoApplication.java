@@ -132,11 +132,15 @@ public class DemoApplication {
             timeStudioRepository.save(timeStudio3);
 
             Timereceive du1 = new Timereceive("รับ 9:00");
+            du1.setKey("1");
             Timereceive du2 = new Timereceive("รับ 12:00");
+            du2.setKey("2");
             Timereceive du3 = new Timereceive("รับ 18:00");
+            du3.setKey("3");
             timereceiverepository.save(du1);
             timereceiverepository.save(du2);
             timereceiverepository.save(du3);
+
 
             Equipment equipment1 = new Equipment();
             equipment1.setEquipment_name("6D II");
@@ -436,9 +440,13 @@ public class DemoApplication {
             studyTimeRepository.save(studyTime3);
 
             Cardtype ct1 = new Cardtype("Visa");
+            ct1.setKey("1");
             Cardtype ct2 = new Cardtype("Mastercard");
+            ct2.setKey("2");
             Cardtype ct3 = new Cardtype("JCB");
+            ct3.setKey("3");
             Cardtype ct4 = new Cardtype("UnionPay");
+            ct4.setKey("4");
             cardtyperepository.save(ct1);
             cardtyperepository.save(ct2);
             cardtyperepository.save(ct3);
@@ -446,10 +454,15 @@ public class DemoApplication {
 
 
             Cardbank cb1 = new Cardbank("กรุงไทย");
+            cb1.setKey("1");
             Cardbank cb2 = new Cardbank("ไทยพาณิชย์");
+            cb2.setKey("2");
             Cardbank cb3 = new Cardbank("กรุงเทพ");
+            cb3.setKey("3");
             Cardbank cb4 = new Cardbank("กสิกรไทย");
+            cb4.setKey("4");
             Cardbank cb5 = new Cardbank("กรุงศรีอยุธยา");
+            cb5.setKey("5");
             cardbankrepository.save(cb1);
             cardbankrepository.save(cb2);
             cardbankrepository.save(cb3);

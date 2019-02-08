@@ -19,7 +19,15 @@ public class Cardbank {
     Long Cardbank_id;
 
     private String Card_bank;
+    public String getKey() {
+        return key;
+    }
 
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    private String key ;
 
     public Long getId() {
         return Cardbank_id;

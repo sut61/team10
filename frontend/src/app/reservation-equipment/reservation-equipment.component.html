@@ -51,55 +51,59 @@
 <body class = "databox" >
 <br>
 <mat-card class="example-card">
-<body class="cen">
+  <body class="cen">
 
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <font>อุปกรณ์ถ่ายภาพ</font>
-    <mat-form-field  style="width: 40%;">
-      <mat-select placeholder="equipment" [(ngModel)]="equiSelect" name="equipment_ID">
-        <mat-option>None</mat-option>
-        <mat-option *ngFor="let equi of equis" [value]="equi.equipment_id" >
-          {{equi.equipment_name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <br>
-    <br>
-    <font>วันรับของ</font>
-    <mat-form-field   style="width: 40%;">
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date" (focus) ="picker.open()" [(ngModel)] ="daterent" required name="date" #date>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <br>
-    <br>
-    <br>
-    <font >เวลารับของ</font>
-    <mat-form-field  style="width: 40%;" >
-      <mat-select placeholder="timereceive" [(ngModel)]="timeSelect" name="timereceive_id">
-        <mat-option>None</mat-option>
-        <mat-option *ngFor="let time of times" [value]="time.timereceive_id" >
-          {{time.timereceive_name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <br>
-    <font >กรอกรหัสประชาชน</font>
-    <mat-form-field>
-      <input matInput #input maxlength="13"  value="" [(ngModel)]="cardid1">
-    </mat-form-field>
-    <br>
-    <button mat-fab color="primary"  class="enter" (click)= "insert()">Enter</button>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
+  <mat-form-field  style="width: 40%;">
+    <mat-select placeholder="อุปกรณ์ถ่ายภาพ" [(ngModel)]="equiSelect" name="equipment_ID">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let equi of equis" [value]="equi.equipment_id" >
+        {{equi.equipment_name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <br>
+  <br>
 
-</body>
+  <mat-form-field   style="width: 40%;">
+    <input matInput [matDatepicker]="picker" placeholder="วันรับของ" (focus) ="picker.open()" [(ngModel)] ="daterent" required name="date" #date>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br>
+  <br>
+  <br>
+
+  <mat-form-field  style="width: 40%;" >
+    <mat-select placeholder="เวลารับของ" [(ngModel)]="timeSelect" name="timereceive_id">
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let time of times" [value]="time.timereceive_id" >
+        {{time.timereceive_name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <br>
+
+  <mat-form-field style="width: 40%;">
+    <input matInput placeholder="กรอกรหัสประชาชน" #input maxlength="13"  value="" [(ngModel)]="cardid1">
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width: 40%;">
+    <input matInput placeholder="รายละเอียด" #input maxlength="13"  value="" [(ngModel)]="detail1">
+  </mat-form-field>
+  <br>
+  <button mat-fab color="primary"  class="enter" (click)= "insert()">Enter</button>
+  <br>
+
+  </body>
 </mat-card>
 <br>
 
@@ -107,6 +111,3 @@
 </body>
 
 </html>
-
-
-

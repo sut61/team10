@@ -87,7 +87,12 @@ this.route.params.subscribe(prams=>{
                 alert("กรุณาใส่เลขบัตรประชาชนให้ครบ");
           }
 
-
+        else if(this.payment_total < 1000) {
+                 alert('กรุณากรอกราคาให้ถูกต้อง');
+           }
+        else if(this.payment_total > 3000) {
+                 alert('กรุณากรอกราคาให้ถูกต้อง');
+           }
         else{
            this.httpClient.post('http://localhost:8080/payment/ ' + this.card_cvv  + '/' + this.card_name + '/'  + this.payment_total + '/'  + this.card_id + '/' + this.cardbankSelect + '/' + this.cardSelect + '/'  + this.data.first + '/' + this.rent5Select + '/' + this.rent2Select + '/' + this.rent4Select + '/' + this.rent3Select + '/' + this.rent1Select ,{})
            .subscribe(

@@ -23,13 +23,28 @@ public class Reservationequipment {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Reservationequipment_seq")
     @Column(name = "Reservationequipment_ID")
     @Id private @NonNull Long Reservationequipment_id;
+    @NotNull
+    private  Date Daterent;
 
-    private Date Daterent;
     @NotNull
     @Column(unique = true)
     @Pattern(regexp = "[0-9]{13}")
     @Size(min = 13,max=13)
     private String cardid;
+
+
+    @NotNull
+    private  String detail_equipment;
+
+    public String getDetail_equipment() {
+        return detail_equipment;
+    }
+
+    public void setDetail_equipment(String detail_equipment) {
+        this.detail_equipment = detail_equipment;
+    }
+
+
     public String getCardid() {
         return cardid;
     }
@@ -45,7 +60,7 @@ public class Reservationequipment {
 
 
 
-     public Long Reservationequipment_id() {
+    public Long Reservationequipment_id() {
         return Reservationequipment_id;
     }
 
@@ -62,25 +77,27 @@ public class Reservationequipment {
 
 
 
-
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Equipment.class)
     @JoinColumn(name = "Equipment_ID", insertable = true)
     private  Equipment equipment;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Member.class)
     @JoinColumn(name = "Member_ID", insertable = true)
     private  Member member;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Timereceive.class)
     @JoinColumn(name = "Timereceive_ID", insertable = true)
     private Timereceive timereceive;
 
-public Member getMember(){
+    public Member getMember(){
         return  member;
-}
-public void setMember(Member member){
+    }
+    public void setMember(Member member){
         this.member =member;
-}
+    }
 
 
     public Timereceive getTimereceive(){
@@ -99,11 +116,16 @@ public void setMember(Member member){
 
 
     public Reservationequipment(){}
-    public Reservationequipment(Date Daterent ,String cardid, Member member, Equipment equipment, Timereceive timereceive){
-    this.cardid = cardid;
-    this.Daterent = Daterent;
-    this.member =member;
-    this.timereceive = timereceive;
-    this.equipment = equipment;
+    public Reservationequipment(Date Daterent ,String cardid,String detail_equipment, Member member, Equipment equipment, Timereceive timereceive){
+        this.cardid = cardid;
+        this.detail_equipment = detail_equipment;
+        this.Daterent = Daterent;
+        this.member =member;
+        this.timereceive = timereceive;
+        this.equipment = equipment;
+    }
+
+    public Date getDaterent() {
+        return Daterent;
     }
 }
