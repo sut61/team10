@@ -23,6 +23,7 @@ public class Member {
     @ManyToOne
     private Title title ;
 
+    @NotNull
     @Temporal(TemporalType.DATE)
     private @io.micrometer.core.lang.NonNull
     Date birthdate;
@@ -30,31 +31,31 @@ public class Member {
     @NotNull
     @Pattern(regexp = "[a-zA-Z0-9]+")
     @Column(unique = true)
-    private String userid ;
+    private String userid ; //success
 
     @NotNull
     @Pattern(regexp = "[a-zA-Z0-9]+")
-    private String password ;
+    private String password ;       //success
 
     @NotNull
     @Pattern(regexp = "^[_A-Za-z0-9]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
-    private String email ;
+    private String email ;      //success
 
 
 
     @NotNull
     @Pattern(regexp = "[0-9]{10}")
-    private String tel ;
+    private String tel ;        //success
 
     @NotNull(message="name must not be null to be valid")
     @Pattern(regexp = "[a-zA-Z\\u0E00-\\u0E7F]+")
     @Size(min = 2 ,max = 20)
-    private String name ;
+    private String name ;       //success
 
     @NotNull(message="lastname must not be null to be valid")
     @Pattern(regexp = "[a-zA-Z\\u0E00-\\u0E7F]+")
     @Size(min = 2 ,max = 20)
-    private String lastname ;
+    private String lastname ;  //success
 
     public Member(){}
 
