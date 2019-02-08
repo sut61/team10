@@ -28,10 +28,10 @@ import java.text.SimpleDateFormat;
 @DataJpaTest
 
 public class TestRegisterPhotographys {
-    @Autowired
-    private RegisterPhotographyRepository registerPhotographyRepository;
-    @Autowired
-    private TestEntityManager entityManager;
+
+    @Autowired private RegisterPhotographyRepository registerPhotographyRepository;
+    @Autowired private TestEntityManager entityManager;
+    @Autowired private MemberRepository memberRepository;
 
     private Validator validator;
     private SimpleDateFormat formatter5 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -46,6 +46,7 @@ public class TestRegisterPhotographys {
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
+
     }
 
     @Test

@@ -1,7 +1,6 @@
 com\example\demo\Repository\ProvinceRepository.class
 com\example\demo\Entity\TablePhotographer.class
 com\example\demo\Repository\Photopicturerepository.class
-com\example\demo\Repository\FinalTimeRepository.class
 com\example\demo\Entity\Photopicture.class
 com\example\demo\Repository\Photocollectionrepository.class
 com\example\demo\Repository\TitleRepository.class
@@ -37,7 +36,6 @@ com\example\demo\Entity\Admin.class
 com\example\demo\Entity\Comment.class
 com\example\demo\Entity\RegisterPhotographys\PhotographyType.class
 com\example\demo\Repository\RepairInvoicedRepository.class
-com\example\demo\Entity\FinalTime.class
 com\example\demo\Entity\RegisterPhotographys\Instructor.class
 com\example\demo\Repository\RegisterPhotographysRepository\RegisterPhotographyRepository.class
 com\example\demo\Repository\StartTimeRepository.class

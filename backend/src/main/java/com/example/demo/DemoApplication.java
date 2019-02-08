@@ -9,6 +9,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Date;
 import java.util.stream.Stream;
 
 
@@ -30,7 +31,7 @@ public class DemoApplication {
                            InstructorRepository instructorRepository, PhotographyTypeRepository photographyTypeRepository, RegisterPhotographyRepository registerPhotographyRepository,
                            SkillLevelRepository skillLevelRepository, StudyTimeRepository studyTimeRepository,Cardbankrepository cardbankrepository,Cardtyperepository cardtyperepository,
                            TimesPhotogarpherRepository timesPhotogarpherRepository,PromotionTableRepository promotionTableRepository , CommentRepository commentRepository,Phototyperepository phototyperepository,
-                           Photosizerepository photosizerepository){
+                           Photosizerepository photosizerepository,AddressRepository addressRepository){
         return args -> {
             Admin admin = new Admin();
             admin.setPassword("admin");
@@ -52,8 +53,6 @@ public class DemoApplication {
                 provinces.setProvincename(province);
                 provinceRepository.save(provinces);
             });
-
-
             Gender gender1 = new Gender("ชาย");
             Gender gender2 = new Gender("หญิง");
             genderReposiory.save(gender1);
@@ -65,6 +64,32 @@ public class DemoApplication {
             titleRepository.save(title1);
             titleRepository.save(title2);
             titleRepository.save(title3);
+
+            Member member = new Member();
+            Date datenew = new Date();
+            Address address = new Address();
+            Province provinces1 = new Province();
+            provinces1.setProvincename("ตาก");
+            provinceRepository.save(provinces1);
+            address.setTambon("popo");
+            address.setPostcode("60150");
+            address.setAmphoe("rerere");
+            address.setAddress("12345ddffff");
+            address.setProvince(provinces1);
+            addressRepository.save(address);
+            member.setName("dikinakub");
+            member.setBirthdate(datenew);
+            member.setEmail("diki@gmail.com");
+            member.setLastname("kawasaki");
+            member.setPassword("1234");
+            member.setTel("0834318890");
+            member.setUserid("diki");
+            member.setAddress(address);
+            member.setGender(gender1);
+            member.setTitle(title1);
+            memberRepository.save(member);
+
+
 
             PromotionStudio promotionStudio1 = new PromotionStudio();
             PromotionStudio promotionStudio2 = new PromotionStudio();

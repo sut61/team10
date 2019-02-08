@@ -11,6 +11,8 @@ public class Camara {
     private String camaraName;
     private String camaraType;
 
+    public Camara(){}
+
     public Long getId() {
         return id;
     }

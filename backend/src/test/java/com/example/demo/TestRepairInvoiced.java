@@ -80,9 +80,9 @@ public class TestRepairInvoiced {
     public void testRepairInvoicedEquipmentNotNull() {
         RepairInvoiced repairInvoiced = new RepairInvoiced();
 
-        repairInvoiced.setAdmin(null);
+        repairInvoiced.setAdmin(admin);
         repairInvoiced.setComment(comment);
-        repairInvoiced.setEquipment(equipment);
+        repairInvoiced.setEquipment(null);
 
         try {
             repairInvoiced.setDatein(formatter5.parse("2019-02-04 00:00:00"));
@@ -105,7 +105,7 @@ public class TestRepairInvoiced {
         RepairInvoiced repairInvoiced = new RepairInvoiced();
 
         repairInvoiced.setAdmin(null);
-        repairInvoiced.setComment(null);
+        repairInvoiced.setComment(comment);
         repairInvoiced.setEquipment(equipment);
 
         try {
