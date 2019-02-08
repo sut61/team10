@@ -154,6 +154,6 @@ getCardbank(): Observable<any> {
             }
             getPromotionTable(): Observable<any> {
             return this.httpClient.get(this.API + '/promotiontable');
-            }
+            }//MM
 
 }
