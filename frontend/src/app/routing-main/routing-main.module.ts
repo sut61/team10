@@ -14,6 +14,7 @@ import {LoginhomeComponent} from '../loginhome/loginhome.component'
 import {RegisterPhotographyComponent} from '../register-photography/register-photography.component'
 import {PayonlineComponent} from '../payonline/payonline.component';
 import {TablePhotogarpherComponent} from '../table-photogarpher/table-photogarpher.component';
+import {PhotopictureComponent} from "../photopicture/photopicture.component";
 const routes: Routes = [
 {path:'',component:LoginhomeComponent},
     {path:'loginwithadmin',component:LoginwithadminComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
     {path: 'repairinvoiced',component:RepairinvoicedComponent},
     {path: 'register-photography',component:RegisterPhotographyComponent},
     {path: 'payonline',component:PayonlineComponent},
-  {path: 'table-photogarpher',component:TablePhotogarpherComponent}
+    {path: 'table-photogarpher',component:TablePhotogarpherComponent},
+    {path: 'photopicture',component:PhotopictureComponent}
 ];
 
 @NgModule({

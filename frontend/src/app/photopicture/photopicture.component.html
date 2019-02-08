@@ -1,0 +1,114 @@
+<html>
+
+<mat-card class = "basic-container" style="background-color:#003333">
+  <mat-toolbar-row>
+    <span class = "version-info" style="color:#FFFF99;" >Photo</span> &nbsp;
+    <span class = "version-info" style="color:#99FF00;" >Studio</span> &nbsp;
+    <span class = "version-info1" style="color:#CCFF66;" >Team10</span>
+    <span class="example-fill-remaining-space"></span>
+    <a mat-button routerLink="." style="color:#FFFFFF;" routerLink="">LOGOUT</a>
+  </mat-toolbar-row>
+</mat-card>
+
+<mat-toolbar style="background-color:#003330">
+  <span style="color:#FFFFFF;">WELCOME TO PHOTO STUDIO</span>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="repair()">แจ้งซ่อมอุปกรณ์</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;"  (click)="Photocom()">บันทึกการส่งรูป</mat-button-toggle>
+  </mat-button-toggle-group>&nbsp;
+  <mat-button-toggle-group #group="matButtonToggleGroup" style="background-color:#FFFFFF">
+    <mat-button-toggle value="left" style="color:#000000;" (click)="Phototable()">จัดตารางงานช่างภาพ</mat-button-toggle>
+  </mat-button-toggle-group>
+  <mat-divider></mat-divider>
+</mat-toolbar>
+
+
+
+
+<body class = "box">
+
+<br/>
+<div >
+
+  <br><br><br>
+  <mat-card class="card">
+
+    <mat-form-field>
+      <mat-select placeholder="Member" [(ngModel)]="memSelect" name="id">
+        <mat-option *ngFor="let mem of member1" [value]="mem.id">
+          {{mem.name}} {{mem.lastname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br><br>
+
+    <mat-form-field >
+      <input matInput placeholder="ลิ้งค์รูปภาพที่ส่งให้ลูกค้า" [(ngModel)]="dataname">
+    </mat-form-field><br><br>
+
+    <mat-form-field>
+      <mat-select placeholder="Type Photo" [(ngModel)]="phototypeIDSelect" name="id">
+        <mat-option *ngFor="let phototypeid of phototypeID" [value]="phototypeid.id">
+          {{phototypeid.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br><br>
+
+    <mat-form-field>
+      <mat-select placeholder="Size Photo" [(ngModel)]="photosizeIDSelect" name="id">
+        <mat-option *ngFor="let photosizeid of photosizeID" [value]="photosizeid.id">
+          {{photosizeid.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br><br>
+
+
+
+    <mat-form-field >
+      <input matInput [matDatepicker]="picker" placeholder="วันที่ส่งให้ลูกค้า"style="color:black;" [(ngModel)]="datadateIDSelect">
+      <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>
+    </mat-form-field>
+
+    <br>
+    <br>
+
+
+    <button mat-fab color="primary" class="botton-enter" (click)="insert()">SAVE</button> &nbsp;&nbsp;&nbsp;
+    <button mat-fab color="primary" class="botton-enter" (click)="reset()">RESET</button>&nbsp;&nbsp;&nbsp;
+
+
+  </mat-card>
+  <mat-card class="recomment" >
+    <p class="handdetel">รายละเอียดบันทึกรูปภาพที่ส่งให้ลูกค้า</p>
+    <table class="detail">
+      <th>No.</th>
+      <th>Member</th>
+      <th>ลิ้งค์รูปภาพที่ส่งให้ลูกค้า</th>
+      <th>Type Photo</th>
+      <th>Size Photo</th>
+      <th>เวลาที่ส่งให้ลูกค้า</th>
+      <ng-container *ngFor="let table of tablephotopicture">
+        <tr>
+          <td>{{table.id}}</td>
+          <td>{{table.member.name}}&nbsp;&nbsp;&nbsp;{{table.member.lastname}}</td>
+          <td>{{table.dataname}}</td>
+          <td>{{table.phototype.name}}</td>
+          <td>{{table.photosize.name}}</td>
+          <td>{{table.datedata}}</td>
+        </tr>
+      </ng-container>
+    </table>
+
+  </mat-card>
+</div>
+
+</body>
+</html>
+
+
+
+

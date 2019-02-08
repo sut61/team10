@@ -79,6 +79,10 @@ export class RepairinvoicedComponent implements OnInit {
     this.router.navigate(['repairinvoiced',{first:this.data.first}]);
     console.log(this.data);
   }
+  Photocom(){
+       this.router.navigate(['photopicture',{first:this.data.first}]);
+       console.log(this.data);
+  }
 
 
 

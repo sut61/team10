@@ -78,6 +78,15 @@ export class Controller {
                       public getPhotocollection(): Observable<any> {
                          return this.httpClient.get(this.API + '/Photocollection');
                       }
+                public getPhotosizeID(): Observable<any> {
+                    return this.httpClient.get(this.API + '/Photosize');
+                }
+                public getPhototypeID(): Observable<any> {
+                    return this.httpClient.get(this.API + '/Phototype');
+                }
+                public getPhotopictureID(): Observable<any> {
+                    return this.httpClient.get(this.API + '/Photopicture');
+                }
                public getReservation(): Observable<any> {
                  return this.httpClient.get(this.API + '/ReservationModels');
                }
