@@ -229,10 +229,13 @@ public class Controller {
     }
     //}
 
-    @PostMapping(path = "/reservationPhotographer/{name}/{photographer}/{typePhoto}/{promotionPhotographer}/{startTime}/{timeSelect}/{comment}")
+
+    @PostMapping(path = "/reservationPhotographer/{name}/{photographer}/{typePhoto}/{promotionPhotographer}/{startTime}/{timeSelect}/{point}/{price}/{phone}/{emailuser}/{comment}")
     public ReservationPhotographer reservationPhotographer(@PathVariable String name , @PathVariable Long photographer ,
                                                            @PathVariable Long typePhoto, @PathVariable Long promotionPhotographer,
-                                                           @PathVariable Long startTime, @PathVariable Date timeSelect, @PathVariable String comment){
+                                                           @PathVariable Long startTime, @PathVariable Date timeSelect,
+                                                           @PathVariable String point,@PathVariable Long price,@PathVariable String phone,
+                                                           @PathVariable String emailuser,@PathVariable String comment){
 
         Member member1 = memberRepository.findByUserid(name);
         Photographer photographer1 = photographerRepository.findById(photographer).get();
@@ -249,6 +252,10 @@ public class Controller {
         reservationPhotographer1.setPromotionPhotographer(promotionPhotographer1);
         reservationPhotographer1.setStartTime(startTime1);
         reservationPhotographer1.setReservation_date(timeSelect);
+        reservationPhotographer1.setAppointment(point);
+        reservationPhotographer1.setPricephoto(price);
+        reservationPhotographer1.setPhoneusr(phone);
+        reservationPhotographer1.setEmailuser(emailuser);
         reservationPhotographer1.setComment_photo(comment);
         reservationPhotographerRepository.save(reservationPhotographer1);
 
