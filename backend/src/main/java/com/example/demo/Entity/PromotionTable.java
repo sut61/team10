@@ -11,16 +11,16 @@ public class PromotionTable {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="proT_seq")
     @Column(name = "PromotionTableId" )
     private Long id;
-    private  String PromotionName;
+    private  String promotionnametable;
     private  int Price;
 
-    public String getPromotionName() { return PromotionName; }
-    public void setPromotionName(String promotionName) { this.PromotionName = promotionName; }
+    public String getPromotionName() { return promotionnametable; }
+    public void setPromotionName(String promotionName) { this.promotionnametable = promotionName; }
     public int getPrice() { return Price; }
     public void setPrice(int price) { this.Price = price; }
 
     public PromotionTable(String promotionName, int price) {
-        this.PromotionName = promotionName;
+        this.promotionnametable = promotionName;
         this.Price = price; }
     public PromotionTable(){}
 }

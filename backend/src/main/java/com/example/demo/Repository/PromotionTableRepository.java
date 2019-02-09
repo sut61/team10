@@ -12,4 +12,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 
 public interface PromotionTableRepository extends JpaRepository<PromotionTable,Long>{
+    PromotionTable findBypromotionnametable(String promotionnametable);
 }
