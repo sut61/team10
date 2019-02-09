@@ -4,6 +4,8 @@ import lombok.Data;
 import lombok.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,12 +17,12 @@ public class Equipment {
     @SequenceGenerator(name = "equipment_seq", sequenceName = "equipment_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "equipment_seq")
     @Column(name = "equipment_id", unique = true, nullable = false)
-    private @NonNull Long Equipment_id;
-    private String Equipment_name;
-    private String Equipment_type;
-    private  String Equipment_brand;
-    private  int Equipment_price;
-
+    private @NotNull Long Equipment_id;
+    private @NotNull String Equipment_name;
+    private @NotNull String Equipment_type;
+    private @NotNull String Equipment_brand;
+    private @Positive int Equipment_price;
+    private @NotNull String key ;
     public String getKey() {
         return key;
     }
@@ -29,7 +31,7 @@ public class Equipment {
         this.key = key;
     }
 
-    private String key ;
+
 
 
     public Long getId() {

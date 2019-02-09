@@ -22,7 +22,7 @@ public class Reservationequipment {
     @SequenceGenerator(name="Reservationequipment_seq",sequenceName="Reservationequipment_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="Reservationequipment_seq")
     @Column(name = "Reservationequipment_ID")
-    @Id private @NonNull Long Reservationequipment_id;
+    @Id private @NotNull Long Reservationequipment_id;
     @NotNull
     private  Date Daterent;
 
