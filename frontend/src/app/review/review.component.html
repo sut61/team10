@@ -1,5 +1,4 @@
 <html>
-
 <mat-card class = "basic-container" style="background-color:#003333">
   <mat-toolbar-row>
     <span class = "version-info" style="color:#FFFF99;" >Photo</span> &nbsp;
@@ -9,7 +8,6 @@
     <a mat-button routerLink="." style="color:#FFFFFF;" routerLink="">LOGOUT</a>
   </mat-toolbar-row>
 </mat-card>
-
 <mat-toolbar style="background-color:#003330">
   <span style="color:#FFFFFF;">WELCOME TO PHOTO STUDIO</span>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -49,74 +47,93 @@
   </mat-button-toggle-group>&nbsp;
   <mat-divider></mat-divider>
 </mat-toolbar>
+<body class = "box">
 
-<body class = "dataBox">
-<br>
-<mat-card class="example-card">
-   <h2 class="topic" style="color:#000000;">Reservation your studio</h2>
-  <div class="example-full-width">
-    <mat-form-field class="label">
-      <mat-select  placeholder="เลือกสตูดิโอ" [(ngModel)]="roomStudioSelect">
-        <mat-option *ngFor="let room of roomStudios" [value]="room.id">
-          {{room.name}}
+<br/>
+<div >
+  <mat-card class="card">
+
+    <mat-form-field class="text">
+      <input matInput [(ngModel)]="topic" [ngModelOptions]="{standalone: true}" type="text" #top maxlength="20"   placeholder="Topic" COLS="130">
+      <mat-hint align="end">{{top.value.length}} / 20</mat-hint>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class ="text">
+      <mat-select placeholder="Select Payment" [(ngModel)]="paySelect" name="payment_id"[ngModelOptions]="{standalone: true}">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let payy of pays" [value]="payy.payment_id">
+          {{payy.payment_id}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class ="text">
+      <mat-select placeholder="Select System" [(ngModel)]="systemSelect" name="sytemstudio_name"[ngModelOptions]="{standalone: true}">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let systemm of systems" [value]="systemm.systemstudio_id">
+          {{systemm.sytemstudio_name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <br>
-    <mat-form-field class="label">
-      <mat-select  placeholder="เลือกโปรโมชั่น" [(ngModel)]="promotionStudioSelect">
-        <mat-option *ngFor="let promotion of promotionStudios" [value]="promotion.id">
-          {{promotion.promotionName}}
+
+    <mat-form-field class ="text">
+      <mat-select placeholder="Select Score" [(ngModel)]="scoreSelect" name="score"[ngModelOptions]="{standalone: true}">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let ss of scores" [value]="ss.score_id">
+          {{ss.score}}
         </mat-option>
       </mat-select>
     </mat-form-field>
+
     <br>
-    <mat-form-field class="label">
-      <mat-select  placeholder="ช่วงเวลา" [(ngModel)]="timeStudioSelect">
-        <mat-option *ngFor="let time of timeStudios" [value]="time.id">
-          {{time.timeName}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <br>
-    <mat-form-field class="label">
-      <input matInput [matDatepicker]="picker" placeholder="วันที่จอง" style="color:black;" [(ngModel)]="reservationDates">
-      <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
-      <mat-datepicker #picker ></mat-datepicker>
+
+    <mat-form-field class="text">
+      <textarea matInput [(ngModel)]="good" [ngModelOptions]="{standalone: true}" type="text" placeholder="สิ่งที่ประทับใจ" ></textarea>
     </mat-form-field>
     <br>
 
-      <mat-form-field class="label">
-        <input matInput placeholder="กรอกราคา" value="" [(ngModel)]="priceNew">
-      </mat-form-field>
+    <mat-form-field class="text">
+      <textarea matInput [(ngModel)]="dis" [ngModelOptions]="{standalone: true}" type="text" placeholder="สิ่งที่ไม่ประทับใจ" ></textarea>
+    </mat-form-field>
     <br>
-    <button mat-raised-button color="warn" (click)="insert()">SAVE</button>
-    <button mat-raised-button color="primary" (click)="reset()">RESET</button>
-  </div>
-</mat-card>
-<br>
-<mat-card class="recomment">
-  <table class="table">
-    <th>ลำดับที่</th>
-    <th>ชื่อผู้ใช้</th>
-    <th>สตูดีโอ</th>
-    <th>โปรโมชั่น</th>
-    <th>ช่วงเวลา</th>
-    <th>วันที่จอง</th>
-    <th>ราคา</th>
-    <ng-container *ngFor="let re of reservationStudio">
-      <tr>
-        <td>{{re.reservationStudio_id}}</td>
-        <td>{{re.member.name}}</td>
-        <td>{{re.roomStudio.name}}</td>
-        <td>{{re.promotionStudio.promotionName}}</td>
-        <td>{{re.timeStudio.timeName}}</td>
-        <td>{{re.reservationDate}}</td>
-        <td>{{re.price}}</td>
-      </tr>
-    </ng-container>
-  </table>
 
-</mat-card>
+    <mat-form-field class="text">
+      <textarea matInput [(ngModel)]="commentre" [ngModelOptions]="{standalone: true}" type="text" placeholder="comment review"></textarea>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="text">
+      <textarea matInput [(ngModel)]="direc" [ngModelOptions]="{standalone: true}" type="text" placeholder="เคยใช้ระบบนี้มาแล้วกี่ครั้ง?(โปรดกรอกเป็นตัวเลข)"></textarea>
+    </mat-form-field>
+    <br><br>
+
+    <button mat-raised-button color="primary" class="text" (click)="enter()" >REVIEW</button>
+
+
+  </mat-card>
+  <br><br><br><br>  <br><br><br><br>  <br><br><br><br> <br><br><br><br>  <br><br><br><br>  <br><br><br><br>  <br><br><br><br>   <br><br><br><br>  <br><br><br><br> <br><br><br><br>
+</div>
+<div class="cardcom">
+  <mat-card *ngFor="let commentre of commentres" class="boxment">
+    <b>No: {{commentre.review_id}} </b>
+    <b>{{commentre.topic}}</b>
+    <mat-card-actions>
+      <p>User: {{commentre.member.name}}</p>
+      <p>System: {{commentre.systemName.sytemstudio_name}}</p>
+      <p>Positive points: {{commentre.good_comment}}</p>
+      <p>Negative points: {{commentre.dis_comment}}</p>
+      <p>Comment: {{commentre.comment_review}}</p>
+      <p>Number of uses: {{commentre.direction}}</p>
+      <p>Score: {{commentre.score.score}}</p>
+    </mat-card-actions>
+  </mat-card>
+</div>
 </body>
 </html>
+
+
+
