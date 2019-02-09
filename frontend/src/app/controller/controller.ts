@@ -155,5 +155,17 @@ getCardbank(): Observable<any> {
             getPromotionTable(): Observable<any> {
             return this.httpClient.get(this.API + '/promotiontable');
             }//MM
-
+            
+            public getReview(): Observable<any> {
+              return this.httpClient.get(this.API + '/Review');
+            }
+            public getScore(): Observable<any> {
+              return this.httpClient.get(this.API + '/Score');
+            }
+            public getSystemName(): Observable<any> {
+              return this.httpClient.get(this.API + '/SystemName');
+            }
+            public getPayment(): Observable<any> {
+              return this.httpClient.get(this.API + '/Payment');
+            }
 }
