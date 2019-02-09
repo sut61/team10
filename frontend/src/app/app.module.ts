@@ -40,6 +40,7 @@ import { RegisterPhotographyComponent } from './register-photography/register-ph
 import { PayonlineComponent } from './payonline/payonline.component';
 import { TablePhotogarpherComponent } from './table-photogarpher/table-photogarpher.component';
 import { PhotopictureComponent } from './photopicture/photopicture.component';
+import { ReviewComponent } from './review/review.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { PhotopictureComponent } from './photopicture/photopicture.component';
     RegisterPhotographyComponent,
     PayonlineComponent,
     TablePhotogarpherComponent,
-    PhotopictureComponent
+    PhotopictureComponent,
+    ReviewComponent
 
   ],
 

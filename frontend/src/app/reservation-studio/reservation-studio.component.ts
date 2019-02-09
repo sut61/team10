@@ -129,4 +129,8 @@ export class ReservationStudioComponent implements OnInit {
         this.router.navigate(['register-photography',{first:this.data.first}]);
         console.log(this.data);
     }
+  review(){
+    this.router.navigate(['review',{first:this.data.first}]);
+    console.log(this.data);
+  }
 }
