@@ -138,7 +138,7 @@ public class TestReservationequipment {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println();
-            System.out.println( e + " Name Brand Null --------------------------------");
+            System.out.println( e + " BrandName Equipment Null --------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -186,7 +186,7 @@ public class TestReservationequipment {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println();
-            System.out.println( e + " Name equipment Null --------------------------------");
+            System.out.println( e + " price equipment 000 --------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -210,7 +210,50 @@ public class TestReservationequipment {
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println();
-            System.out.println( e + " Name equipment Null --------------------------------");
+            System.out.println( e + " Key equipment Null --------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
+    public void testReservationTimeReceiveNameNull () {
+        Timereceive t = new Timereceive();
+        t.setTimereceive_name(null);
+        t.setKey("aa");
+
+
+        try {
+
+            entityManager.persist(t);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println( e + " Name Timereceive Null --------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
+    public void testReservationTimeReceiveKeyNull () {
+        Timereceive t = new Timereceive();
+        t.setTimereceive_name("aa");
+        t.setKey(null);
+
+        try {
+
+            entityManager.persist(t);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println( e + " Key Timereceive Null --------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);

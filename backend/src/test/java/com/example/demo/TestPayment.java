@@ -111,7 +111,7 @@ public class TestPayment {
 
         }catch (javax.persistence.PersistenceException e){
             System.out.println();
-            System.out.println( e + " same --------------------------------");
+            System.out.println( e + " same  card-id--------------------------------");
             System.out.println();
         }
 
@@ -250,8 +250,94 @@ public class TestPayment {
         }
 
     }
+    @Test
+    public void testCardTypeNameNull(){
+        Cardtype ct = new Cardtype();
+        ct.setCard_type(null);
+        ct.setKey("4");
+        try {
 
+            entityManager.persist(ct);
+            entityManager.flush();
 
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"CardTypeNameNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+    @Test
+    public void testCardTypeKeyNull(){
+        Cardtype ct = new Cardtype();
+        ct.setCard_type("aa");
+        ct.setKey(null);
+        try {
+
+            entityManager.persist(ct);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"CardTypeKeyNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+    @Test
+    public void testCardBankKeyNull(){
+        Cardbank cb = new Cardbank();
+        cb.setCard_bank("aa");
+        cb.setKey(null);
+        try {
+
+            entityManager.persist(cb);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"CardBankKeyNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+    @Test
+    public void testCardBankNameNull(){
+        Cardbank cb = new Cardbank();
+        cb.setCard_bank(null);
+        cb.setKey("aa");
+        try {
+
+            entityManager.persist(cb);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"CardBankNameNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
 
     @Test
     public void testCvvOver() {
@@ -376,7 +462,7 @@ public class TestPayment {
         } catch (javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println();
-            System.out.println(e+"id string--------------------------------");
+            System.out.println(e+"id have string--------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);

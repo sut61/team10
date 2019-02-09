@@ -16,8 +16,8 @@ public class Timereceive {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timereceive_seq")
     @Column(name = "Timereceive_id", unique = true, nullable = false)
     private @NotNull Long Timereceive_id;
-
-    private   String Timereceive_name;
+    private @NotNull String key ;
+    private @NotNull  String Timereceive_name;
     public String getKey() {
         return key;
     }
@@ -26,7 +26,7 @@ public class Timereceive {
         this.key = key;
     }
 
-    private String key ;
+
 
     public Long getId() {
         return Timereceive_id;
