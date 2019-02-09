@@ -31,7 +31,7 @@ public class DemoApplication {
                            InstructorRepository instructorRepository, PhotographyTypeRepository photographyTypeRepository, RegisterPhotographyRepository registerPhotographyRepository,
                            SkillLevelRepository skillLevelRepository, StudyTimeRepository studyTimeRepository,Cardbankrepository cardbankrepository,Cardtyperepository cardtyperepository,
                            TimesPhotogarpherRepository timesPhotogarpherRepository,PromotionTableRepository promotionTableRepository , CommentRepository commentRepository,Phototyperepository phototyperepository,
-                           Photosizerepository photosizerepository,AddressRepository addressRepository){
+                           Photosizerepository photosizerepository,AddressRepository addressRepository,ReviewRepository reviewRepository,ScoreRepository scoreRepository,SystemNameRepository systemNameRepository){
         return args -> {
             Admin admin = new Admin();
             admin.setPassword("admin");
@@ -502,6 +502,58 @@ public class DemoApplication {
             phototyperepository.save(phototype2);
             phototyperepository.save(phototype3);
             //}
+
+                        //Pam 2{
+                            Score ss1 = new Score();
+                            Score ss2 = new Score();
+                            Score ss3  = new Score();
+                            Score ss4 = new Score();
+                            Score ss5 = new Score();
+                            ss1.setScore(1);
+                            ss2.setScore(2);
+                            ss3.setScore(3);
+                            ss4.setScore(4);
+                            ss5.setScore(5);
+                            scoreRepository.save(ss1);
+                            scoreRepository.save(ss2);
+                            scoreRepository.save(ss3);
+                            scoreRepository.save(ss4);
+                            scoreRepository.save(ss5);
+                
+                            SystemName systemName1 = new SystemName();
+                            SystemName systemName2 = new SystemName();
+                            SystemName systemName3 = new SystemName();
+                            SystemName systemName4 = new SystemName();
+                            SystemName systemName5 = new SystemName();
+                            SystemName systemName6 = new SystemName();
+                            SystemName systemName7 = new SystemName();
+                            SystemName systemName8 = new SystemName();
+                            SystemName systemName9 = new SystemName();
+                            SystemName systemName10 = new SystemName();
+                
+                            systemName1.setSytemstudio_name("จองสตูดิโอถ่ายภาพ");
+                            systemName2.setSytemstudio_name("จองชุดถ่ายภาพ");
+                            systemName3.setSytemstudio_name("จองนางแบบ");
+                            systemName4.setSytemstudio_name("จองช่างภาพ");
+                            systemName5.setSytemstudio_name("เช่าอุปกรณ์ถ่ายภาพ");
+                            systemName6.setSytemstudio_name("สมัครเรียนถ่ายรูป");
+                            systemName7.setSytemstudio_name("บันทึการจ่ายเงิน");
+                            systemName8.setSytemstudio_name("แจ้งซ่อมอุปกรณ์");
+                            systemName9.setSytemstudio_name("บันทึกการส่งรูป");
+                            systemName10.setSytemstudio_name("จัดตารางงานช่างภาพ");
+                            systemNameRepository.save(systemName1);
+                            systemNameRepository.save(systemName2);
+                            systemNameRepository.save(systemName3);
+                            systemNameRepository.save(systemName4);
+                            systemNameRepository.save(systemName5);
+                            systemNameRepository.save(systemName6);
+                            systemNameRepository.save(systemName7);
+                            systemNameRepository.save(systemName8);
+                            systemNameRepository.save(systemName9);
+                            systemNameRepository.save(systemName10);
+                
+                
+                            //}
         };
     }
 }
