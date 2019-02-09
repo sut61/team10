@@ -168,4 +168,6 @@ getCardbank(): Observable<any> {
             public getPayment(): Observable<any> {
               return this.httpClient.get(this.API + '/Payment');
             }
+
+            
 }
