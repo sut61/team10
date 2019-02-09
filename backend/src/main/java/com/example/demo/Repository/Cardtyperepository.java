@@ -13,5 +13,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 @RepositoryRestResource
 public interface Cardtyperepository extends JpaRepository<Cardtype, Long> {
-    Cardtype findByKey(String key);
+    Cardtype findByKeyt(String keyt);
 }

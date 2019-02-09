@@ -132,11 +132,11 @@ public class DemoApplication {
             timeStudioRepository.save(timeStudio3);
 
             Timereceive du1 = new Timereceive("รับ 9:00");
-            du1.setKey("1");
+            du1.setKeytime("1");
             Timereceive du2 = new Timereceive("รับ 12:00");
-            du2.setKey("2");
+            du2.setKeytime("2");
             Timereceive du3 = new Timereceive("รับ 18:00");
-            du3.setKey("3");
+            du3.setKeytime("3");
             timereceiverepository.save(du1);
             timereceiverepository.save(du2);
             timereceiverepository.save(du3);
@@ -433,13 +433,13 @@ public class DemoApplication {
             studyTimeRepository.save(studyTime3);
 
             Cardtype ct1 = new Cardtype("Visa");
-            ct1.setKey("1");
+            ct1.setKeyt("1");
             Cardtype ct2 = new Cardtype("Mastercard");
-            ct2.setKey("2");
+            ct2.setKeyt("2");
             Cardtype ct3 = new Cardtype("JCB");
-            ct3.setKey("3");
+            ct3.setKeyt("3");
             Cardtype ct4 = new Cardtype("UnionPay");
-            ct4.setKey("4");
+            ct4.setKeyt("4");
             cardtyperepository.save(ct1);
             cardtyperepository.save(ct2);
             cardtyperepository.save(ct3);
@@ -447,15 +447,15 @@ public class DemoApplication {
 
 
             Cardbank cb1 = new Cardbank("กรุงไทย");
-            cb1.setKey("1");
+            cb1.setKeyb("1");
             Cardbank cb2 = new Cardbank("ไทยพาณิชย์");
-            cb2.setKey("2");
+            cb2.setKeyb("2");
             Cardbank cb3 = new Cardbank("กรุงเทพ");
-            cb3.setKey("3");
+            cb3.setKeyb("3");
             Cardbank cb4 = new Cardbank("กสิกรไทย");
-            cb4.setKey("4");
+            cb4.setKeyb("4");
             Cardbank cb5 = new Cardbank("กรุงศรีอยุธยา");
-            cb5.setKey("5");
+            cb5.setKeyb("5");
             cardbankrepository.save(cb1);
             cardbankrepository.save(cb2);
             cardbankrepository.save(cb3);

@@ -50,7 +50,7 @@ public class TestReservationequipment {
     public void setup() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
-        timereceive = timereceiverepository.findByKey("2");
+        timereceive = timereceiverepository.findByKeytime("2");
         member = memberRepository.findByName("dikinakub");
         equipment = equipmentrepository.findByKey("1");
     }
@@ -220,7 +220,7 @@ public class TestReservationequipment {
     public void testReservationTimeReceiveNameNull () {
         Timereceive t = new Timereceive();
         t.setTimereceive_name(null);
-        t.setKey("aa");
+        t.setKeytime("aa");
 
 
         try {
@@ -242,7 +242,7 @@ public class TestReservationequipment {
     public void testReservationTimeReceiveKeyNull () {
         Timereceive t = new Timereceive();
         t.setTimereceive_name("aa");
-        t.setKey(null);
+        t.setKeytime(null);
 
         try {
 
