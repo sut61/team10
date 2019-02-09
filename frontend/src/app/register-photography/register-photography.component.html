@@ -85,7 +85,7 @@
     </mat-form-field>
     <br>
     <mat-form-field class="label">
-      <mat-select  placeholder="เลือกตารางเรียน" [(ngModel)]="studyTimeSelect">
+      <mat-select  placeholder="เลือกเวลาเรียน" [(ngModel)]="studyTimeSelect">
         <mat-option *ngFor="let time of studyTimes" [value]="time.id">
           {{time.studyTime}}
         </mat-option>
