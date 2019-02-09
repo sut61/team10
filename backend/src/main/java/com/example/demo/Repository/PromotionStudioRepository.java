@@ -12,4 +12,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 @RepositoryRestResource
 public interface PromotionStudioRepository extends JpaRepository<PromotionStudio, Long> {
+    PromotionStudio findByPromotionName(String promotionName);
 }

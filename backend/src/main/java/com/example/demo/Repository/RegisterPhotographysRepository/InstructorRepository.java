@@ -11,4 +11,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 @RepositoryRestResource
 public interface InstructorRepository extends JpaRepository<Instructor, Long> {
+    Instructor findByInstructorName(String instructorName);
 }

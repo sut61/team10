@@ -32,6 +32,7 @@ public class TestReservationequipment {
     private Reservationequipmentrepository reservationequipmentrepository;
     @Autowired
     private TestEntityManager entityManager;
+    @Autowired private MemberRepository memberRepository;
 
     private Validator validator;
 

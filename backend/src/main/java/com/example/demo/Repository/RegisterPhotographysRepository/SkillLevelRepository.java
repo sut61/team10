@@ -11,4 +11,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 @RepositoryRestResource
 public interface SkillLevelRepository extends JpaRepository<SkillLevel, Long> {
+    SkillLevel findBySkill(String skill);
+
 }

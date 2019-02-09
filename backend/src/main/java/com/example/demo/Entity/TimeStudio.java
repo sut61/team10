@@ -8,7 +8,15 @@ public class TimeStudio {
     @SequenceGenerator(name="timeStudio_seq",sequenceName="timeStudio_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="timeStudio_seq")
     private Long id;
-    private String time_name;
+    private String timeName;
+
+    public String getTimeName() {
+        return timeName;
+    }
+
+    public void setTimeName(String timeName) {
+        this.timeName = timeName;
+    }
 
     public Long getId() {
         return id;
@@ -18,13 +26,7 @@ public class TimeStudio {
         this.id = id;
     }
 
-    public String getTime_name() {
-        return time_name;
-    }
 
-    public void setTime_name(String time_name) {
-        this.time_name = time_name;
-    }
 
 
 }

@@ -31,7 +31,7 @@ public class TestPayment {
     private Paymentrepository paymentrepository;
     @Autowired
     private TestEntityManager entityManager;
-
+    @Autowired private MemberRepository memberRepository;
     private Validator validator;
     private SimpleDateFormat formatter5 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
