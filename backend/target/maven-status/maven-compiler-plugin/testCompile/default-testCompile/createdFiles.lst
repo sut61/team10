@@ -1,6 +1,8 @@
-com\example\demo\TestRegisterPhotographys.class
+com\example\demo\TestTablePhotogarpher.class
 com\example\demo\TestPayment.class
-com\example\demo\TestRepairInvoiced.class
 com\example\demo\TestMember.class
+com\example\demo\TestReservationModel.class
+com\example\demo\TestRegisterPhotographys.class
+com\example\demo\TestRepairInvoiced.class
 com\example\demo\TestReservationequipment.class
 com\example\demo\TestReservationStudio.class

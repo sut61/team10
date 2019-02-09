@@ -4,6 +4,9 @@ import lombok.NonNull;
 import org.springframework.ui.context.Theme;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 @Entity
 @Data
@@ -15,18 +18,29 @@ public class TablePhotographer {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="TableP_seq")
     @Column(name = "TablePhotographerId" )
     private Long id;
+    @NotNull
+    @Pattern(regexp = "^([ก-ู]|[เ-์])+")
+    @Size(min = 5 ,max = 20)
+    @Column(unique = true)
     private String Location;
+
+    @NotNull
+    @Pattern(regexp = "[0-9]{10}")
     private String tel;
 
     @Temporal(TemporalType.DATE)
     private @io.micrometer.core.lang.NonNull  Date date;
 
+    @NotNull
     @ManyToOne
     private Admin admin ;
+    @NotNull
     @ManyToOne
     private TimesPhotogarpher timesPhotogarpher ;
+    @NotNull
     @ManyToOne
     private PromotionTable promotionTable ;
+    @NotNull
     @ManyToOne
     private Photographer photographer ;
 
@@ -45,7 +59,7 @@ public class TablePhotographer {
     public void setDate(Date date) {
         this.date = date;
     }
-
+    @NotNull
     @ManyToOne
     private TypePhoto typePhoto;
 

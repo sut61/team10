@@ -263,11 +263,12 @@ public class DemoApplication {
             equipmentrepository.save(equipment15);
 
             //สร้าง photographer
-            Photographer ph1 = new Photographer("Hero",22,"Hero@gmail.com","0895xxxxxx");
-            Photographer ph2 = new Photographer("Diki",21,"diki@gmail.com","0902xxxxxx");
-            Photographer ph3 = new Photographer("Safefy",20,"safefy@gmail.com","0801xxxxxx");
-            Photographer ph4 = new Photographer("Eka",20,"Eka@gmail.com","0831xxxxxx");
-            Photographer ph5 = new Photographer("Moty",23,"moty@gmail.com","0821xxxxxx");
+            Photographer ph1 = new Photographer("Hero",22,"Hero@gmail.com","0895xxxxxx","key1");
+            Photographer ph2 = new Photographer("Diki",21,"diki@gmail.com","0902xxxxxx","key2");
+            Photographer ph3 = new Photographer("Safefy",20,"safefy@gmail.com","0801xxxxxx","key3");
+            Photographer ph4 = new Photographer("Eka",20,"Eka@gmail.com","0831xxxxxx","key4");
+            Photographer ph5 = new Photographer("Moty",23,"moty@gmail.com","0821xxxxxx","key5");
+
             photographerRepository.save(ph1);
             photographerRepository.save(ph2);
             photographerRepository.save(ph3);
@@ -283,10 +284,10 @@ public class DemoApplication {
             promotionPhotographerRepository.save(pg3);
             
             //สร้าง Type Photo
-            TypePhoto tp1 = new TypePhoto("Fashion Photography");
-            TypePhoto tp2 = new TypePhoto("Wedding Photography");
-            TypePhoto tp3 = new TypePhoto("Vintage Photography");
-            TypePhoto tp4 = new TypePhoto("Widlife photography");
+            TypePhoto tp1 = new TypePhoto("Fashion Photography","key1");
+            TypePhoto tp2 = new TypePhoto("Wedding Photography","key2");
+            TypePhoto tp3 = new TypePhoto("Vintage Photography","key3");
+            TypePhoto tp4 = new TypePhoto("Widlife photography","key4");
             typePhotoRepository.save(tp1);
             typePhotoRepository.save(tp2);
             typePhotoRepository.save(tp3);

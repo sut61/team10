@@ -25,21 +25,27 @@ public class RegisterPhotography {
     private @io.micrometer.core.lang.NonNull
     Date registerDate;
 
+    @NotNull
     @ManyToOne
     private Member member ;
 
+    @NotNull
     @ManyToOne
     private Camara camara ;
 
+    @NotNull
     @ManyToOne
     private PhotographyType photographyType ;
 
+    @NotNull
     @ManyToOne
     private Instructor instructor ;
 
+    @NotNull
     @ManyToOne
     private SkillLevel skillLevel ;
 
+    @NotNull
     @ManyToOne
     private StudyTime studyTime ;
 

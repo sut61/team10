@@ -13,12 +13,22 @@ public class Photographer {
     private @NonNull int photographer_age;
     private @NonNull String photographer_email;
     private @NonNull String photographer_tel;
+    public String getKeyp() {
+        return keyp;
+    }
 
-    public Photographer(String photographer_name, int photographer_age, String photographer_email, String photographer_tel){
+    public void setKeyp(String keyp) {
+        this.keyp = keyp;
+    }
+
+    private String keyp;
+
+    public Photographer(String photographer_name, int photographer_age, String photographer_email, String photographer_tel,String keyp){
         this.photographer_name = photographer_name;
         this.photographer_age = photographer_age;
         this.photographer_email = photographer_email;
         this.photographer_tel = photographer_tel;
+        this.keyp=keyp;
     }
 
     public String getPhotographer_tel() { return photographer_tel; }
