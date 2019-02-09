@@ -12,4 +12,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestResource
 
 public interface TimesPhotogarpherRepository extends JpaRepository<TimesPhotogarpher,Long> {
+    TimesPhotogarpher findBytimes(String times);
 }

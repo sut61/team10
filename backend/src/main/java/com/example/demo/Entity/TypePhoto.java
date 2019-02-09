@@ -11,9 +11,19 @@ public class TypePhoto {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="typephoto_seq")
     private @NonNull Long typephoto_id;
     private @NonNull String typephoto_name;
+    public String getKeyt() {
+        return keyt;
+    }
 
-    public TypePhoto(String typephoto_name){
+    public void setKeyt(String keyt) {
+        this.keyt = keyt;
+    }
+
+    private String keyt;
+
+    public TypePhoto(String typephoto_name,String keyt){
         this.typephoto_name = typephoto_name;
+        this.keyt=keyt;
     }
 
     public Long getTypephoto_id() { return typephoto_id; }

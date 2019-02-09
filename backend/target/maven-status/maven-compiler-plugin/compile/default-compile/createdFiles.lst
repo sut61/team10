@@ -1,6 +1,8 @@
+com\example\demo\Repository\ReviewRepository.class
 com\example\demo\Repository\ProvinceRepository.class
 com\example\demo\Entity\TablePhotographer.class
 com\example\demo\Repository\Photopicturerepository.class
+com\example\demo\Entity\Score.class
 com\example\demo\Entity\Photopicture.class
 com\example\demo\Repository\Photocollectionrepository.class
 com\example\demo\Repository\TitleRepository.class
@@ -51,6 +53,7 @@ com\example\demo\Entity\Cardtype.class
 com\example\demo\Entity\ReservationStudio.class
 com\example\demo\Entity\ReservationModel.class
 com\example\demo\Repository\ReservationModelRepository.class
+com\example\demo\Entity\Review.class
 com\example\demo\Entity\Address.class
 com\example\demo\Repository\RegisterPhotographysRepository\CamaraRepository.class
 com\example\demo\Repository\RoomStudioRepository.class
@@ -62,6 +65,7 @@ com\example\demo\Entity\Cardbank.class
 com\example\demo\Entity\StartTime.class
 com\example\demo\Repository\Photosizerepository.class
 com\example\demo\Repository\ReservationStudioRepository.class
+com\example\demo\Entity\SystemName.class
 com\example\demo\Repository\TimesPhotogarpherRepository.class
 com\example\demo\Entity\Photocollection.class
 com\example\demo\Entity\Promotionphotocollection.class
@@ -74,12 +78,14 @@ com\example\demo\Repository\PhotographerRepository.class
 com\example\demo\Repository\ReservationPhotographerRepository.class
 com\example\demo\Repository\Photoseriesrepository.class
 com\example\demo\Repository\RegisterPhotographysRepository\PhotographyTypeRepository.class
+com\example\demo\Repository\SystemNameRepository.class
 com\example\demo\Entity\Photosize.class
 com\example\demo\Entity\RoomStudio.class
 com\example\demo\Entity\RepairInvoiced.class
 com\example\demo\Repository\RegisterPhotographysRepository\StudyTimeRepository.class
 com\example\demo\Entity\RegisterPhotographys\Camara.class
 com\example\demo\Entity\RegisterPhotographys\StudyTime.class
+com\example\demo\Repository\ScoreRepository.class
 com\example\demo\Entity\PromotionStudio.class
 com\example\demo\Entity\Member.class
 com\example\demo\Repository\ModelRepository.class

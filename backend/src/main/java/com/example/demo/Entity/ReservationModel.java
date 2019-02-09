@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import java.util.Date;
 
@@ -26,10 +29,21 @@ public class ReservationModel {
     @SequenceGenerator(name="ReservationModel_seq",sequenceName="ReservationModel_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ReservationModel_seq")
     @Column(name = "Reservationmodel_ID" )
-    private @NonNull Long ReservationModel_id;
-    private @NonNull String Themes;
-    private @NonNull Date date;
-    private  @NonNull String Location;
+    private  Long ReservationModel_id;
+    @NotNull
+    @Pattern(regexp = "^([ก-ู]|[เ-์])+")
+    @Size(min = 5 ,max = 20)
+    @Column(unique = true)
+    private  String Themes;
+
+    @NotNull
+    @Pattern(regexp = "^([ก-ู]|[เ-์])+")
+    @Size(min = 5 ,max = 20)
+    @Column(unique = true)
+    private   String Location;
+    @Temporal(TemporalType.DATE)
+    private @io.micrometer.core.lang.NonNull
+      Date date;
 
     public Date getDate() { return date; }
     public void setDate(Date date) { this.date = date; }
@@ -45,11 +59,14 @@ public class ReservationModel {
     public PromotionModel getPromotionModel() { return promotionModel; }
 
 
+    @NotNull
     @ManyToOne
     private Member member;
 
+    @NotNull
     @ManyToOne
     private Model model;
+
 
     @ManyToOne
     private PromotionModel promotionModel;

@@ -41,15 +41,19 @@ public class ReservationStudio {
         this.member = member;
     }
 
+    @NotNull
     @ManyToOne
     private  Member member ;
 
+    @NotNull
     @ManyToOne
     private  PromotionStudio promotionStudio ;
 
+    @NotNull
     @ManyToOne
     private  RoomStudio roomStudio;
 
+    @NotNull
     @ManyToOne
     private  TimeStudio timeStudio;
 
