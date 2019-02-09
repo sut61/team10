@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class Cardtype {
     @SequenceGenerator(name = "cardtype_seq", sequenceName = "cardtype_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "cardtype_seq")
     @Column(name = "Cardtype_id", unique = true, nullable = false)
-    private @NonNull
+    private @NotNull
     Long Cardtype_id;
 
     private String Card_type;
