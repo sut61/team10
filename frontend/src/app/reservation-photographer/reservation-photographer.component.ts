@@ -21,6 +21,14 @@ export class ReservationPhotographerComponent implements OnInit {
   starttimes: Array<any>;
   starttimeSelect = null;
   comment:String;
+  point:String;
+  phone:String;
+  email:String;
+  price:number;
+  prices: Array<any>;
+  points : Array<any>;
+  phones : Array<any>;
+  emails : Array<any>;
   comments : Array<any>;
   time = null;
   data:any={}
@@ -28,7 +36,22 @@ export class ReservationPhotographerComponent implements OnInit {
   private router:Router,private route:ActivatedRoute) {}
 
   ngOnInit() {
-
+    this.controller.getComment().subscribe(data => {
+      this.prices = data;
+      console.log(this.prices);
+    });
+    this.controller.getComment().subscribe(data => {
+      this.points = data;
+      console.log(this.points);
+    });
+    this.controller.getComment().subscribe(data => {
+      this.phones = data;
+      console.log(this.phones);
+    });
+    this.controller.getComment().subscribe(data => {
+      this.emails = data;
+      console.log(this.emails);
+    });
     this.controller.getComment().subscribe(data => {
       this.comments = data;
       console.log(this.comments);
@@ -65,19 +88,24 @@ export class ReservationPhotographerComponent implements OnInit {
 
   }
   enter(){
-    if(this.photoSelect == null || this.typephotoSelect == null || this.promotionphotoSelect == null
-    || this.starttimeSelect == null  || this.comment == null ) {
+    if(this.photoSelect == null || this.typephotoSelect == null || this.promotionphotoSelect == null || this.price == null
+    || this.starttimeSelect == null  || this.comment == null || this.point == null || this.phone == null || this.email == null) {
       alert('กรุณาใส่ข้อมูลให้ครบ');
     }else if(this.promotionphotoSelect != this.starttimeSelect){
       alert('กรุณาเลือกโปรโมชั่นและเวลาให้ตรงกัน')
     }
     else if(this.time == null) {
       alert('กรุณาเลือกวันที่จอง');
+    }           else if(this.price < 1000) {
+      alert('กรุณากรอกราคาให้ถูกต้อง');
+    }
+    else if(this.price > 3000) {
+      alert('กรุณากรอกราคาให้ถูกต้อง');
     }
     else{
       this.httpClient.post('http://localhost:8080/reservationPhotographer/' +this.data.first+ '/' +this.photoSelect
         + '/' +this.typephotoSelect+ '/' +this.promotionphotoSelect+'/'+this.starttimeSelect+'/'+this.time
-        +'/'+this.comment,{})
+        +'/'+this.point+'/'+this.price+'/'+this.phone+'/'+this.email+'/'+this.comment,{})
         .subscribe(
           data => {
             console.log('PUT Request is successful', data);
@@ -87,7 +115,6 @@ export class ReservationPhotographerComponent implements OnInit {
           }
         );
       alert("สำเร็จ");
-      window.location.reload()
     }
   }
 home(){

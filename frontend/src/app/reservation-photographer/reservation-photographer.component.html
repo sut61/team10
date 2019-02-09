@@ -64,7 +64,7 @@
     </mat-select>
   </mat-form-field>
 
-  <br><br>
+  <br>
 
   <mat-form-field class ="text">
     <mat-select placeholder="Select photo type" [(ngModel)]="typephotoSelect" name="typephoto_name"[ngModelOptions]="{standalone: true}">
@@ -74,7 +74,7 @@
     </mat-select>
   </mat-form-field>
 
-  <br><br>
+  <br>
 
 
   <mat-form-field class ="text">
@@ -85,7 +85,7 @@
     </mat-select>
   </mat-form-field>
 
-<br><br>
+<br>
 
   <mat-form-field class ="text">
     <mat-select placeholder="Select time" [(ngModel)]="starttimeSelect" name="stratTime"[ngModelOptions]="{standalone: true}">
@@ -94,20 +94,37 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <br><br>
+  <br>
   <mat-form-field class ="texttime">
     <input matInput [matDatepicker]="picker" placeholder="วันที่จอง" style="color:black;" [(ngModel)]="time">
     <mat-datepicker-toggle matSuffix [for]="picker"style="color:black;"></mat-datepicker-toggle>
     <mat-datepicker #picker ></mat-datepicker>
   </mat-form-field>
 
+  <br>
+  <mat-form-field class="texttime">
+    <input matInput [(ngModel)]="point" [ngModelOptions]="{standalone: true}"  placeholder="สถานที่นัดพบ" >
+  </mat-form-field>
+  <br>
 
+  <mat-form-field class="texttime">
+    <input matInput [(ngModel)]="price" [ngModelOptions]="{standalone: true}" placeholder="กรอกราคา" >
+  </mat-form-field>
+  <br>
 
+  <mat-form-field class="texttime">
+    <input matInput [(ngModel)]="phone" [ngModelOptions]="{standalone: true}" type="text" maxlength="10" placeholder="เบอร์โทรศัพท์">
+    <mat-hint align="end">เบอร์โทรที่สามารถติดต่อได้</mat-hint>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="texttime">
+    <input matInput [(ngModel)]="email" [ngModelOptions]="{standalone: true}" placeholder="Email" >
+    <mat-hint align="end">Email ที่สามารถติดต่อได้</mat-hint>
+  </mat-form-field>
   <br>
 
   <mat-form-field class="boxcomment">
-    <textarea matInput [(ngModel)]="comment" [ngModelOptions]="{standalone: true}" type="text" #M  placeholder="รายละเอียดเพิ่มเติม เช่น สถานที่นัดพบ" ROWS="3" COLS="105"></textarea>
-    <mat-hint align="end">{{M.value.length}} / 250</mat-hint>
+    <textarea matInput [(ngModel)]="comment" [ngModelOptions]="{standalone: true}" placeholder="รายละเอียดเพิ่มเติม" ROWS="3" COLS="105"></textarea>
   </mat-form-field>
   <br><br>
 
@@ -125,7 +142,7 @@
     <th>times</th>
     <th>Date</th>
     <th>Price (THB)</th>
-    <th>Detail</th>
+    <th>Place</th>
     <ng-container *ngFor="let comment of comments">
       <tr>
         <td>{{comment.reservationphotographer_id}}</td>
@@ -135,7 +152,7 @@
         <td class="cut">{{comment.startTime.stratTime}}</td>
         <td class="cut">{{comment.reservation_date}}</td>
         <td>{{comment.promotionPhotographer.promotion_price}}</td>
-        <td>{{comment.comment_photo}}</td>
+        <td>{{comment.appointment}}</td>
       </tr>
     </ng-container>
   </table>
