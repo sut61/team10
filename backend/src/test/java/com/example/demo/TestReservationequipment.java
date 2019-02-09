@@ -32,12 +32,16 @@ public class TestReservationequipment {
     private Reservationequipmentrepository reservationequipmentrepository;
     @Autowired
     private TestEntityManager entityManager;
+<<<<<<< HEAD
     @Autowired
     private Equipmentrepository equipmentrepository;
     @Autowired
     private Timereceiverepository timereceiverepository;
     @Autowired
     private MemberRepository memberRepository;
+=======
+    @Autowired private MemberRepository memberRepository;
+>>>>>>> issue-78
 
     private Validator validator;
     private Equipment equipment;

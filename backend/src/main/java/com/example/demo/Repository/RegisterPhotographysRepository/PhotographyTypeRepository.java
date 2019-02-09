@@ -11,4 +11,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 @RepositoryRestResource
 public interface PhotographyTypeRepository extends JpaRepository<PhotographyType, Long> {
+    PhotographyType findByPhotographyType(String photographyType);
 }

@@ -124,9 +124,9 @@ public class DemoApplication {
             TimeStudio timeStudio1 = new TimeStudio();
             TimeStudio timeStudio2 = new TimeStudio();
             TimeStudio timeStudio3 = new TimeStudio();
-            timeStudio1.setTime_name("ครึ่งวันเช้า");
-            timeStudio2.setTime_name("ครึ่งวันบ่าย");
-            timeStudio3.setTime_name("เต็มวัน");
+            timeStudio1.setTimeName("ครึ่งวันเช้า");
+            timeStudio2.setTimeName("ครึ่งวันบ่าย");
+            timeStudio3.setTimeName("เต็มวัน");
             timeStudioRepository.save(timeStudio1);
             timeStudioRepository.save(timeStudio2);
             timeStudioRepository.save(timeStudio3);
