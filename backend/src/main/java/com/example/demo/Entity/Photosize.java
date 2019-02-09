@@ -16,16 +16,16 @@ public class Photosize {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Photosize_seq")
     @Column(name="Photosize_ID",unique = true, nullable = false)
     private @NonNull Long id;
-    private @NonNull String name;
+    private @NonNull String namephotosize;
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getName() { return namephotosize; }
+    public void setName(String name) { this.namephotosize = name; }
 
 
 
     public Photosize(){}
     public Photosize(String name){
-        this.name=name;
+        this.namephotosize=name;
     }
 }

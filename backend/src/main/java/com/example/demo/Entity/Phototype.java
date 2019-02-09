@@ -18,16 +18,16 @@ public class Phototype {
     @Column(name="Phototype_ID",unique = true, nullable = false)
 
     private @NonNull Long id;
-    private @NonNull String name;
+    private @NonNull String namephototype;
 
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id;}
-    public String getName() {return name;}
-    public void setName(String name) {this.name = name;}
+    public String getName() {return namephototype;}
+    public void setName(String name) {this.namephototype = name;}
     public Phototype(){}
 
 
     public Phototype(String name){
-        this.name=name;
+        this.namephototype=name;
     }
 }

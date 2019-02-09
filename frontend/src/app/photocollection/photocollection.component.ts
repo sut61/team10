@@ -66,13 +66,13 @@ insert(){
                   alert('กรุณาเลือกลักษณะชุดถ่ายภาพ');
       }
       else if(this.shootingstylenamewriteSelect == null){
-                  alert('กรุณาเลือกลักษณะชุดถ่ายภาพเพิ่มเติม');
+                  alert('กรุณากรอกลักษณะชุดถ่ายภาพเพิ่มเติม');
       }
       else if(this.promotionphotocollectionIDSelect == null){
                         alert('กรุณาเลือกโปรโมชั่น');
       }
       else if(this.startdateIDSelect == null){
-                  alert('กรุณาเลือกวันเริ่มจอง');
+                  alert('กรุณาเลือกวันที่จอง');
       }
       else{
        this.httpClient.post('http://localhost:8080/photocollection/' + this.data.first + '/' + this.photoseriesIDSelect + '/'
