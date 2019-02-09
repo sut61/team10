@@ -65,6 +65,19 @@ public class Controller {
     @Autowired Photopicturerepository photopicturerepository;
     @Autowired Photosizerepository photosizerepository;
     @Autowired Phototyperepository phototyperepository;
+//pam 2{
+    @Autowired ReviewRepository reviewRepository;
+    @Autowired ScoreRepository scoreRepository;
+    @Autowired SystemNameRepository systemNameRepository;
+    //}
+//pam 2
+    @GetMapping("/Review")
+    public Collection<Review> reviews() { return reviewRepository.findAll().stream().collect(Collectors.toList()); }
+    @GetMapping("/Score")
+    public Collection<Score> scores() { return scoreRepository.findAll().stream().collect(Collectors.toList()); }
+    @GetMapping("/SystemName")
+    public Collection<SystemName> systemNames() { return systemNameRepository.findAll().stream().collect(Collectors.toList()); }
+    //}
 
     @GetMapping(path = "/Photopicture")
     public Collection<Photopicture> Photopicture() {
@@ -547,5 +560,31 @@ public class Controller {
 
     }
 //}//MM
+//Pam sprint 2{
+    @PostMapping(path ="/review/{memname}/{topic}/{payment}/{systemname}/{score}/{good}/{dis}/{commentre}/{direction}")
+    public Review review(@PathVariable String memname,@PathVariable String topic,@PathVariable Long payment,@PathVariable Long systemname
+            ,@PathVariable Long score,@PathVariable String good,@PathVariable String dis,@PathVariable String commentre,@PathVariable Long direction){
+    
+        Member member = memberRepository.findByUserid(memname);
+        Payment payment1 = paymentrepository.findById(payment).get();
+        SystemName systemName = systemNameRepository.findById(systemname).get();
+        Score score1 = scoreRepository.findById(score).get();
+    
+        Review review = new Review();
+        review.setMember(member);
+        review.setTopic(topic);
+        review.setPayment(payment1);
+        review.setSystemName(systemName);
+        review.setScore(score1);
+        review.setGood_comment(good);
+        review.setDis_comment(dis);
+        review.setComment_review(commentre);
+        review.setDirection(direction);
+        reviewRepository.save(review);
+        return review;
+    
+    }
+    //}
+
 }
 
