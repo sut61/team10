@@ -21,7 +21,7 @@ public class Payment {
     @Positive
     @Min(value =1000)
     @Max(value =3000)
-    private @NotNull int Payment_total;
+    private  int Payment_total;
 
     @Pattern(regexp = "[0-9]{16}")
     @Size(min=16,max = 16)

@@ -19,7 +19,7 @@ public class Cardbank {
     private @NotNull
     Long Cardbank_id;
 
-    private String Card_bank;
+    private @NotNull String Card_bank;
     public String getKey() {
         return key;
     }
@@ -28,7 +28,7 @@ public class Cardbank {
         this.key = key;
     }
 
-    private String key ;
+    private @NotNull String key ;
 
     public Long getId() {
         return Cardbank_id;
