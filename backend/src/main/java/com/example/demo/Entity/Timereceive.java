@@ -15,7 +15,7 @@ public class Timereceive {
     @SequenceGenerator(name = "timereceive_seq", sequenceName = "timereceive_seq")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timereceive_seq")
     @Column(name = "Timereceive_id", unique = true, nullable = false)
-    private @NonNull Long Timereceive_id;
+    private @NotNull Long Timereceive_id;
 
     private   String Timereceive_name;
     public String getKey() {

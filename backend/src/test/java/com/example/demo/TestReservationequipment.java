@@ -97,6 +97,126 @@ public class TestReservationequipment {
         }
     }
     @Test
+    public void testReservationEquipmentNameNull () {
+        Equipment eq = new Equipment();
+        eq.setEquipment_name(null);
+        eq.setEquipment_brand("aa");
+        eq.setEquipment_type("fg");
+        eq.setEquipment_price(100);
+        eq.setKey("1");
+
+        try {
+
+            entityManager.persist(eq);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println( e + " Name equipment Null --------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
+    public void testReservationBrandNameNull () {
+        Equipment eq = new Equipment();
+        eq.setEquipment_name("qqdf");
+        eq.setEquipment_brand(null);
+        eq.setEquipment_type("fg");
+        eq.setEquipment_price(100);
+        eq.setKey("1");
+
+        try {
+
+            entityManager.persist(eq);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println( e + " Name Brand Null --------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
+    public void testReservationTypeNameNull () {
+        Equipment eq = new Equipment();
+        eq.setEquipment_name("aa");
+        eq.setEquipment_brand("aa");
+        eq.setEquipment_type(null);
+        eq.setEquipment_price(100);
+        eq.setKey("1");
+
+        try {
+
+            entityManager.persist(eq);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println( e + " Name type Null --------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
+    public void testReservationEquipmentPriceZero () {
+        Equipment eq = new Equipment();
+        eq.setEquipment_name("aa");
+        eq.setEquipment_brand("aa");
+        eq.setEquipment_type("fg");
+        eq.setEquipment_price(0);
+        eq.setKey("1");
+
+        try {
+
+            entityManager.persist(eq);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println( e + " Name equipment Null --------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
+    public void testReservationEquipmentKeyNull () {
+        Equipment eq = new Equipment();
+        eq.setEquipment_name("qq");
+        eq.setEquipment_brand("aa");
+        eq.setEquipment_type("fg");
+        eq.setEquipment_price(100);
+        eq.setKey(null);
+
+        try {
+
+            entityManager.persist(eq);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println( e + " Name equipment Null --------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
     public void testReservationEquipmentMin() {
         Reservationequipment reser = new Reservationequipment();
         reser.setCardid("123456");
@@ -293,16 +413,27 @@ public class TestReservationequipment {
     public void testUnique() {
         Reservationequipment p = new Reservationequipment();
         p.setCardid("1249900467392");
+        p.setDetail_equipment("aa");
+        p.setDaterent(new Date(2018-1900,2-1,1));
+        p.setEquipment(equipment);
+        p.setTimereceive(timereceive);
+        p.setMember(member);
+        entityManager.persist(p);
+        entityManager.flush();
 
         Reservationequipment p1 = new Reservationequipment();
         p1.setCardid("1249900467392");
-
+        p1.setDetail_equipment("aa");
+        p1.setDaterent(new Date(2018-1900,2-1,1));
+        p1.setEquipment(equipment);
+        p1.setTimereceive(timereceive);
+        p1.setMember(member);
         try{
             entityManager.persist(p1);
             entityManager.flush();
             fail("Should not pass to this line");
 
-        }catch (javax.validation.ConstraintViolationException e){
+        }catch (javax.persistence.PersistenceException e){
             System.out.println();
             System.out.println( e + " same Cardid --------------------------------");
             System.out.println();

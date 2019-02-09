@@ -30,22 +30,22 @@ export class Controller {
            getMember(): Observable<any> {
                        return this.httpClient.get(this.API + '/member');
                    }
-                   getTimereceive(): Observable<any> {
+          getTimereceive(): Observable<any> {
                        return this.httpClient.get(this.API + '/Timereceive');
-                     }
+          }
 
-                     getEquipment(): Observable<any> {
+          getEquipment(): Observable<any> {
                        return this.httpClient.get(this.API + '/Equipment');
-                     }
-                     findUserid(user:String): Observable<any>{
-                             return this.httpClient.post(this.API+'/member/'+user,{})
-                          }
-                      findMember(user:String , pass:String): Observable<any>{
-                            return this.httpClient.post(this.API+'/member/'+user+'/password/'+pass,{})
-                              }
-                      findAdmin(user:String , pass:String): Observable<any>{
-                             return this.httpClient.post(this.API+'/admin/'+user+'/password/'+pass,{})
-                          }
+          }
+          findUserid(user:String): Observable<any>{
+          return this.httpClient.post(this.API+'/member/'+user,{})
+          }
+          findMember(user:String , pass:String): Observable<any>{
+                        return this.httpClient.post(this.API+'/member/'+user+'/password/'+pass,{})
+           }
+          findAdmin(user:String , pass:String): Observable<any>{
+                         return this.httpClient.post(this.API+'/admin/'+user+'/password/'+pass,{})
+           }
            getPhotographer(): Observable<any> {
                return this.httpClient.get(this.API + '/Photographer');
              }

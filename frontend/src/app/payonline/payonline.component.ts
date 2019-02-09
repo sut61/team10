@@ -15,7 +15,7 @@ private card_id:string;
 
 private card_name:string;
 private payment_total:number;
- data:any={}
+  data:any={}
   cardtypes: Array<any>;
   cbs: Array<any>;
   rent1s: Array<any>;
@@ -111,35 +111,35 @@ this.route.params.subscribe(prams=>{
 home(){
      this.router.navigate(['home',{first:this.data.first}]);
      console.log(this.data);
-  }
-  studio(){
-       this.router.navigate(['reservation-studio',{first:this.data.first}]);
-       console.log(this.data);
-    }
+     }
+studio(){
+      this.router.navigate(['reservation-studio',{first:this.data.first}]);
+      console.log(this.data);
+     }
 
-  equipment(){
-         this.router.navigate(['reservation-equipment',{first:this.data.first}]);
-         console.log(this.data);
+equipment(){
+      this.router.navigate(['reservation-equipment',{first:this.data.first}]);
+      console.log(this.data);
       }
 payment(){
-         this.router.navigate(['payonline',{first:this.data.first}]);
-         console.log(this.data);
+      this.router.navigate(['payonline',{first:this.data.first}]);
+      console.log(this.data);
       }
-       photo(){
-                                     this.router.navigate(['reservation-photographer',{first:this.data.first}]);
-                                     console.log(this.data);
-                                  }
-    collect(){
-                    this.router.navigate(['photocollection',{first:this.data.first}]);
-                    console.log(this.data);
-                 }
-                  model(){
-                                   this.router.navigate(['reservation-model',{first:this.data.first}]);
-                                                       console.log(this.data);
-                      }
+photo(){
+      this.router.navigate(['reservation-photographer',{first:this.data.first}]);
+      console.log(this.data);
+      }
+collect(){
+      this.router.navigate(['photocollection',{first:this.data.first}]);
+      console.log(this.data);
+      }
+model(){
+      this.router.navigate(['reservation-model',{first:this.data.first}]);
+      console.log(this.data);
+      }
 registerPhotography(){
-        this.router.navigate(['register-photography',{first:this.data.first}]);
-        console.log(this.data);
+      this.router.navigate(['register-photography',{first:this.data.first}]);
+      console.log(this.data);
     }
 
 }
