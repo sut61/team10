@@ -73,7 +73,7 @@ insert(){
        if(this.memSelect == null) {
                   alert('กรุณาเลือกวสมาชิก');
       }else if(this.dataname == null){
-                  alert('กรุณากรอกลิ้งค์รูปภาพ');
+                  alert('กรุณากรอกลรายละเอียดการส่งให้ลูกค้า');
       }
       else if(this.phototypeIDSelect == null){
                   alert('กรุณาเลือกลักษณะรูปภาพ');
@@ -82,7 +82,7 @@ insert(){
                   alert('กรุณาเลือกลsizeของรูปภาพ');
       }
       else if(this.datadateIDSelect == null){
-                  alert('กรุณาเลือกวันสิ้นสุดการจอง');
+                  alert('กรุณาเลือกเวลาที่ส่งให้ลูกค้า');
       }
 
 
