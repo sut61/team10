@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin(origins = "http://localhost:4200")
 @RepositoryRestResource
 public interface Cardbankrepository extends JpaRepository<Cardbank, Long> {
-    Cardbank findByKey(String key);
+    Cardbank findByKeyb(String keyb);
 }

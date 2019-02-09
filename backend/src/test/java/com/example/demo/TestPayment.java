@@ -55,8 +55,8 @@ public class TestPayment {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
         member = memberRepository.findByName("dikinakub");
-        cardbank = cardbankrepository.findByKey("1");
-        cardtype = cardtyperepository.findByKey("1");
+        cardbank = cardbankrepository.findByKeyb("1");
+        cardtype = cardtyperepository.findByKeyt("1");
     }
     @Test
     public void testSuccess() {
@@ -254,7 +254,7 @@ public class TestPayment {
     public void testCardTypeNameNull(){
         Cardtype ct = new Cardtype();
         ct.setCard_type(null);
-        ct.setKey("4");
+        ct.setKeyt("4");
         try {
 
             entityManager.persist(ct);
@@ -276,7 +276,7 @@ public class TestPayment {
     public void testCardTypeKeyNull(){
         Cardtype ct = new Cardtype();
         ct.setCard_type("aa");
-        ct.setKey(null);
+        ct.setKeyt(null);
         try {
 
             entityManager.persist(ct);
@@ -298,7 +298,7 @@ public class TestPayment {
     public void testCardBankKeyNull(){
         Cardbank cb = new Cardbank();
         cb.setCard_bank("aa");
-        cb.setKey(null);
+        cb.setKeyb(null);
         try {
 
             entityManager.persist(cb);
@@ -320,7 +320,7 @@ public class TestPayment {
     public void testCardBankNameNull(){
         Cardbank cb = new Cardbank();
         cb.setCard_bank(null);
-        cb.setKey("aa");
+        cb.setKeyb("aa");
         try {
 
             entityManager.persist(cb);

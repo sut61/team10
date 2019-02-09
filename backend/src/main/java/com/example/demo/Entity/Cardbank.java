@@ -20,15 +20,15 @@ public class Cardbank {
     Long Cardbank_id;
 
     private @NotNull String Card_bank;
-    public String getKey() {
-        return key;
+    public String getKeyb() {
+        return keyb;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setKeyb(String keyb) {
+        this.keyb = keyb;
     }
 
-    private @NotNull String key ;
+    private @NotNull String keyb ;
 
     public Long getId() {
         return Cardbank_id;
@@ -48,8 +48,6 @@ public class Cardbank {
     }
 
 
-    // @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    // private List<Payment> payments = new ArrayList<>();
 
 
     public Cardbank() {

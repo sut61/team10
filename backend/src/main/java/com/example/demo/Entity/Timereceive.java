@@ -16,14 +16,14 @@ public class Timereceive {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timereceive_seq")
     @Column(name = "Timereceive_id", unique = true, nullable = false)
     private @NotNull Long Timereceive_id;
-    private @NotNull String key ;
+    private @NotNull String keytime ;
     private @NotNull  String Timereceive_name;
-    public String getKey() {
-        return key;
+    public String getKeytime() {
+        return keytime;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setKeytime(String keytime) {
+        this.keytime = keytime;
     }
 
 
