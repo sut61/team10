@@ -23,8 +23,7 @@ public class Photocollection {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Photocollection_seq")
     @Column(name="Photocollection_ID",unique = true, nullable = false)
     private @NonNull Long Photocollection_id;
-    private @NonNull Date startdate;
-    private @NonNull Date lastdate;
+
     private @NonNull String shootingstylenamewrite;
     private @NonNull String photoseriesname;
     private @NonNull String promotionphotocollectionname;
@@ -39,7 +38,9 @@ public class Photocollection {
     public void setShootingstylename(String shootingstylename) { this.shootingstylename = shootingstylename; }
     public String getShootingstylename() {  return shootingstylename;  }
 
-
+    @Temporal(TemporalType.DATE)
+    private @io.micrometer.core.lang.NonNull
+    Date startdate;
 
     public void setStartdate(Date startdate) {
         this.startdate = startdate;
@@ -47,10 +48,7 @@ public class Photocollection {
     public Date getStartdate() {
         return startdate;
     }
-    public void setLastdate(Date lastdate) {
-        this.lastdate = lastdate;
-    }
-    public Date getLastdate() { return lastdate; }
+
 
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Member.class)
@@ -71,10 +69,9 @@ public class Photocollection {
     private Shootingstyle shootingstyle ;
 
     public Photocollection(){}
-    public Photocollection(Date startdate,Date lastdate,Member member,Photoseries photoseries
+    public Photocollection(Date startdate,Member member,Photoseries photoseries
             ,Promotionphotocollection promotionphotocollection,Shootingstyle shootingstyle,String shootingstylenamewrite){
         this.startdate=startdate;
-        this.lastdate=lastdate;
         this.member=member;
         this.photoseries=photoseries;
         this.promotionphotocollection=promotionphotocollection;

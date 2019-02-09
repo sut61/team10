@@ -75,7 +75,7 @@
   <mat-form-field>
     <input matInput [(ngModel)]="shootingstylenamewriteSelect" placeholder="ลักษณะชุดถ่ายภาพเพิ่มเติม">
   </mat-form-field>
-   <br><br>
+  <br><br>
 
   <mat-form-field>
     <mat-select placeholder="โปรโมชั่น" [(ngModel)]="promotionphotocollectionIDSelect" name="id">
@@ -89,16 +89,10 @@
 
 
   <mat-form-field>
-    <input matInput [(ngModel)]="startdateIDSelect" placeholder="" value="" name="date"[matDatepicker]="picker" placeholder="เลือกวันที่เริ่มจอง">
+    <input matInput [(ngModel)]="startdateIDSelect" placeholder="" value="" name="date"[matDatepicker]="picker" placeholder="เลือกวันที่จอง">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-
-  <mat-form-field>
-    <input matInput [(ngModel)]="lastdateIDSelect" placeholder="" value="" name="date1"[matDatepicker]="picker1" placeholder="เลือกวันที่สิ้นสุดจอง">
-    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-    <mat-datepicker #picker1></mat-datepicker>
-  </mat-form-field> <br><br>
 
 
   <div class="example-button-row">

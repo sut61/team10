@@ -120,7 +120,7 @@ export class TablePhotogarpherComponent implements OnInit {
           error => {
             console.log('Error', error);
           }
-        );
+        );window.location.reload()
       alert('ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ');
 
      // window.location.reload()

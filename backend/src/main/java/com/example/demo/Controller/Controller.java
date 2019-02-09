@@ -378,10 +378,10 @@ public class Controller {
     }
 
 
-    @PostMapping(path = "/photocollection/{name}/{photoseriesIDSelect}/{promotionphotocollectionIDSelect}/{shootingstyleIDSelect}/{startdateIDSelect}/{lastdateIDSelect}/{shootingstylenamewriteSelect}")
+    @PostMapping(path = "/photocollection/{name}/{photoseriesIDSelect}/{promotionphotocollectionIDSelect}/{shootingstyleIDSelect}/{startdateIDSelect}/{shootingstylenamewriteSelect}")
     public Photocollection photocollection(@PathVariable String name, @PathVariable String photoseriesIDSelect,
                                            @PathVariable String  promotionphotocollectionIDSelect, @PathVariable String shootingstyleIDSelect,
-                                           @PathVariable Date startdateIDSelect,@PathVariable Date lastdateIDSelect,@PathVariable String shootingstylenamewriteSelect){
+                                           @PathVariable Date startdateIDSelect,@PathVariable String shootingstylenamewriteSelect){
 
         Photoseries photoseries = photoseriesrepository.findByname(photoseriesIDSelect);
         Promotionphotocollection promotionphotocollection = promotionphotocollectionrepository.findByname(promotionphotocollectionIDSelect);
@@ -394,7 +394,6 @@ public class Controller {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstyle(shootingstyle);
         photocollection.setStartdate(startdateIDSelect);
-        photocollection.setLastdate(lastdateIDSelect);
         photocollection.setPhotoseriesname(photoseriesIDSelect);
         photocollection.setPromotionphotocollectionname(promotionphotocollectionIDSelect);
         photocollection.setShootingstylename(shootingstyleIDSelect);

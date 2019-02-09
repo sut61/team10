@@ -5,14 +5,13 @@ import {ActivatedRoute} from "@angular/router";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: 'app-photocollection',
-  templateUrl: './photocollection.component.html',
-  styleUrls: ['./photocollection.component.css']
+selector: 'app-photocollection',
+templateUrl: './photocollection.component.html',
+styleUrls: ['./photocollection.component.css']
 })
 export class PhotocollectionComponent implements OnInit {
 startdateIDSelect = null;
 data:any={}
-lastdateIDSelect = null;
 constructor(private photocollection: Controller,private httpClient: HttpClient,
      private router:Router,
      private route:ActivatedRoute) { }
@@ -75,13 +74,9 @@ insert(){
       else if(this.startdateIDSelect == null){
                   alert('กรุณาเลือกวันเริ่มจอง');
       }
-      else if(this.lastdateIDSelect == null){
-                  alert('กรุณาเลือกวันสิ้นสุดการจอง');
-      }
       else{
        this.httpClient.post('http://localhost:8080/photocollection/' + this.data.first + '/' + this.photoseriesIDSelect + '/'
-                     + this.promotionphotocollectionIDSelect + '/' + this.shootingstyleIDSelect + '/' + this.startdateIDSelect + '/' +
-                     this.lastdateIDSelect + '/' + this.shootingstylenamewriteSelect ,{})
+                     + this.promotionphotocollectionIDSelect + '/' + this.shootingstyleIDSelect + '/' + this.startdateIDSelect + '/' + this.shootingstylenamewriteSelect ,{})
                      .subscribe(
                        data => {
                            console.log('PUT Request is successful', data);
