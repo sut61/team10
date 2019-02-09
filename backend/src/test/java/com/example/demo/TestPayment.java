@@ -31,7 +31,6 @@ public class TestPayment {
     private Paymentrepository paymentrepository;
     @Autowired
     private TestEntityManager entityManager;
-<<<<<<< HEAD
     @Autowired
     private Cardbankrepository cardbankrepository;
     @Autowired
@@ -39,9 +38,6 @@ public class TestPayment {
     @Autowired
     private MemberRepository memberRepository;
 
-=======
-    @Autowired private MemberRepository memberRepository;
->>>>>>> issue-78
     private Validator validator;
 
 
