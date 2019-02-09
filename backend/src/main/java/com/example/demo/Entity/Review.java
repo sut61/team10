@@ -56,8 +56,6 @@ public class Review {
     @Positive
     private Long Direction;
 
-
-
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Member.class)
     @JoinColumn(name = "Member_ID", insertable = true)
     private Member member;
