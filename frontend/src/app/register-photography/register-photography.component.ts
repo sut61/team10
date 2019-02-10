@@ -68,7 +68,7 @@ export class RegisterPhotographyComponent implements OnInit {
                                             }
                                           );
                      alert("ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ");
-                     window.location.reload()
+                     //window.location.reload()
                }
                else{
                   alert("กรุณาใส่ข้อมูลให้ครบค่ะ");
