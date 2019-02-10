@@ -80,7 +80,8 @@ this.route.params.subscribe(prams=>{
            insert() {
 
        if (this.card_cvv == null || this.card_name == null|| this.cardbankSelect == null ||
-        this.cardSelect == null || this.card_id == null) {
+        this.cardSelect == null || this.card_id == null || this.rent5Select == null|| this.rent4Select == null
+         || this.rent3Select == null|| this.rent2Select == null|| this.rent1Select == null) {
               alert('กรุณากรอกข้อมูลให้ครบ');
  }
           else if((this.card_id as string).length != 16){
