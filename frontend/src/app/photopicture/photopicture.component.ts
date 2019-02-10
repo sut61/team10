@@ -96,7 +96,8 @@ insert(){
                        error => {
                            console.log('Error', error);
                        }
-                      );window.location.reload()
+                      );
+                      //window.location.reload()
                       alert("ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ");
                         this.memSelect=null;
                         this.dataname=null;

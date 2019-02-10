@@ -55,7 +55,7 @@ export class RepairinvoicedComponent implements OnInit {
                this.equipmentSelect = null ;
                      this.datein = null;
                      this.commentt = null ;
-                     window.location.reload()
+                     //window.location.reload()
 
          }
          else{

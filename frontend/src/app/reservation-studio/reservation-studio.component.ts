@@ -93,7 +93,7 @@ export class ReservationStudioComponent implements OnInit {
                     }
                   );
                   alert("ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ");
-                  window.location.reload()
+                  //window.location.reload()
            }
    }
 

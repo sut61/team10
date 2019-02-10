@@ -56,9 +56,11 @@ data:any={}
   }
   insert() {
     if(this.modelnameSelect == null) {alert('กรุณาเลือกชื่อนางแบบ');}
-    if(this.themesSelect == null) {alert('กรุณากรอก Themes');}
-    if(this.locationSelect == null) {alert('กรุณากรอก Loccation');}
-    if(this.promotionmodelSelect == null) {alert('กรุณาเลือกโปรโมชั่น');} else {
+    else if(this.themesSelect == null) {alert('กรุณากรอก Themes');}
+    else if(this.locationSelect == null) {alert('กรุณากรอก Loccation');}
+    else if(this.promotionmodelSelect == null) {alert('กรุณาเลือกโปรโมชั่น');}
+
+    else {
 
       this.httpClient.post('http://localhost:8080/ReservationModels/' + this.modelnameSelect + '/' + this.themesSelect + '/' + this.locationSelect + '/' + this.promotionmodelSelect + '/' + this.dateSelect+'/'+this.data.first, {})
         .subscribe(

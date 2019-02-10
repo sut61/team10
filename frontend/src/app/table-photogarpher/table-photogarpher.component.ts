@@ -92,22 +92,22 @@ export class TablePhotogarpherComponent implements OnInit {
     if (this.photoSelect == null) {
       alert('กรุณาเลือกชื่อช่างภาพ');
     }
-    if (this.telSelect == null) {
+    else if (this.telSelect == null) {
       alert('กรุณากรอก Tel');
     }
-    if (this.typephotoSelect == null) {
+    else if (this.typephotoSelect == null) {
       alert('กรุณาเลือกประเภทงาน');
     }
-    if (this.timetableSelect == null) {
+    else if (this.timetableSelect == null) {
       alert('กรุณาเลือกเวลา');
     }
-    if (this.promotiontableSelect == null) {
+    else if (this.promotiontableSelect == null) {
       alert('กรุณาเลือกโปรโมชั่น');
     }
-    if (this.locationSelect == null) {
+    else if (this.locationSelect == null) {
       alert('กรูณากรอก สถานที่นัดหมาย');
     }
-    if (this.tabledate == null) {
+    else if (this.tabledate == null) {
       alert('กรุณาเลือกวันที่');
     } else {
       this.httpClient.post('http://localhost:8080/tablephotographer/' + this.photoSelect + '/' + this.telSelect + '/' + this.typephotoSelect + '/'
@@ -120,7 +120,8 @@ export class TablePhotogarpherComponent implements OnInit {
           error => {
             console.log('Error', error);
           }
-        );window.location.reload()
+        );
+        //window.location.reload()
       alert('ระบบได้บันทึกข้อมูลเรียบร้อยแล้วค่ะ');
 
      // window.location.reload()
