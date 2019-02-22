@@ -31,7 +31,8 @@ public class DemoApplication {
                            InstructorRepository instructorRepository, PhotographyTypeRepository photographyTypeRepository, RegisterPhotographyRepository registerPhotographyRepository,
                            SkillLevelRepository skillLevelRepository, StudyTimeRepository studyTimeRepository,Cardbankrepository cardbankrepository,Cardtyperepository cardtyperepository,
                            TimesPhotogarpherRepository timesPhotogarpherRepository,PromotionTableRepository promotionTableRepository , CommentRepository commentRepository,Phototyperepository phototyperepository,
-                           Photosizerepository photosizerepository,AddressRepository addressRepository,ReviewRepository reviewRepository,ScoreRepository scoreRepository,SystemNameRepository systemNameRepository){
+                           Photosizerepository photosizerepository,AddressRepository addressRepository,ReviewRepository reviewRepository,ScoreRepository scoreRepository,SystemNameRepository systemNameRepository,
+                           ReservationModelRepository reservationModelRepository ,TablePhotographerRepository tablePhotographerRepository){
         return args -> {
             Admin admin = new Admin();
             admin.setPassword("admin");
@@ -363,6 +364,15 @@ public class DemoApplication {
             promotionModelRepository.save(p2);
             promotionModelRepository.save(p3);
 
+         /*   ReservationModel r1 = new ReservationModel ();
+            r1.setThemes("ชุดนักเรียน");
+            r1.setLocation( "โรงเรียน");
+            r1.setMember(member);
+            r1.setDate(datenew);
+            r1.setModel(md1);
+            r1.setPromotionModel(p1);
+            reservationModelRepository.save(r1);*/
+
             Camara c1 = new Camara();
             Camara c2 = new Camara();
             Camara c3 = new Camara();
@@ -463,6 +473,7 @@ public class DemoApplication {
             cardbankrepository.save(cb5);
 
             //Natthapon sprint 2{
+
             TimesPhotogarpher timesPhotogarpher1 = new TimesPhotogarpher();
             TimesPhotogarpher timesPhotogarpher2 = new TimesPhotogarpher();
             TimesPhotogarpher timesPhotogarpher3 = new TimesPhotogarpher();
@@ -486,6 +497,16 @@ public class DemoApplication {
             Comment comment = new Comment();
             comment.setComments("ฟหกฟหกฟหกฟหก");
             commentRepository.save(comment);
+
+            /*TablePhotographer  Table1 = new  TablePhotographer();
+            Table1.setLocation("เเกาะล้าน");
+            Table1.setTel("0885825238");
+            Table1.setDate(datenew);
+            Table1.setAdmin(admin);
+            Table1.setTimesPhotogarpher(timesPhotogarpher1);
+            Table1.setPromotionTable(promotionTable1);
+            Table1.setPhotographer();
+            tablePhotographerRepository.save(Table1);*/
         //}
             //{sprint2 Somporn passorn
             Photosize photosize1 = new Photosize("A4");
@@ -503,6 +524,14 @@ public class DemoApplication {
             phototyperepository.save(phototype2);
             phototyperepository.save(phototype3);
             //}
+
+        //    ReservationPhotographer rp1 = new ReservationPhotographer();
+           // rp1.setMember(member);
+           // rp1.setReservation_date(datenew);
+           // rp1.setAppointment("qqqq");
+           // rp1.setComment_photo("123456");
+           // rp1.setEmailuser("12132132");
+           // rp1.setPhoneusr("0888888888");
 
                         //Pam 2{
                             Score ss1 = new Score();
@@ -553,7 +582,7 @@ public class DemoApplication {
                             systemNameRepository.save(systemName9);
                             systemNameRepository.save(systemName10);
                 
-                
+
                             //}
         };
     }
