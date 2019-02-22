@@ -313,23 +313,58 @@ public class TestReservationModel {
         }
     }
     @Test
-    public void testReservationModel9() {//ซ้ำ
+    public void testReservationModelunique() {
         ReservationModel reservationModel = new ReservationModel();
         reservationModel.setMember(member);
         reservationModel.setModel(model);
-        reservationModel.setThemes("ชุดว่ายน้ำ");
-        reservationModel.setLocation("Partypool");
+        reservationModel.setThemes("ชุดว่ายน้ำ"); //ถูก
+        reservationModel.setLocation("เกาะล้าน"); //ถูก
         reservationModel.setPromotionModel(promotionModel);
+
+        ReservationModel reservationMod2 = new ReservationModel();
+        reservationMod2.setMember(member);
+        reservationMod2.setModel(model);
+        reservationMod2.setThemes("ชุดว่ายน้ำ"); //ถูก
+        reservationMod2.setLocation("เกาะเฃช้าง"); //ถูก
+        reservationMod2.setPromotionModel(promotionModel);
 
         try {
             entityManager.persist(reservationModel);
             entityManager.flush();
 
-            fail("Should not pass to this line");
+
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
+            assertEquals(violations.size(), 0);
+        }
+    }
+
+    @Test
+    public void testReservationModelunique2() {
+        ReservationModel reservationModel = new ReservationModel();
+        reservationModel.setMember(member);
+        reservationModel.setModel(model);
+        reservationModel.setThemes("ชุดนักเรียน"); //ถูก
+        reservationModel.setLocation("โรงเรียน"); //ถูก
+        reservationModel.setPromotionModel(promotionModel);
+
+        ReservationModel reservationMod2 = new ReservationModel();
+        reservationMod2.setMember(member);
+        reservationMod2.setModel(model);
+        reservationMod2.setThemes("ชุดไทย"); //ถูก
+        reservationMod2.setLocation("โรงเรียน"); //ถูก
+        reservationMod2.setPromotionModel(promotionModel);
+
+        try {
+            entityManager.persist(reservationModel);
+            entityManager.flush();
+
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 0);
         }
     }
 

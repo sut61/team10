@@ -378,4 +378,38 @@ public class TestTablePhotogarpher {
 
 
 
+    @Test
+    public void testTablePhotographerunique2() {
+        TablePhotographer tablePhotographer = new TablePhotographer();
+        tablePhotographer.setAdmin(admin);
+        tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
+        tablePhotographer.setPromotionTable(promotionTable);
+        tablePhotographer.setPhotographer(photographer);
+        tablePhotographer.setTypePhoto(typePhoto);
+        tablePhotographer.setTel("0885825238");
+        tablePhotographer.setLocation("เกาะล้าน");
+
+        TablePhotographer tablePhotographer2 = new TablePhotographer();
+        tablePhotographer2.setAdmin(admin);
+        tablePhotographer2.setTimesPhotogarpher(timesPhotogarpher);
+        tablePhotographer2.setPromotionTable(promotionTable);
+        tablePhotographer2.setPhotographer(photographer);
+        tablePhotographer2.setTypePhoto(typePhoto);
+        tablePhotographer2.setTel("0885825238");
+        tablePhotographer2.setLocation("เกาะช้างง");
+
+        try {
+            entityManager.persist(tablePhotographer);
+            entityManager.flush();
+
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 0);
+        }
+    }
+
+
+
 }
