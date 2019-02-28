@@ -2,6 +2,8 @@ package com.example.demo.Entity;
 import lombok.Data;
 import lombok.NonNull;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Data
@@ -11,9 +13,9 @@ public class PromotionModel {
     @SequenceGenerator(name="Pro_seq",sequenceName="Pro_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Pro_seq")
     @Column(name = "PromotionId" )
-    private @NonNull Long id;
-    private @NonNull String promotionnamemodel;
-    private @NonNull int Price;
+    private @NotNull Long id;
+    private @NotNull String promotionnamemodel;
+    private @Positive int Price;
 
     public void setPromotionName(String PromotionName){this.promotionnamemodel=PromotionName;}
     public String getPromotionName(){return promotionnamemodel;}

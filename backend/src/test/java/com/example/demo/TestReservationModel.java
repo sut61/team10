@@ -70,6 +70,101 @@ public class TestReservationModel {
             assertEquals(violations.size(), 0);
         }
     }
+
+    @Test //Test คลาสย่อย Entity Class PromotionModel
+    public void testPromotionNameNull(){
+
+        PromotionModel pm = new PromotionModel();
+        pm.setPromotionName(null);
+        pm.setPrice(800);
+        try {
+
+            entityManager.persist(pm);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"PromotionModelNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+
+    @Test //Test คลาสย่อย Entity Class PromotionModel
+    public void testPricePositive(){
+
+        PromotionModel pm = new PromotionModel();
+        pm.setPromotionName("8:00-12:00 800บาท");
+        pm.setPrice(-800);
+        try {
+
+            entityManager.persist(pm);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"PricePositive--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+    @Test //Test คลาสย่อย Entity Class Model
+    public void testfirstnamemodelNull(){
+        Model md = new Model();
+        md.setFirstName(null);
+        md.setLastName("แสนศรี");
+
+        try {
+
+            entityManager.persist(md);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"firstnamemodelNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+
+    @Test //Test คลาสย่อย Entity Class Model
+    public void testlastnamemodelNull(){
+        Model md = new Model();
+        md.setFirstName("สุนิสา");
+        md.setLastName(null);
+
+        try {
+
+            entityManager.persist(md);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"lastnamemodelNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
     @Test
     public void testReservationModelNotNull() {
         ReservationModel reservationModel = new ReservationModel();
@@ -312,61 +407,67 @@ public class TestReservationModel {
             System.out.println();
         }
     }
-    @Test
-    public void testReservationModelunique() {
+
+    @Test(expected=javax.persistence.PersistenceException.class)
+    public void TestUnique1ReservationModel() {
         ReservationModel reservationModel = new ReservationModel();
         reservationModel.setMember(member);
         reservationModel.setModel(model);
-        reservationModel.setThemes("ชุดว่ายน้ำ"); //ถูก
-        reservationModel.setLocation("เกาะล้าน"); //ถูก
+        reservationModel.setThemes("ชุดว่ายน้ำ");
+        reservationModel.setLocation("เกาะล้าน");
         reservationModel.setPromotionModel(promotionModel);
+        entityManager.persist(reservationModel);
+        entityManager.flush();
 
         ReservationModel reservationMod2 = new ReservationModel();
         reservationMod2.setMember(member);
         reservationMod2.setModel(model);
-        reservationMod2.setThemes("ชุดว่ายน้ำ"); //ถูก
-        reservationMod2.setLocation("เกาะเฃช้าง"); //ถูก
+        reservationMod2.setThemes("ชุดว่ายน้ำ");
+        reservationMod2.setLocation("เกาะเฃช้าง");
         reservationMod2.setPromotionModel(promotionModel);
+        entityManager.persist(reservationMod2);
+        entityManager.flush();
 
         try {
-            entityManager.persist(reservationModel);
+            entityManager.persist(reservationMod2);
             entityManager.flush();
 
-
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 0);
+            fail("Should not pass to this line");
+        } catch(javax.persistence.PersistenceException e) {
+            System.out.println( e + " same  Themes--------------------------------");
         }
     }
 
-    @Test
-    public void testReservationModelunique2() {
+    @Test(expected=javax.persistence.PersistenceException.class)
+    public void TestUnique1ReservationModel2() {
         ReservationModel reservationModel = new ReservationModel();
         reservationModel.setMember(member);
         reservationModel.setModel(model);
-        reservationModel.setThemes("ชุดนักเรียน"); //ถูก
-        reservationModel.setLocation("โรงเรียน"); //ถูก
+        reservationModel.setThemes("ฮาวาย");
+        reservationModel.setLocation("เกาะล้าน");
         reservationModel.setPromotionModel(promotionModel);
+        entityManager.persist(reservationModel);
+        entityManager.flush();
 
         ReservationModel reservationMod2 = new ReservationModel();
         reservationMod2.setMember(member);
         reservationMod2.setModel(model);
-        reservationMod2.setThemes("ชุดไทย"); //ถูก
-        reservationMod2.setLocation("โรงเรียน"); //ถูก
+        reservationMod2.setThemes("ชุดว่ายน้ำ");
+        reservationMod2.setLocation("เกาะล้าน");
         reservationMod2.setPromotionModel(promotionModel);
+        entityManager.persist(reservationMod2);
+        entityManager.flush();
 
         try {
-            entityManager.persist(reservationModel);
+            entityManager.persist(reservationMod2);
             entityManager.flush();
 
-
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 0);
+            fail("Should not pass to this line");
+        } catch(javax.persistence.PersistenceException e) {
+            System.out.println( e + " same  Themes--------------------------------");
         }
     }
+
 
 
     }

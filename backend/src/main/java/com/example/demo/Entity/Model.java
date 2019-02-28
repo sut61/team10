@@ -2,6 +2,7 @@ package com.example.demo.Entity;
 import lombok.Data;
 import lombok.NonNull;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -11,9 +12,9 @@ public class Model {
     @SequenceGenerator(name="Mol_seq",sequenceName="Mol_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="Mol_seq")
     @Column(name = "ModelId" )
-    private @NonNull Long id;
-    private @NonNull String firstnamemodel;
-    private @NonNull String lastnamemodel;
+    private @NotNull Long id;
+    private @NotNull String firstnamemodel;
+    private @NotNull String lastnamemodel;
 
 
     public void setFirstName(String FirstName) {this.firstnamemodel = FirstName; }

@@ -94,6 +94,74 @@ public class TestTablePhotogarpher {
         }
     }
 
+    @Test ////Test คลาสย่อย Entity Class TimesPhotogarpher
+    public void testTimesPhotogarpherNull(){
+        TimesPhotogarpher tp = new TimesPhotogarpher();
+        tp.setTimes(null);
+        try {
+
+            entityManager.persist(tp);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"TimesPhotogarpherNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+
+    @Test //Test คลาสย่อย Entity Class PromotionTable
+    public void testPromotionNameNull(){
+        PromotionTable pt = new PromotionTable();
+        pt.setPromotionName(null);
+        pt.setPrice(2000);
+        try {
+
+            entityManager.persist(pt);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"PromotionNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+
+    @Test //Test คลาสย่อย Entity Class PromotionTable
+    public void testPromotionPriceNull(){
+        PromotionTable pt = new PromotionTable();
+        pt.setPromotionName("ครึ่งวันเช้า");
+        pt.setPrice(-1000);
+        try {
+
+            entityManager.persist(pt);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"PricePositive--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+
     @Test
     public void testTablePhotographerPromotionNull() {
         TablePhotographer tablePhotographer = new TablePhotographer();
@@ -155,7 +223,7 @@ public class TestTablePhotogarpher {
         tablePhotographer.setPromotionTable(promotionTable);
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
-        tablePhotographer.setTel("087");
+        tablePhotographer.setTel("087"); //min
         tablePhotographer.setLocation("เกาะล้าน");
         try {
             tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
@@ -185,7 +253,7 @@ public class TestTablePhotogarpher {
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
         tablePhotographer.setTel("0874490179");
-        tablePhotographer.setLocation("ลาน");
+        tablePhotographer.setLocation("ลาน"); //min
         try {
             tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(tablePhotographer);
@@ -213,7 +281,7 @@ public class TestTablePhotogarpher {
         tablePhotographer.setPromotionTable(promotionTable);
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
-        tablePhotographer.setTel("087449017949649");
+        tablePhotographer.setTel("087449017949649"); //max
         tablePhotographer.setLocation("เกาะล้าน");
         try {
             tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
@@ -243,7 +311,7 @@ public class TestTablePhotogarpher {
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
         tablePhotographer.setTel("0874490179");
-        tablePhotographer.setLocation("เกาะล้านรรนยฟห่กนห่ฟนก่นหกน่หฟกร่ฟยหรก่นหฟยก่ยฟห่หกฟห");
+        tablePhotographer.setLocation("เกาะล้านรรนยฟห่กนห่ฟนก่นหกน่หฟกร่ฟยหรก่นหฟยก่ยฟห่หกฟห"); //max
         try {
             tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(tablePhotographer);
@@ -378,8 +446,9 @@ public class TestTablePhotogarpher {
 
 
 
-    @Test
-    public void testTablePhotographerunique2() {
+
+    @Test(expected=javax.persistence.PersistenceException.class)
+    public void TestUnique1() {
         TablePhotographer tablePhotographer = new TablePhotographer();
         tablePhotographer.setAdmin(admin);
         tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
@@ -388,6 +457,8 @@ public class TestTablePhotogarpher {
         tablePhotographer.setTypePhoto(typePhoto);
         tablePhotographer.setTel("0885825238");
         tablePhotographer.setLocation("เกาะล้าน");
+        entityManager.persist(tablePhotographer);
+        entityManager.flush();
 
         TablePhotographer tablePhotographer2 = new TablePhotographer();
         tablePhotographer2.setAdmin(admin);
@@ -397,16 +468,50 @@ public class TestTablePhotogarpher {
         tablePhotographer2.setTypePhoto(typePhoto);
         tablePhotographer2.setTel("0885825238");
         tablePhotographer2.setLocation("เกาะช้างง");
+        entityManager.persist(tablePhotographer2);
+        entityManager.flush();
 
         try {
-            entityManager.persist(tablePhotographer);
+            entityManager.persist(tablePhotographer2);
             entityManager.flush();
 
+            fail("Should not pass to this line");
+        } catch(javax.persistence.PersistenceException e) {
+            System.out.println( e + " same  Tel--------------------------------");
+        }
+    }
 
-        } catch(javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 0);
+    @Test(expected=javax.persistence.PersistenceException.class)
+    public void TestUnique2() {
+        TablePhotographer tablePhotographer = new TablePhotographer();
+        tablePhotographer.setAdmin(admin);
+        tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
+        tablePhotographer.setPromotionTable(promotionTable);
+        tablePhotographer.setPhotographer(photographer);
+        tablePhotographer.setTypePhoto(typePhoto);
+        tablePhotographer.setTel("0885825238");
+        tablePhotographer.setLocation("เกาะล้าน");
+        entityManager.persist(tablePhotographer);
+        entityManager.flush();
+
+        TablePhotographer tablePhotographer2 = new TablePhotographer();
+        tablePhotographer2.setAdmin(admin);
+        tablePhotographer2.setTimesPhotogarpher(timesPhotogarpher);
+        tablePhotographer2.setPromotionTable(promotionTable);
+        tablePhotographer2.setPhotographer(photographer);
+        tablePhotographer2.setTypePhoto(typePhoto);
+        tablePhotographer2.setTel("0874490179");
+        tablePhotographer2.setLocation("เกาะล้าน");
+        entityManager.persist(tablePhotographer2);
+        entityManager.flush();
+
+        try {
+            entityManager.persist(tablePhotographer2);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.persistence.PersistenceException e) {
+            System.out.println( e + " same  Location--------------------------------");
         }
     }
 

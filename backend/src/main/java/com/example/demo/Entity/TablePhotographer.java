@@ -26,6 +26,7 @@ public class TablePhotographer {
 
     @NotNull
     @Pattern(regexp = "[0-9]{10}")
+    @Column(unique = true)
     private String tel;
 
     @Temporal(TemporalType.DATE)
