@@ -152,6 +152,7 @@ public class TestPhotopicture {
 
         }
     }
+
     @Test
     public void testPhotopictureNull() {
         Photopicture photopic = new Photopicture();
@@ -200,6 +201,22 @@ public class TestPhotopicture {
         }
     }
     @Test
+    public void  testPhotopictureMember2Null(){
+        Member member = new Member();
+        member.setName(null);
+        try {
+            entityManager.persist(member);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e + "PhotopictureMemberNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 7);
+        }
+    }
+    @Test
     public void  testPhotopicturePhototypeNull(){
         Photopicture photopic = new Photopicture();
         photopic.setDataname("ส่งไปษณีย์");
@@ -220,6 +237,23 @@ public class TestPhotopicture {
         }catch (ParseException e){
             System.out.println(e);
 
+        }
+    }
+    @Test
+    public void  testPhotopicturePhototype2Null(){
+        Phototype phototype = new Phototype();
+        phototype.setName(null);
+
+        try {
+            entityManager.persist(phototype);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e + "PhotopicturePhototypeNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
         }
     }
     @Test
@@ -246,6 +280,23 @@ public class TestPhotopicture {
         }
     }
     @Test
+    public void  testPhotopicturePhotosize2Null(){
+        Photosize photosize = new Photosize();
+        photosize.setName(null);
+
+        try {
+            entityManager.persist(photosize);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e + "PhotopicturePhotosizeNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
     public void  testPhotopictureAminNull(){
         Photopicture photopic = new Photopicture();
         photopic.setDataname("ส่งไปษณีย์");
@@ -266,6 +317,48 @@ public class TestPhotopicture {
         }catch (ParseException e){
             System.out.println(e);
 
+        }
+    }
+    @Test
+    public void  testPhotopictureAmin2Null(){
+        Admin admin = new  Admin();
+        admin.setUserid(null);
+
+        try {
+            entityManager.persist(admin);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e + "PhotopictureAminNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
+    public void testPhotopictureDataUnique() {
+        Photopicture photopic = new Photopicture();
+        photopic.setAdmin(admin);
+        photopic.setMember(member);
+        photopic.setDataname("ส่งไปษณีย์");
+        photopic.setPhototype(phototype);
+        photopic.setPhotosize(photosize);
+
+        Photopicture p1 = new Photopicture();
+        p1.setAdmin(admin);
+        p1.setMember(member);
+        p1.setDataname("ส่งไปษณีย์");
+        p1.setPhototype(phototype);
+        p1.setPhotosize(photosize);
+
+        try {
+            entityManager.persist(photopic);
+            entityManager.flush();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
         }
     }
 

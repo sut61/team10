@@ -196,6 +196,22 @@ public class TestPhotocollection {
         }
     }
     @Test
+    public void  testPhotocollectionMember2Null(){
+        Member member = new Member();
+        member.setName(null);
+        try {
+            entityManager.persist(member);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e + "PhotopictureMemberNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 7);
+        }
+    }
+    @Test
     public void testPhotocollectionPhotoseriesNull() {
         Photocollection photocollection = new Photocollection();
         photocollection.setMember(member);
@@ -216,6 +232,22 @@ public class TestPhotocollection {
         }catch (ParseException e){
             System.out.println(e);
 
+        }
+    }
+    @Test
+    public void  testPhotocollectionPhotoseries2Null(){
+        Photoseries photoseries = new Photoseries();
+        photoseries.setName(null);
+        try {
+            entityManager.persist(photoseries);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e + "PhotocollectionPhotoseriesNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
         }
     }
     @Test
@@ -242,6 +274,22 @@ public class TestPhotocollection {
         }
     }
     @Test
+    public void  testPhotocollectionShootingstyle2Null(){
+        Shootingstyle shootingstyle = new Shootingstyle();
+        shootingstyle.setName(null);
+        try {
+            entityManager.persist(shootingstyle);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e + "PhotocollectionShootingstyleNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
     public void testPhotocollectionPromotionphotocollectionNull() {
         Photocollection photocollection = new Photocollection();
         photocollection.setMember(member);
@@ -264,7 +312,49 @@ public class TestPhotocollection {
 
         }
     }
+    @Test
+    public void  testPhotocollectionPromotionphotocollection2Null(){
+        Promotionphotocollection promotionphotocollection = new Promotionphotocollection();
+        promotionphotocollection.setName(null);
+        try {
+            entityManager.persist(promotionphotocollection);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e + "PhotocollectionPromotionphotocollectionNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
+    public void testPhotocollectionunique() {
+        Photocollection photocollection = new Photocollection();
+        photocollection.setMember(member);
+        photocollection.setPhotoseries(photoseries);
+        photocollection.setShootingstyle(shootingstyle);
+        photocollection.setPromotionphotocollection(promotionphotocollection);
+        photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
 
+        Photocollection p1 = new Photocollection();
+        p1.setMember(member);
+        p1.setPhotoseries(photoseries);
+        p1.setShootingstyle(shootingstyle);
+        p1.setPromotionphotocollection(promotionphotocollection);
+        p1.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
+
+        try {
+            entityManager.persist(photocollection);
+            entityManager.flush();
+
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 0);
+        }
+    }
 
 
 }
