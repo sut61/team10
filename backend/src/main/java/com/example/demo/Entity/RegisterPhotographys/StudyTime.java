@@ -1,6 +1,7 @@
 package com.example.demo.Entity.RegisterPhotographys;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class StudyTime {
@@ -8,7 +9,7 @@ public class StudyTime {
     @SequenceGenerator(name="studyTime_seq",sequenceName="studyTime_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="studyTime_seq")
     private Long id;
-    private String studyTime;
+    @NotNull private String studyTime;
     public Long getId() {
         return id;
     }

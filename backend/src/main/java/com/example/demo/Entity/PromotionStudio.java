@@ -1,6 +1,7 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class PromotionStudio {
@@ -8,8 +9,8 @@ public class PromotionStudio {
     @SequenceGenerator(name="promotionStudio_seq",sequenceName="promotionStudio_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="promotionStudio_seq")
     private Long id;
-    private String promotionName;
-    private int price;
+    @NotNull private String promotionName;
+    @NotNull private int price;
 
     public Long getId() {
         return id;

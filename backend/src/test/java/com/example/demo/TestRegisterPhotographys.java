@@ -372,4 +372,95 @@ public class TestRegisterPhotographys {
         }
     }
 
+    @Test
+    public void TestCamaraNotNul1() {
+        Camara camara = new Camara();
+        camara.setCamaraName(null);
+        camara.setCamaraType("DSLR");
+        try {
+            entityManager.persist(camara);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+    @Test
+    public void TestCamaraNotNul12() {
+        Camara camara = new Camara();
+        camara.setCamaraName("Canon 5D");
+        camara.setCamaraType(null);
+        try {
+            entityManager.persist(camara);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void TestInstructorNotNull2() {
+        Instructor instructor = new Instructor();
+        instructor.setInstructorName(null);
+        try {
+            entityManager.persist(instructor);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void TestPhotographyTypeNotNull2() {
+        PhotographyType photographyType = new PhotographyType();
+        photographyType.setPhotographyType(null);
+        try {
+            entityManager.persist(photographyType);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void TestSkillLevelNotNull2() {
+        SkillLevel skillLevel = new SkillLevel();
+        skillLevel.setSkill(null);
+        try {
+            entityManager.persist(skillLevel);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void TestStudyTimeNotNull2() {
+        StudyTime studyTime = new StudyTime();
+        studyTime.setStudyTime("null");
+        try {
+            entityManager.persist(studyTime);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
 }

@@ -11,8 +11,8 @@ public class RoomStudio {
     @SequenceGenerator(name="studio_seq",sequenceName="studio_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="studio_seq")
     private Long id;
-    private @NotNull String name;
-    private @NotNull String studio_status;
+    @NotNull private  String name;
+    @NotNull private  String studio_status;
 
     public Long getId() {
         return id;

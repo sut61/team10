@@ -1,6 +1,7 @@
 package com.example.demo.Entity.RegisterPhotographys;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class SkillLevel {
@@ -8,7 +9,7 @@ public class SkillLevel {
     @SequenceGenerator(name="skillLevel_seq",sequenceName="skillLevel_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="skillLevel_seq")
     private Long id;
-    private String skill;
+    @NotNull private String skill;
     public Long getId() {
         return id;
     }

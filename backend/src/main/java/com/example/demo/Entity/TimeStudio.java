@@ -1,14 +1,15 @@
 package com.example.demo.Entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class TimeStudio {
     @Id
     @SequenceGenerator(name="timeStudio_seq",sequenceName="timeStudio_seq")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="timeStudio_seq")
-    private Long id;
-    private String timeName;
+    @NotNull private Long id;
+    @NotNull private String timeName;
 
     public String getTimeName() {
         return timeName;

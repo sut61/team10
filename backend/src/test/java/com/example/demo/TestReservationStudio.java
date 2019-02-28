@@ -253,6 +253,85 @@ public class TestReservationStudio {
         }
     }
 
+    @Test
+    public void TestPromotionStudioNotNull() {
+        PromotionStudio promo = new PromotionStudio();
+        promo.setPromotionName(null);
+        promo.setPrice(1000);
+        try {
+            entityManager.persist(promo);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void TestPromotionStudioNotNull2() {
+        PromotionStudio promo = new PromotionStudio();
+        promo.setPromotionName("7:00-12:00 = 1000บาท");
+        promo.setPrice(0);
+        try {
+            entityManager.persist(promo);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void TestRoomStudioNotNull() {
+        RoomStudio room = new RoomStudio();
+        room.setName(null);
+        room.setStudio_status("ว่าง");
+        try {
+            entityManager.persist(room);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void TestRoomStudioNotNull2() {
+        RoomStudio room = new RoomStudio();
+        room.setName("ROOM12");
+        room.setStudio_status(null);
+        try {
+            entityManager.persist(room);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void TestTimeStudioNotNull1() {
+        TimeStudio time = new TimeStudio();
+        time.setTimeName(null);
+        try {
+            entityManager.persist(time);
+            entityManager.flush();
+
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
 
 
 }
