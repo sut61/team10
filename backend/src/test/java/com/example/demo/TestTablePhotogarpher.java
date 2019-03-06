@@ -64,9 +64,30 @@ public class TestTablePhotogarpher {
 
     }
 
+    @Test
+    public void testTablePhotographeSucsess() {
+        TablePhotographer tablePhotographer = new TablePhotographer();
 
+        tablePhotographer.setAdmin(admin);
+        tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
+        tablePhotographer.setPromotionTable(promotionTable);
+        tablePhotographer.setPhotographer(photographer);
+        tablePhotographer.setTypePhoto(typePhoto);
+        tablePhotographer.setTel("0874490179");
+        tablePhotographer.setLocation("เกาะล้าน");
+        try {
+            tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(tablePhotographer);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+">>>>>>>>>>>>>>>>TablePhotographerSucsess<<<<<<<<<<<<<<<<<<<<<<");
+            System.out.println();
+        }catch (ParseException e){
+            System.out.println(e);
 
-
+        }
+    }
 
     @Test
     public void testTablePhotographerAdminNotNull() {
