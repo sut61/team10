@@ -200,7 +200,7 @@ public class TestPhotopicture {
 
         }
     }
-    @Test
+   /* @Test
     public void  testPhotopictureMember2Null(){
         Member member = new Member();
         member.setName(null);
@@ -215,7 +215,7 @@ public class TestPhotopicture {
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 7);
         }
-    }
+    }*/
     @Test
     public void  testPhotopicturePhototypeNull(){
         Photopicture photopic = new Photopicture();
@@ -344,6 +344,8 @@ public class TestPhotopicture {
         photopic.setDataname("ส่งไปษณีย์");
         photopic.setPhototype(phototype);
         photopic.setPhotosize(photosize);
+        entityManager.persist(photopic);
+      //  entityManager.flush();
 
         Photopicture p1 = new Photopicture();
         p1.setAdmin(admin);
@@ -353,7 +355,7 @@ public class TestPhotopicture {
         p1.setPhotosize(photosize);
 
         try {
-            entityManager.persist(photopic);
+            entityManager.persist(p1);
             entityManager.flush();
         } catch(javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
