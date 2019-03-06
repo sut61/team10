@@ -96,7 +96,7 @@ public class TestReservationModel {
     }
 
     @Test //Test คลาสย่อย Entity Class PromotionModel
-    public void testPricePositive(){
+    public void testPriceNoPositive(){
 
         PromotionModel pm = new PromotionModel();
         pm.setPromotionName("8:00-12:00 800บาท");
@@ -111,7 +111,7 @@ public class TestReservationModel {
         } catch (javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println();
-            System.out.println(e+"PricePositive--------------------------------");
+            System.out.println(e+"PriceNoPositive--------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);

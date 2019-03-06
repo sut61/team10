@@ -72,7 +72,7 @@ public class TestTablePhotogarpher {
     public void testTablePhotographerAdminNotNull() {
         TablePhotographer tablePhotographer = new TablePhotographer();
 
-        tablePhotographer.setAdmin(null);
+        tablePhotographer.setAdmin(null); //Null
         tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
         tablePhotographer.setPromotionTable(promotionTable);
         tablePhotographer.setPhotographer(photographer);
@@ -83,7 +83,6 @@ public class TestTablePhotogarpher {
             tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(tablePhotographer);
             entityManager.flush();
-            //fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println();
             System.out.println(e+">>>>>>>>>>>>>>>>TablePhotographerAdminNotNull<<<<<<<<<<<<<<<<<<<<<<");
@@ -140,7 +139,7 @@ public class TestTablePhotogarpher {
     }
 
     @Test //Test คลาสย่อย Entity Class PromotionTable
-    public void testPromotionPriceNull(){
+    public void testPromotionPriceNoPositive(){
         PromotionTable pt = new PromotionTable();
         pt.setPromotionName("ครึ่งวันเช้า");
         pt.setPrice(-1000);
@@ -154,7 +153,7 @@ public class TestTablePhotogarpher {
         } catch (javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println();
-            System.out.println(e+"PricePositive--------------------------------");
+            System.out.println(e+"NoPricePositive--------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -167,7 +166,7 @@ public class TestTablePhotogarpher {
         TablePhotographer tablePhotographer = new TablePhotographer();
 
         tablePhotographer.setAdmin(admin);
-        tablePhotographer.setTimesPhotogarpher(null);
+        tablePhotographer.setTimesPhotogarpher(null); //Null
         tablePhotographer.setPromotionTable(promotionTable);
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
@@ -194,7 +193,7 @@ public class TestTablePhotogarpher {
 
         tablePhotographer.setAdmin(admin);
         tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
-        tablePhotographer.setPromotionTable(null);
+        tablePhotographer.setPromotionTable(null); //Null
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
         tablePhotographer.setTel("0874490179");
@@ -339,7 +338,7 @@ public class TestTablePhotogarpher {
         tablePhotographer.setPromotionTable(promotionTable);
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
-        tablePhotographer.setTel("0874490ABC");
+        tablePhotographer.setTel("0874490ABC"); //Pattern
         tablePhotographer.setLocation("เกาะล้าน");
         try {
             tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
@@ -368,7 +367,7 @@ public class TestTablePhotogarpher {
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
         tablePhotographer.setTel("0874490179");
-        tablePhotographer.setLocation("PartyPull");
+        tablePhotographer.setLocation("PartyPull"); //Pattern
         try {
             tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(tablePhotographer);
@@ -396,7 +395,7 @@ public class TestTablePhotogarpher {
         tablePhotographer.setPromotionTable(promotionTable);
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
-        tablePhotographer.setTel(null);
+        tablePhotographer.setTel(null); //Null
         tablePhotographer.setLocation("เกาะล้าน");
         try {
             tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
@@ -425,7 +424,7 @@ public class TestTablePhotogarpher {
         tablePhotographer.setPhotographer(photographer);
         tablePhotographer.setTypePhoto(typePhoto);
         tablePhotographer.setTel("0874490179");
-        tablePhotographer.setLocation(null);
+        tablePhotographer.setLocation(null); //Null
         try {
             tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(tablePhotographer);
