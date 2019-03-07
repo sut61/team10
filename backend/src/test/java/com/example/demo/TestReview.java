@@ -31,8 +31,13 @@ public class TestReview {
     private ReviewRepository reviewRepository;
     @Autowired
     private TestEntityManager entityManager;
+    @Autowired
+    private SystemNameRepository systemNameRepository;
+    @Autowired
+    private ScoreRepository scoreRepository;
 
     private Validator validator;
+
 
     private Member member;
     private Payment payment;
@@ -68,22 +73,22 @@ public class TestReview {
     }
 
     @Test
-   public void testReviewNotPattern () {
+    public void testReviewNotPattern () {
         Review review = new Review();
         review.setTopic("Review");
-       review.setGood_comment("not good");
-       review.setDis_comment("Noting");
-       review.setComment_review("Nice system");
+        review.setGood_comment("not good");
+        review.setDis_comment("Noting");
+        review.setComment_review("Nice system");
         review.setDirection(5L);
         try {
 
             entityManager.persist(review);
-           entityManager.flush();
+            entityManager.flush();
 
             fail("Should not pass to this line");
-       } catch(javax.validation.ConstraintViolationException e) {
-           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-          System.out.println();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
             System.out.println( e + "Review Not mat Pattern --------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
@@ -101,11 +106,11 @@ public class TestReview {
         try {
             entityManager.persist(review);
             entityManager.flush();
-           fail("Should not pass to this line");
+            fail("Should not pass to this line");
 
-       } catch(javax.validation.ConstraintViolationException e) {
-           Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-           System.out.println();
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
             System.out.println( e + "Review Min Comment--------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
@@ -259,6 +264,51 @@ public class TestReview {
             assertEquals(violations.size(), 1);
         }
     }
+
+    @Test
+    public void testScoreNull(){
+        Score ss = new Score();
+        ss.setScore(0);
+        try {
+
+            entityManager.persist(ss);
+            entityManager.flush();
+
+           // fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"ScoreNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+
+    @Test
+    public void testSystemNameNull(){
+        SystemName sn = new SystemName();
+        sn.setSytemstudio_name(null);
+        try {
+
+            entityManager.persist(sn);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println();
+            System.out.println(e+"SystemNameNull--------------------------------");
+            System.out.println();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+
+        }
+    }
+
 
 
 }
