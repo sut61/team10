@@ -66,9 +66,7 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
 
-        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
-        photocollection.setPhotoseriesname("ชุดไทย");
-        photocollection.setShootingstylename("สีขาว");
+
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -363,6 +361,10 @@ public class TestPhotocollection {
         photocollection.setShootingstyle(shootingstyle);
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
+
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         entityManager.persist(photocollection);
         entityManager.flush();
 
@@ -373,6 +375,9 @@ public class TestPhotocollection {
         p1.setPromotionphotocollection(promotionphotocollection);
         p1.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
 
+        p1.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        p1.setPhotoseriesname("ชุดไทย");
+        p1.setShootingstylename("สีขาว");
         try {
             entityManager.persist(p1);
             //entityManager.flush();
