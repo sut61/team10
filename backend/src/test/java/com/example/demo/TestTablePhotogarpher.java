@@ -89,31 +89,6 @@ public class TestTablePhotogarpher {
         }
     }
 
-    @Test
-    public void testTablePhotographerAdminNotNull() {
-        TablePhotographer tablePhotographer = new TablePhotographer();
-
-        tablePhotographer.setAdmin(null); //Null
-        tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
-        tablePhotographer.setPromotionTable(promotionTable);
-        tablePhotographer.setPhotographer(photographer);
-        tablePhotographer.setTypePhoto(typePhoto);
-        tablePhotographer.setTel("0874490179");
-        tablePhotographer.setLocation("เกาะล้าน");
-        try {
-            tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
-            entityManager.persist(tablePhotographer);
-            entityManager.flush();
-        } catch (javax.validation.ConstraintViolationException e) {
-            System.out.println();
-            System.out.println(e+">>>>>>>>>>>>>>>>TablePhotographerAdminNotNull<<<<<<<<<<<<<<<<<<<<<<");
-            System.out.println();
-        }catch (ParseException e){
-            System.out.println(e);
-
-        }
-    }
-
     @Test ////Test คลาสย่อย Entity Class TimesPhotogarpher
     public void testTimesPhotogarpherNull(){
         TimesPhotogarpher tp = new TimesPhotogarpher();
@@ -151,7 +126,7 @@ public class TestTablePhotogarpher {
         } catch (javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println();
-            System.out.println(e+"PromotionNull--------------------------------");
+            System.out.println(e+"PromotionnameNull--------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
@@ -174,10 +149,35 @@ public class TestTablePhotogarpher {
         } catch (javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             System.out.println();
-            System.out.println(e+"NoPricePositive--------------------------------");
+            System.out.println(e+"PriceNoPositive--------------------------------");
             System.out.println();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
+
+        }
+    }
+
+    @Test
+    public void testTablePhotographerAdminNotNull() {
+        TablePhotographer tablePhotographer = new TablePhotographer();
+
+        tablePhotographer.setAdmin(null); //Null
+        tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
+        tablePhotographer.setPromotionTable(promotionTable);
+        tablePhotographer.setPhotographer(photographer);
+        tablePhotographer.setTypePhoto(typePhoto);
+        tablePhotographer.setTel("0874490179");
+        tablePhotographer.setLocation("เกาะล้าน");
+        try {
+            tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(tablePhotographer);
+            entityManager.flush();
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+">>>>>>>>>>>>>>>>TablePhotographerAdminNotNull<<<<<<<<<<<<<<<<<<<<<<");
+            System.out.println();
+        }catch (ParseException e){
+            System.out.println(e);
 
         }
     }
@@ -227,6 +227,56 @@ public class TestTablePhotogarpher {
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println();
             System.out.println(e+">>>>>>>>>>>>>>>>TablePhotographerTimesNull<<<<<<<<<<<<<<<<<<<<<<");
+            System.out.println();
+        }catch (ParseException e){
+            System.out.println(e);
+
+        }
+    }
+    @Test
+    public void testTablePhotographerPhotographerNull() {
+        TablePhotographer tablePhotographer = new TablePhotographer();
+
+        tablePhotographer.setAdmin(admin);
+        tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
+        tablePhotographer.setPromotionTable(promotionTable);
+        tablePhotographer.setPhotographer(null); //null
+        tablePhotographer.setTypePhoto(typePhoto);
+        tablePhotographer.setTel("0874490179");
+        tablePhotographer.setLocation("เกาะล้าน");
+        try {
+            tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(tablePhotographer);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+">>>>>>>>>>>>>>>>TablePhotographerPhotographerNull<<<<<<<<<<<<<<<<<<<<<<");
+            System.out.println();
+        }catch (ParseException e){
+            System.out.println(e);
+
+        }
+    }
+    @Test
+    public void testTablePhotographerTypePhotoNull() {
+        TablePhotographer tablePhotographer = new TablePhotographer();
+
+        tablePhotographer.setAdmin(admin);
+        tablePhotographer.setTimesPhotogarpher(timesPhotogarpher);
+        tablePhotographer.setPromotionTable(promotionTable);
+        tablePhotographer.setPhotographer(photographer);
+        tablePhotographer.setTypePhoto(null);//null
+        tablePhotographer.setTel("0874490179");
+        tablePhotographer.setLocation("เกาะล้าน");
+        try {
+            tablePhotographer.setDate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(tablePhotographer);
+            entityManager.flush();
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+">>>>>>>>>>>>>>>>TablePhotographerTypePhotoNull<<<<<<<<<<<<<<<<<<<<<<");
             System.out.println();
         }catch (ParseException e){
             System.out.println(e);
@@ -284,7 +334,7 @@ public class TestTablePhotogarpher {
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
             System.out.println();
-            System.out.println(e+">>>>>>>>>>>>>>>>TablePhotographerMinsize1<<<<<<<<<<<<<<<<<<<<<<");
+            System.out.println(e+">>>>>>>>>>>>>>>>TablePhotographerMinsize2<<<<<<<<<<<<<<<<<<<<<<");
             System.out.println();
         }catch (ParseException e){
             System.out.println(e);
