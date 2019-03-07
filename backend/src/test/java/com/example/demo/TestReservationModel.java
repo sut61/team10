@@ -47,7 +47,7 @@ public class TestReservationModel {
         validator = factory.getValidator();
         member = memberRepository.findByName("dikinakub");
         model = modelRepository.findByfirstnamemodel("สุกานดา");
-        promotionModel = promotionModelRepository.findBypromotionnamemodel("8:00-12:00 800บาท");
+        promotionModel = promotionModelRepository.findBypromotionnamemodel("8:00-16:00 1500บาท");
 
     }
     @Test
@@ -203,6 +203,7 @@ public class TestReservationModel {
             System.out.println();
         }
     }
+    @Test
     public void testReservationModelNotNull3() {
         ReservationModel reservationModel = new ReservationModel();
         reservationModel.setMember(member);
@@ -217,10 +218,11 @@ public class TestReservationModel {
             fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println();
-            System.out.println(e+">>>>>>>>>>>>>>>>ProNotNull<<<<<<<<<<<<<<<<<<<<<<");
+            System.out.println(e+">>>>>>>>>>>>>>>>PromotionNotNull<<<<<<<<<<<<<<<<<<<<<<");
             System.out.println();
         }
     }
+
     @Test
     public void testReservationModelMaxsize1() {
         ReservationModel reservationModel = new ReservationModel();
@@ -228,7 +230,7 @@ public class TestReservationModel {
         reservationModel.setModel(model);
         reservationModel.setThemes("ชุดว่ายน้ำ"); //ถูก
         reservationModel.setLocation("โรงเรียนอุบลรัตนราชกัญญาราชวิทยาลัย"); //สตริงเกินMax
-        reservationModel.setPromotionModel(null);
+        reservationModel.setPromotionModel(promotionModel);
 
         try {
             entityManager.persist(reservationModel);
@@ -264,7 +266,7 @@ public class TestReservationModel {
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
             System.out.println();
-            System.out.println(e+">>>>>>>>>>>>>>>>ReservationModelMaxsize1<<<<<<<<<<<<<<<<<<<<<<");
+            System.out.println(e+">>>>>>>>>>>>>>>>ReservationModelMaxsize2<<<<<<<<<<<<<<<<<<<<<<");
             System.out.println();
         }
     }
@@ -464,7 +466,7 @@ public class TestReservationModel {
 
             fail("Should not pass to this line");
         } catch(javax.persistence.PersistenceException e) {
-            System.out.println( e + " same  Themes--------------------------------");
+            System.out.println( e + " same  Location--------------------------------");
         }
     }
 

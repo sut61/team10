@@ -62,12 +62,10 @@ public class ReservationModel {
     @NotNull
     @ManyToOne
     private Member member;
-
     @NotNull
     @ManyToOne
     private Model model;
-
-
+    @NotNull
     @ManyToOne
     private PromotionModel promotionModel;
 
