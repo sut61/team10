@@ -66,6 +66,9 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -89,6 +92,9 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite("มีลายจุดhop");
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -112,6 +118,9 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้สวย");
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -135,6 +144,9 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite("ดอก");
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -158,6 +170,9 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite(null);
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -181,6 +196,9 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -220,6 +238,9 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -259,6 +280,9 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(promotionphotocollection);
         photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -298,6 +322,9 @@ public class TestPhotocollection {
         photocollection.setPromotionphotocollection(null);
         photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
         try {
             photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
             entityManager.persist(photocollection);
@@ -357,6 +384,85 @@ public class TestPhotocollection {
             assertEquals(violations.size(), 0);
         }
     }
+    @Test
+    public void testShootingstylenameNull() {
+        Photocollection photocollection = new Photocollection();
+        photocollection.setMember(member);
+        photocollection.setPhotoseries(photoseries);
+        photocollection.setShootingstyle(shootingstyle);
+        photocollection.setPromotionphotocollection(promotionphotocollection);
+        photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
 
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename(null);
+
+
+        try {
+            photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(photocollection);
+            entityManager.flush();
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+"------------------>>>>testShootingstylenameNull");
+            System.out.println();
+        }catch (ParseException e){
+            System.out.println(e);
+
+        }
+    }
+    @Test
+    public void testPhotoseriesnamenameNull() {
+        Photocollection photocollection = new Photocollection();
+        photocollection.setMember(member);
+        photocollection.setPhotoseries(photoseries);
+        photocollection.setShootingstyle(shootingstyle);
+        photocollection.setPromotionphotocollection(promotionphotocollection);
+        photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
+
+        photocollection.setPromotionphotocollectionname("ครึ่งวันเช้า 300บาท");
+        photocollection.setPhotoseriesname(null);
+        photocollection.setShootingstylename("สีขาว");
+        try {
+            photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(photocollection);
+            entityManager.flush();
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+"------------------>>>>testPhotoseriesnamenameNull");
+            System.out.println();
+        }catch (ParseException e){
+            System.out.println(e);
+
+        }
+    }
+    @Test
+    public void testPromotionphotocollectionnameNull() {
+        Photocollection photocollection = new Photocollection();
+        photocollection.setMember(member);
+        photocollection.setPhotoseries(photoseries);
+        photocollection.setShootingstyle(shootingstyle);
+        photocollection.setPromotionphotocollection(promotionphotocollection);
+        photocollection.setShootingstylenamewrite("ชุดจะมีลายจุดดอกไม้");
+
+        photocollection.setPromotionphotocollectionname(null);
+        photocollection.setPhotoseriesname("ชุดไทย");
+        photocollection.setShootingstylename("สีขาว");
+        try {
+            photocollection.setStartdate(formatter5.parse("2019-02-04 00:00:00"));
+            entityManager.persist(photocollection);
+            entityManager.flush();
+
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println();
+            System.out.println(e+"------------------>>>>testPromotionphotocollectionnameNull");
+            System.out.println();
+        }catch (ParseException e){
+            System.out.println(e);
+
+        }
+    }
 
 }
